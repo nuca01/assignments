@@ -28,3 +28,23 @@ func isMirrorlike (line: String) -> Bool {
 }
 
 isMirrorlike(line: "bnnb")
+
+/* დაწერეთ ფუნქცია რომელიც გადაცემულ რიცხვების array-ს ააკვარდატებს, დაპრინტავს და დააბრუნებს მნიშვნელობას. */
+func squareUp (arr: [Int]) -> [Int] {
+    var array = arr
+    for index in 0...array.count-1 {
+        array [index] *= array [index]
+    }
+    return array
+}
+
+/* დაწერეთ Closure რომელიც გაფილტრავს ლუწ რიცხვებს Int-ების Array-დან. */
+var filterEven: ([Int]) -> [Int] = { arr in
+    var arrayOfEven: [Int] = []
+    for element in arr {
+        if element % 2 == 0 {
+            arrayOfEven.append(element)
+        }
+    }
+    return arrayOfEven
+}
