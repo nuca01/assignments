@@ -68,5 +68,10 @@ var closure: (Int) -> () = { sum in
 }
 sum(array: array, closure: closure)
 
+/* შექმენით  კონტაქტების Dict სადაც key არის სახელი და value ტელეფონის ნომერი, დაამატეთ, დაბეჭდეთ/მოძებნეთ და წაშალეთ კონტაქტი */
+var contacts: [String: Int] = [:]
+contacts["Nuca"] = 592501035
+print("Nuca's phone number is: \(contacts["Nuca"] ?? 0)")
+contacts.removeValue(forKey: "Nuca")
 
 
