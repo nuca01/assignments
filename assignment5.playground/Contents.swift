@@ -71,10 +71,21 @@ sum(array: array, closure: closure)
 /* შექმენით  კონტაქტების Dict სადაც key არის სახელი და value ტელეფონის ნომერი, დაამატეთ, დაბეჭდეთ/მოძებნეთ და წაშალეთ კონტაქტი */
 var contacts: [String: Int] = [:]
 contacts["Nuca"] = 592501035
-print("Nuca's phone number is: \(contacts["Nuca"] ?? 0)")
+print("Nuca-ს ტელეფონის ნომერია: \(contacts["Nuca"] ?? 0)")
 contacts.removeValue(forKey: "Nuca")
 
 /* დაწერეთ ფუნქცია რომელიც პარამეტრად იღებს [String: Int] ტიპის Dictionary-ს და დააბრუნებს ანბანურად დალაგებულ dictionary-ს key ელემენტების მასივს. */
 func alphabetSort (dictionary: [String: Int]) -> [String] {
     return Array(dictionary.keys).sorted()
 }
+
+/* შექმენით Double-ების მასივი, შეავსეთ ის თქვენთვის სასურველი რიცხვებით.  loop-ის გამოყენებით იპოვეთ ყველაზე დიდი რიცხვი ამ მასივში და დაბეჭდეთ. */
+var doubleArray = [5.3, 56.7, 4.2, -53.8]
+var biggestNumber = 0.0
+for element in doubleArray {
+    if element > biggestNumber {
+        biggestNumber = element
+    }
+}
+print("ყველაზე დიდი რიცხვია: \(biggestNumber)")
+
