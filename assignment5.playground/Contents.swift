@@ -48,3 +48,25 @@ var filterEven: ([Int]) -> [Int] = { arr in
     }
     return arrayOfEven
 }
+
+/* დაწერეთ ფუნქცია, რომელიც პარამეტრად იღებს Int-ების მასივს. Escaping closure-ის მეშვეობით დაბეჭდეთ მიწოდებული მასივის ჯამი 5 წამის შემდეგ. დარწმუნდით რომ closure არის escaping და გამოიძახეთ ის მას შემდეგ რაც ფუნქცია დაბრუნდება. */
+func sum (array: [Int], closure: @escaping (Int) -> ()) -> Int {
+    var sum = 0
+    for element in array {
+        sum += element
+    }
+    DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+        closure(sum)
+    }
+    return sum
+}
+var array = [1,5,7,]
+var closure: (Int) -> () = { sum in
+    print("ჯამი ტოლია: \(sum)")
+    
+    
+}
+sum(array: array, closure: closure)
+
+
+
