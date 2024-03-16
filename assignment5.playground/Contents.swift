@@ -89,3 +89,93 @@ for element in doubleArray {
 }
 print("ყველაზე დიდი რიცხვია: \(biggestNumber)")
 
+/* მოცემულია Dictionary სადაც წარმოდგენილია ლელა წურწუმიას სიმღერებისა და მათი ხანგრძლივობა(წმ) მონაცემები:
+ 
+ let lelaWhatMovementIsThis: [String: Int] = [
+
+     “ღამის “სიჩუმე გაფანტე: 235,
+
+     “ვიხსენებ ყველაფერს თავიდან”: 219,
+
+     “სულელი წვიმა“: 231,
+
+     “ალალ მე”: 231,
+
+     “იდუმალი ღამე”: 221,
+
+     “ჩუმად ნათქვამი”: 199,
+
+     "თეთრი ქარავანი”: 221,
+
+     “ძველი ვერხვები”: 193
+
+ ]
+
+
+
+ დაწერეთ ფუნქცია რომელიც გამოითვლის და დაბეჭდავს სიღერების ჯამურ ხანგრძლივობას წუთებში და წამებში
+ დაწერეთ ფუნქცია რომელიც იპოვის და დაბეჭდავს ყველაზე ხანგრძლივი და ხანმოკლე სიმღერის სახელს.
+ დაწერეთ ფუნქცია რომელიც გამოითვლის სიმღერების საშუალო ხანგრძლივობას
+ დაწერეთ ფუნქცია რომელიც შემთხვევითად ამოარჩევს სიმღერას და დაბეჭდავს მის სახელს*/
+
+let lelaWhatMovementIsThis: [String: Int] = [
+
+    "ღამის სიჩუმე გაფანტე": 235,
+
+    "ვიხსენებ ყველაფერს თავიდან": 219,
+
+    "სულელი წვიმა": 231,
+
+    "ალალ მე": 231,
+
+    "იდუმალი ღამე": 221,
+
+    "ჩუმად ნათქვამი": 199,
+
+    "თეთრი ქარავანი": 221,
+
+    "ძველი ვერხვები": 193
+
+]
+
+func printSongsInSeconds (dictionary: [String: Int]) -> () {
+    var duration = 0
+    for songSecond in dictionary.values {
+        duration += songSecond
+    }
+    print("საერთო ხანგრძლივობა წამებში: \(duration) წუთებში: \(duration/60)")
+}
+
+printSongsInSeconds(dictionary: lelaWhatMovementIsThis)
+func printLongestAndShortestSongNames (dictionary: [String: Int]) -> () {
+    var longestName = ""
+    for songName in dictionary.keys {
+        if songName.count > longestName.count {
+            longestName = songName
+        }
+    }
+    var shortestName = longestName
+    for songName in dictionary.keys {
+        if songName.count < shortestName.count {
+            shortestName = songName
+        }
+    }
+    print("ყველაზე გრძელი სახელია: \(longestName) ყველაზე მოკლეა: \(shortestName)")
+}
+printLongestAndShortestSongNames(dictionary: lelaWhatMovementIsThis)
+
+func averageSongDuration(dictionary: [String: Int]) -> Double {
+    var duration = 0.0
+    for songSecond in dictionary.values {
+        duration += Double(songSecond)
+    }
+    return duration/Double(dictionary.count)
+}
+
+print("სიმღერების საშუალო ხანგრძლივობაა: \(averageSongDuration(dictionary: lelaWhatMovementIsThis))")
+
+func printRandomSong(dictionary: [String: Int]) -> () {
+    var randomCouple = dictionary.index(dictionary.startIndex, offsetBy: Int.random(in: 0...dictionary.count))
+    print("რენდომ სიმღერა: \(dictionary[randomCouple].key)")
+}
+printRandomSong(dictionary: lelaWhatMovementIsThis)
