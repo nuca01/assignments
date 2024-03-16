@@ -143,7 +143,7 @@ func printSongsInSeconds (dictionary: [String: Int]) -> () {
     for songSecond in dictionary.values {
         duration += songSecond
     }
-    print("საერთო ხანგრძლივობა წამებში: \(duration) წუთებში: \(duration/60)")
+    print("საერთო ხანგრძლივობა წამებში: \(duration) წუთებში: \(Double(duration)/60.0)")
 }
 
 printSongsInSeconds(dictionary: lelaWhatMovementIsThis)
@@ -160,7 +160,7 @@ func printLongestAndShortestSongNames (dictionary: [String: Int]) -> () {
             shortestName = songName
         }
     }
-    print("ყველაზე გრძელი სახელია: \(longestName) ყველაზე მოკლეა: \(shortestName)")
+    print("ყველაზე გრძელი სახელია: \"\(longestName)\" ყველაზე მოკლეა: \"\(shortestName)\"")
 }
 printLongestAndShortestSongNames(dictionary: lelaWhatMovementIsThis)
 
