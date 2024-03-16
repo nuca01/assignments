@@ -74,4 +74,7 @@ contacts["Nuca"] = 592501035
 print("Nuca's phone number is: \(contacts["Nuca"] ?? 0)")
 contacts.removeValue(forKey: "Nuca")
 
-
+/* დაწერეთ ფუნქცია რომელიც პარამეტრად იღებს [String: Int] ტიპის Dictionary-ს და დააბრუნებს ანბანურად დალაგებულ dictionary-ს key ელემენტების მასივს. */
+func alphabetSort (dictionary: [String: Int]) -> [String] {
+    return Array(dictionary.keys).sorted()
+}
