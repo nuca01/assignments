@@ -2,9 +2,9 @@ import UIKit
 
 /* დაწერეთ ფუნქცია რომელიც იღებს 2 პარამეტრს(სტრინგებს), და აბრუნებს Boolean ს თუ ეს ორი სტრინგი შედგება ერთიდაიგივე ასოებისგან, რიგითობას მნიშვნელობა არ აქვს.
  დიდ და პატარა ასოებსაც ვითვალისწინებთ.
-
+ 
  მაგ:
-  "abc" და "bca" დააბრუნებს true
+ "abc" და "bca" დააბრუნებს true
  "Abc" და "abc" აბრუნებს false. A და a სხვადასხვად ითვლება! */
 func haveSameCharacters(line1: String, line2: String) -> Bool {
     var dictionaryLine1 = [Character: Int]()
@@ -32,8 +32,25 @@ haveSameCharacters(line1: "abc", line2: "cb")
  მაგ:
  "A[space][space][space]B[space][space]C" დააბრუნებს "A[space]B[space]C"
  "[space][space][space]a" დააბრუნებს "[space]a" ანუ 1 სფეისი ყოველთვის რჩება, ამ შემთხვევაში წინაც. */
- //stringBuilder არ გვაქვსს??
+func getRidOfSpaces (line: String) -> String {
+    var spaceCounter = 0
+    var newString = ""
+    for char in line {
+        if char == " " {
+            if spaceCounter < 1 {
+                newString += String(char)
+            }
+            spaceCounter += 1
+        }
+        else {
+            newString += String(char)
+            spaceCounter = 0
+        }
+    }
+    return newString
+}
 
+getRidOfSpaces(line: "   ABBB   B  C ")
 /* დაწერეთ ფუნქცია რომელიც იღებს სტრინგს(ეს სტრინგი მოიცავს ასევე ციფრებს), გაფილტრეთ/მოაშორეთ ასოები და დარჩენილი ციფრების ჯამს აბრუნებთ.
  
  მაგ:
