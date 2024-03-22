@@ -95,3 +95,35 @@ func giveRecomendation(weather: Weather) -> () {
 
 var weather = Weather.Cloudy(celcius: 30)
 giveRecomendation(weather: weather)
+
+/* შექმენით struct-ი Kanye, ფროფერთებით: album, releaseYear. ამის შემდეგ შექმენით array-ი Kanye-ს ტიპის, ჩაამატეთ რამოდენიმე Kanye-ს ობიექტი, და შეავსეთ მასივი კანიეებით. დაწერეთ ფუნქცია, რომელიც მიიღებს ამ კანიეების მასივს და წელს. ფუნქციამ უნდა დაგვიბრუნოს ყველა ალბომი რომელიც გამოშვებულია გადაწოდებული წლის შემდეგ და დაბეჭდოს ისინი. */
+struct Kanye {
+    var album : String
+    var releaseYear : Int
+    init(album: String, releaseYear: Int) {
+        self.album = album
+        self.releaseYear = releaseYear
+    }
+}
+func kanyesAfter(kanyes: [Kanye], yearAfter: Int) -> [String] {
+    var iMissTheOldKanye: [String] = []
+    print("albums after \(yearAfter):")
+    for kanye in kanyes {
+        if (kanye.releaseYear > yearAfter){
+            iMissTheOldKanye.append(kanye.album)
+            print(kanye.album)
+        }
+    }
+    return iMissTheOldKanye
+}
+var kanyes : [Kanye] = []
+var kanye1 = Kanye(album: "Graduation", releaseYear: 2007)
+var kanye2 = Kanye(album: "The life of Pablo", releaseYear: 2016)
+var kanye3 = Kanye(album: "Donda 2", releaseYear: 2022)
+
+kanyes.append(kanye1)
+kanyes.append(kanye2)
+kanyes.append(kanye3)
+
+var albumsAfter2007 = kanyesAfter(kanyes: kanyes, yearAfter: 2007)
+
