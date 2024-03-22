@@ -2,35 +2,35 @@ import UIKit
 
 /* შექმენით Enum-ი სახელით WeekDay შესაბამისი ქეისებით. დაწერეთ ფუნქცია რომელიც იღებს ამ ენამის ტიპს და ბეჭდავს გადაწოდებული დღე სამუშაოა თუ დასვენების. */
 enum WeekDay {
-    case Monday
-    case Tuesday
-    case Wednesday
-    case Thursday
-    case Friday
-    case Saturday
-    case Sunday
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case saturday
+    case sunday
 }
 func printIfWeekDayIsWorking(weekDay: WeekDay) {
     switch weekDay {
-    case .Monday, .Tuesday, .Wednesday, .Thursday, .Friday:
+    case .monday, .tuesday, .wednesday, .thursday, .friday:
         print("It's a working day")
-    case .Saturday, .Sunday:
+    case .saturday, .sunday:
         print("It's not a working day")
     }
 }
 
 /* შექმენით Enum-ი სახელად GialaSquad, რომელიც აღწერს გია სურამელაშვილის ფანკლუბის წევრების დონეებს ქეისებით : “TsigroviManto”, “MoshishvlebuliMkerdi”, “TuGapatio”. შექმენით ფროფერთი GialaSquad-ში, რომელსაც ექნება ინფორმაცია თუ რა ღირს თითოეული დონე თვეში (დონეები დალაგებულია ძვირიდან იაფისაკენ). დაუმატეთ მეთოდი რომელიც დაბეჭდავს თითოეული დონის ფასს */
 enum GialaSquad {
-    case TsigroviManto
-    case MoshishvlebuliMkerdi
-    case TuGapatio
+    case tsigroviManto
+    case moshishvlebuliMkerdi
+    case tuGapatio
     var price: Int {
         switch self {
-        case .TsigroviManto:
+        case .tsigroviManto:
             return 10
-        case .MoshishvlebuliMkerdi:
+        case .moshishvlebuliMkerdi:
             return 15
-        case .TuGapatio:
+        case .tuGapatio:
             return 20
         }
     }
@@ -39,20 +39,20 @@ enum GialaSquad {
     }
 }
 
-var nuca = GialaSquad.TuGapatio
+var nuca = GialaSquad.tuGapatio
 nuca.printDonePrice()
 
 /* შექმენით enum-ი Weather შემდეგი ქეისებით, Sunny, Cloudy, Rainy და Snowy. ამ ქეისებს უნდა ჰქონდეს associated value Celsius-ის სახით. დაწერეთ function რომელიც მიიღებს ამ enum-ს, და მოგვცემს რეკომენდაციას რა უნდა ჩავიცვათ შესაბამისი ამინდის მიხედვით. */
 enum Weather {
-    case Sunny(celcius: Int)
-    case Cloudy(celcius: Int)
-    case Rainy(celcius: Int)
-    case Snowy(celcius: Int)
+    case sunny(celcius: Int)
+    case cloudy(celcius: Int)
+    case rainy(celcius: Int)
+    case snowy(celcius: Int)
 }
 
 func giveRecomendation(weather: Weather) -> () {
     switch weather {
-    case .Sunny(let celcius):
+    case .sunny(let celcius):
         if celcius > 23 {
             print("wear light clothes")
         } else if celcius > 13 {
@@ -62,7 +62,7 @@ func giveRecomendation(weather: Weather) -> () {
         } else {
             print("wear the warmest clothes")
         }
-    case .Cloudy(let celcius):
+    case .cloudy(let celcius):
         if celcius > 27 {
             print("wear light clothes")
         } else if celcius > 15 {
@@ -72,7 +72,7 @@ func giveRecomendation(weather: Weather) -> () {
         } else {
             print("wear the warmest clothes")
         }
-    case .Rainy(let celcius):
+    case .rainy(let celcius):
         if celcius > 27 {
             print("wear light clothes and bring an umbrella")
         } else if celcius > 15 {
@@ -84,7 +84,7 @@ func giveRecomendation(weather: Weather) -> () {
         } else {
             print("wrong data")
         }
-    case .Snowy(let celcius):
+    case .snowy(let celcius):
         if celcius < 0 {
             print("wear a snowsuit and snowboots")
         } else {
@@ -93,7 +93,7 @@ func giveRecomendation(weather: Weather) -> () {
     }
 }
 
-var weather = Weather.Cloudy(celcius: 30)
+var weather = Weather.cloudy(celcius: 30)
 giveRecomendation(weather: weather)
 
 /* შექმენით struct-ი Kanye, ფროფერთებით: album, releaseYear. ამის შემდეგ შექმენით array-ი Kanye-ს ტიპის, ჩაამატეთ რამოდენიმე Kanye-ს ობიექტი, და შეავსეთ მასივი კანიეებით. დაწერეთ ფუნქცია, რომელიც მიიღებს ამ კანიეების მასივს და წელს. ფუნქციამ უნდა დაგვიბრუნოს ყველა ალბომი რომელიც გამოშვებულია გადაწოდებული წლის შემდეგ და დაბეჭდოს ისინი. */
@@ -127,3 +127,13 @@ kanyes.append(kanye3)
 
 var albumsAfter2007 = kanyesAfter(kanyes: kanyes, yearAfter: 2007)
 
+/* შექმენით String-ის ტიპის lazy property wrapper სახელად, cachedData. ინიციალიზება გაუკეთეთ ქლოჟერით რომელიც აბრუნებს სტრინგს მნიშვნელობით “lazy ინიციალიზებულია”. მიწვდით ამ ფროფერთის და დაბეჭდეთ მისი მნიშვნელობა */
+@propertyWrapper
+struct CachedData {
+    lazy var wrappedValue: String = {
+        return "lazy ინიციალიზებულია"
+    }()
+    init(){}
+}
+var cachedData = CachedData();
+print(cachedData.wrappedValue)
