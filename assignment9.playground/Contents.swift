@@ -53,7 +53,16 @@ class Superhero: SuperBeing {
     var outfitColor: String
     var equipment: String
     var vehicle: String
-    init(name: String, weakness: String, strength: Int? = nil, speed: Int? = nil, gender: Gender, outfitColor: String, equipment: String, vehicle: String) {
+    init(
+        name: String,
+        weakness: String,
+        strength: Int? = nil,
+        speed: Int? = nil,
+        gender: Gender,
+        outfitColor: String,
+        equipment: String,
+        vehicle: String
+    ) {
         self.name = name
         self.weakness = weakness
         self._strength = strength
@@ -85,7 +94,16 @@ class Supervillain: SuperBeing {
     var evilScheme: String
     var obsession: String
     var rivalry: String
-    init(name: String, weakness: String, strength: Int? = nil, speed: Int? = nil, gender: Gender, evilScheme: String, obsession: String, rivalry: String) {
+    init(
+        name: String,
+        weakness: String,
+        strength: Int? = nil,
+        speed: Int? = nil,
+        gender: Gender,
+        evilScheme: String,
+        obsession: String,
+        rivalry: String
+    ) {
         self.name = name
         self.weakness = weakness
         self._strength = strength
@@ -103,18 +121,108 @@ class Supervillain: SuperBeing {
     }
 }
 
-var superhero1 = Superhero(name: "Giorgi Kochorashvili", weakness: "Volleys", strength: 52, speed: 67, gender: Gender.male, outfitColor: "red and blue", equipment: "ball", vehicle: "legs")
-var superhero2 = Superhero(name: "Zuriko Davitashvili", weakness: "Holding on to the ball", strength: 66, speed: 73, gender: Gender.male, outfitColor: "black", equipment: "ball", vehicle: "legs")
-var superhero3 = Superhero(name: "Lasha Dvali", weakness: "Tackling", strength: 80, speed: 54, gender: Gender.male, outfitColor: "yellow and blue", equipment: "ball", vehicle: "legs")
-var superhero4 = Superhero(name: "Nika Kvekveskiri", weakness: "Heading accuracy", strength: 60, speed: 55, gender: Gender.male, outfitColor: "blue", equipment: "ball", vehicle: "legs")
-var superhero5 = Superhero(name: "Giorgi Mamardashvili", weakness: "Long passing", strength: 74, speed: 48, gender: Gender.male, outfitColor: "green", equipment: "gloves", vehicle: "legs")
+var superhero1 = Superhero(
+    name: "Giorgi Kochorashvili",
+    weakness: "Volleys",
+    strength: 52,
+    speed: 67,
+    gender: Gender.male,
+    outfitColor: "red and blue",
+    equipment: "ball",
+    vehicle: "legs"
+)
+var superhero2 = Superhero(
+    name: "Zuriko Davitashvili",
+    weakness: "Holding on to the ball",
+    strength: 66,
+    speed: 73,
+    gender: Gender.male,
+    outfitColor: "black",
+    equipment: "ball",
+    vehicle: "legs"
+)
+var superhero3 = Superhero(
+    name: "Lasha Dvali",
+    weakness: "Tackling",
+    strength: 80,
+    speed: 54,
+    gender: Gender.male,
+    outfitColor: "yellow and blue",
+    equipment: "ball",
+    vehicle: "legs"
+)
+var superhero4 = Superhero(
+    name: "Nika Kvekveskiri",
+    weakness: "Heading accuracy",
+    strength: 60,
+    speed: 55,
+    gender: Gender.male,
+    outfitColor: "blue",
+    equipment: "ball",
+    vehicle: "legs"
+)
+var superhero5 = Superhero(
+    name: "Giorgi Mamardashvili",
+    weakness: "Long passing",
+    strength: 74,
+    speed: 48,
+    gender: Gender.male,
+    outfitColor: "green",
+    equipment: "gloves",
+    vehicle: "legs"
+)
 
 
-var supervillain1 = Supervillain(name: "Lazaros Rota", weakness: "Crossing", strength: 65, speed: 80, gender: Gender.male, evilScheme: "Win against Georgian national team", obsession: "qualify for the tournament", rivalry: "European Qualifiers Play-off match")
-var supervillain2 = Supervillain(name: "Giannis Konstantelias", weakness: "heading accuracy", strength: 44, speed: 74, gender: Gender.male, evilScheme: "Win against Georgian national team", obsession: "qualify for the tournament", rivalry: "European Qualifiers Play-off match")
-var supervillain3 = Supervillain(name: "Giorgos Masouras", weakness: "tackling", strength: 69, speed: 79, gender: Gender.male, evilScheme: "Win against Georgian national team", obsession: "qualify for the tournament", rivalry: "European Qualifiers Play-off match")
-var supervillain4 = Supervillain(name: "Andreas Bouchalakis", weakness: "tackling", strength: 77, speed: 45, gender: Gender.male, evilScheme: "Win against Georgian national team", obsession: "qualify for the tournament", rivalry: "European Qualifiers Play-off match")
-var supervillain5 = Supervillain(name: "Giorgos Giakoumakis", weakness: "passing", strength: 84, speed: 73, gender: Gender.male, evilScheme: "Win against Georgian national team", obsession: "qualify for the tournament", rivalry: "European Qualifiers Play-off match")
+var supervillain1 = Supervillain(
+    name: "Lazaros Rota",
+    weakness: "Crossing",
+    strength: 65,
+    speed: 80,
+    gender: Gender.male,
+    evilScheme: "Win against Georgian national team",
+    obsession: "qualify for the tournament",
+    rivalry: "European Qualifiers Play-off match"
+)
+var supervillain2 = Supervillain(
+    name: "Giannis Konstantelias",
+    weakness: "heading accuracy",
+    strength: 44,
+    speed: 74,
+    gender: Gender.male,
+    evilScheme: "Win against Georgian national team",
+    obsession: "qualify for the tournament",
+    rivalry: "European Qualifiers Play-off match"
+)
+var supervillain3 = Supervillain(
+    name: "Giorgos Masouras",
+    weakness: "tackling",
+    strength: 69,
+    speed: 79,
+    gender: Gender.male,
+    evilScheme: "Win against Georgian national team",
+    obsession: "qualify for the tournament",
+    rivalry: "European Qualifiers Play-off match"
+)
+var supervillain4 = Supervillain(
+    name: "Andreas Bouchalakis", 
+    weakness: "tackling",
+    strength: 77,
+    speed: 45,
+    gender: Gender.male,
+    evilScheme: "Win against Georgian national team",
+    obsession: "qualify for the tournament",
+    rivalry: "European Qualifiers Play-off match"
+)
+var supervillain5 = Supervillain(
+    name: "Giorgos Giakoumakis",
+    weakness: "passing",
+    strength: 84,
+    speed: 73,
+    gender: Gender.male,
+    evilScheme: "Win against Georgian national team",
+    obsession: "qualify for the tournament",
+    rivalry: "European Qualifiers Play-off match"
+)
 
 supervillain1.experimentation(subject: "ქართველი ფეხბურთელის ფეხი")
 superhero1.rescue(victimName: "ქართველი გულშემატკივრების სიამაყე")
@@ -123,3 +231,42 @@ superhero3.rescue(victimName: "ქართველი გულშემატ
 supervillain5.attack(superhero: superhero5)
 superhero5.combat(supervillain: supervillain5)
 superhero4.rescue(victimName: "ქართველი გულშემატკივრების ნერვები")
+
+//წარმოიდგინეთ სცენა სადაც ორი სუპერგმირი - დრეიკი და ლექს-სენი ერთმანეთს ეჯიბრებიან თუ რომელი უფრო სწრაფია. დრეიკი ამბობს რომ ის ყველაზე სწრაფია მსოფლიოში და რიანაც უდასტურებს.
+//
+//-“ლექს-სენს არცერთი შეჯიბრი არ წაუგია ისტორიაში” აცხადებს მისი კოლაბორატორი თაკო და დასძენს, რომ დრეიკი შიშისაგან უნდა კანკალებდეს, რადგან არც კი იცის რა ელოდება. ამ სუპერგმირების ბედი თქვენზეა დამოკიდებული, თქვენ უნდა გადაწყვიტოთ ვინ არის მსოფლიოში ყველაზე სწრაფი და ვინ შეძლებს ბილბორდის ტოპ ჩარტების განადგურებას.
+//
+//
+//
+//დაწერეთ ჯენერიკ ფუნქცია compareSwiftness რომელიც იღებს მხოლოდ ორ პარამეტრს პირველ და მეორე სუპერგმირებს რომლებიც დაქვემდებარებულები იქნებიან SuperBeing პროტოკოლზე, ფუნქცია უნდა აბრუნებდეს სტრინგს
+//ფუნქციის ბადიში შეამოწმეთ speed მნიშვნელობები ორივე სუპერგმირის
+//დააბრუნეთ სტრინგი აღწერით თუ რომელი სუპერგმირია უფრო სწრაფი (გაითვალისწინეთ ისიც თუ სიჩქარეები ერთმანეთის ტოლია)
+
+var superhero6 = Superhero(
+    name: "Leqso Qavtaradze",
+    weakness: "old",
+    gender: Gender.male,
+    outfitColor: "black",
+    equipment: "mic",
+    vehicle: "car"
+)
+var superhero7 = Superhero(
+    name: "Aubrey Drake Graham",
+    weakness: "not Lexen",
+    strength: 98,
+    speed: 99,
+    gender: Gender.male,
+    outfitColor: "gray",
+    equipment: "beard",
+    vehicle: "Mansory Rolls-Royce Phantom (2020)"
+)
+func compareSwiftness<T: SuperBeing>(superBeing1: T, superBeing2: T) -> String {
+    if superBeing1.speed > superBeing2.speed {
+        return "\(superBeing1.name) უფრო სწრაფია"
+    } else if superBeing1.speed < superBeing2.speed {
+        return "\(superBeing2.name) უფრო სწრაფია"
+    }
+    return "სისწრაფეები ტოლია"
+}
+
+print(compareSwiftness(superBeing1: superhero6, superBeing2: superhero7))
