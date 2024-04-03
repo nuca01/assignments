@@ -25,7 +25,7 @@ func haveSameCharacters(line1: String, line2: String) -> Bool {
     }
     return dictionaryLine1 == dictionaryLine2
 }
-haveSameCharacters(line1: "abc", line2: "cb")
+haveSameCharacters(line1: "", line2: "")
 
 /* დაწერეთ ფუნქცია რომელიც მიიღებს და დააბრუნებს სტრინგს სადაც ზედმეტ სფეისებს მოაშორებს.
  
@@ -50,7 +50,7 @@ func getRidOfSpaces (line: String) -> String {
     return newString
 }
 
-getRidOfSpaces(line: "   ABBB   B  C ")
+getRidOfSpaces(line: "")
 /* დაწერეთ ფუნქცია რომელიც იღებს სტრინგს(ეს სტრინგი მოიცავს ასევე ციფრებს), გაფილტრეთ/მოაშორეთ ასოები და დარჩენილი ციფრების ჯამს აბრუნებთ.
  
  მაგ:
@@ -77,4 +77,4 @@ func findSumInString (line: String) -> Int {
     }
     return sum
 }
-findSumInString(line: "asdf10b20c30")
+findSumInString(line: "")
