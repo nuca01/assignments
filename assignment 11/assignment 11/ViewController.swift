@@ -30,17 +30,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculate(_ sender: Any) {
+        // თუ წინაზე შეცვლილი იყო ფერი დავაბრუნოთ
         firstValue.textColor = UIColor.black
         secondValue.textColor = UIColor.black
         
+        //თუ პირველი ვერ გადავიდა ინტში გავაწითლოთ პირველის ტექსტი
         if Int(firstValue.text!) == nil {
             firstValue.textColor = UIColor.red
+            //შევამოწმოთ მეორეც რომ მხოლოდ ერთი არ გაწითლდეს
             if Int(secondValue.text!) == nil {
                 secondValue.textColor = UIColor.red
             }
             return
         }
         
+        //თუ პირველი გადავიდა ინტში შევეცადოთ გადავიყვანოთ მეორე
         if Int(secondValue.text!) == nil {
             secondValue.textColor = UIColor.red
             return
@@ -54,8 +58,10 @@ class ViewController: UIViewController {
             return
         }
         
-        //ვიპოვოთ უსგ რადგან უსჯ მისგან გამომდინარეობს
+        //სანამ მნიშნელობებს შევცვლით შევინახოთ ნამრავლი უსჯს გამოთვლისთვის
         let multipleOfFirstAndSecond = firstNumber * secondNumber
+        
+        //ვიპოვოთ უსგ რადგან უსჯ მისგან გამომდინარეობს
         var resultNumber: Int = 1
         let smallNumber: Int = firstNumber < secondNumber ? firstNumber : secondNumber
         for number in stride(from: 2, to: smallNumber + 1, by: 1) {
@@ -71,7 +77,7 @@ class ViewController: UIViewController {
         case "უდიდესი საერთო გამყოფი":
             result.text = "პასუხი: \(resultNumber)"
         case "უმცირესი საერთო ჯერადი":
-            result.text = "პასუხი: \((multipleOfFirstAndSecond)/(resultNumber))"
+            result.text = "პასუხი: \((multipleOfFirstAndSecond) / resultNumber))"
         default:
             break
         }
