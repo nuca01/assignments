@@ -31,21 +31,21 @@ class ViewController: UIViewController {
     
     @IBAction func calculate(_ sender: Any) {
         // თუ წინაზე შეცვლილი იყო ფერი დავაბრუნოთ
-        firstValue.textColor = UIColor.black
-        secondValue.textColor = UIColor.black
+        firstValue.textColor = UIColor.textFieldColour
+        secondValue.textColor = UIColor.textFieldColour
         
         //თუ პირველი ვერ გადავიდა ინტში გავაწითლოთ პირველის ტექსტი
-        if Int(firstValue.text!) == nil {
+        if Int(firstValue.text!) == nil || Int(firstValue.text!)! < 0 {
             firstValue.textColor = UIColor.red
             //შევამოწმოთ მეორეც რომ მხოლოდ ერთი არ გაწითლდეს
-            if Int(secondValue.text!) == nil {
+            if Int(secondValue.text!) == nil ||  Int(secondValue.text!)! < 0 {
                 secondValue.textColor = UIColor.red
             }
             return
         }
         
         //თუ პირველი გადავიდა ინტში შევეცადოთ გადავიყვანოთ მეორე
-        if Int(secondValue.text!) == nil {
+        if Int(secondValue.text!) == nil ||  Int(secondValue.text!)! < 0 {
             secondValue.textColor = UIColor.red
             return
         }
