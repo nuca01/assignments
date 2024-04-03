@@ -77,7 +77,7 @@ class ViewController: UIViewController {
         case "უდიდესი საერთო გამყოფი":
             result.text = "პასუხი: \(resultNumber)"
         case "უმცირესი საერთო ჯერადი":
-            result.text = "პასუხი: \((multipleOfFirstAndSecond) / resultNumber))"
+            result.text = "პასუხი: \((multipleOfFirstAndSecond) / resultNumber)"
         default:
             break
         }
