@@ -1,12 +1,13 @@
 //
 //  AppDelegate.swift
-//  assignment 11
+//  assignment13
 //
-//  Created by nuca on 02.04.24.
+//  Created by nuca on 05.04.24.
 //
 
 import UIKit
-@main 
+
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
