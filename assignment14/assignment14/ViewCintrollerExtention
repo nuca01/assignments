@@ -1,0 +1,14 @@
+//
+//  UITextFieldDelegateExtention.swift
+//  assignment14
+//
+//  Created by nuca on 07.04.24.
+//
+
+import UIKit
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

@@ -13,6 +13,10 @@
 		87125C712BC16FD6008A9065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87125C702BC16FD6008A9065 /* Assets.xcassets */; };
 		87125C742BC16FD6008A9065 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 87125C732BC16FD6008A9065 /* Base */; };
 		87125C7F2BC1C574008A9065 /* bpg_glaho_sylfaen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87125C7E2BC1C574008A9065 /* bpg_glaho_sylfaen.ttf */; };
+		87C837C62BC2C9A0007D1703 /* UILabelExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C837C52BC2C9A0007D1703 /* UILabelExtention.swift */; };
+		87C837C82BC2C9F8007D1703 /* UIFontExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C837C72BC2C9F8007D1703 /* UIFontExtention.swift */; };
+		87C837CC2BC33E4B007D1703 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C837CB2BC33E4B007D1703 /* StringExtention.swift */; };
+		87C837CE2BC33E76007D1703 /* UITextFieldExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C837CD2BC33E76007D1703 /* UITextFieldExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		87125C732BC16FD6008A9065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87125C752BC16FD6008A9065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87125C7E2BC1C574008A9065 /* bpg_glaho_sylfaen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bpg_glaho_sylfaen.ttf; path = ../../../../Downloads/bpg_glaho_sylfaen.ttf; sourceTree = "<group>"; };
+		87C837C52BC2C9A0007D1703 /* UILabelExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtention.swift; sourceTree = "<group>"; };
+		87C837C72BC2C9F8007D1703 /* UIFontExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtention.swift; sourceTree = "<group>"; };
+		87C837CB2BC33E4B007D1703 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtention.swift; path = ../../../../../Applications/StringExtention.swift; sourceTree = "<group>"; };
+		87C837CD2BC33E76007D1703 /* UITextFieldExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +48,8 @@
 		87125C5B2BC16FD5008A9065 = {
 			isa = PBXGroup;
 			children = (
+				87C837CD2BC33E76007D1703 /* UITextFieldExtention.swift */,
+				87C837CB2BC33E4B007D1703 /* StringExtention.swift */,
 				87125C662BC16FD5008A9065 /* assignment14 */,
 				87125C652BC16FD5008A9065 /* Products */,
 			);
@@ -58,6 +68,8 @@
 			children = (
 				87125C672BC16FD5008A9065 /* AppDelegate.swift */,
 				87125C692BC16FD5008A9065 /* SceneDelegate.swift */,
+				87C837C52BC2C9A0007D1703 /* UILabelExtention.swift */,
+				87C837C72BC2C9F8007D1703 /* UIFontExtention.swift */,
 				87125C6B2BC16FD5008A9065 /* ViewController.swift */,
 				87125C702BC16FD6008A9065 /* Assets.xcassets */,
 				87125C722BC16FD6008A9065 /* LaunchScreen.storyboard */,
@@ -139,7 +151,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				87125C6C2BC16FD5008A9065 /* ViewController.swift in Sources */,
+				87C837CC2BC33E4B007D1703 /* StringExtention.swift in Sources */,
+				87C837C82BC2C9F8007D1703 /* UIFontExtention.swift in Sources */,
+				87C837C62BC2C9A0007D1703 /* UILabelExtention.swift in Sources */,
 				87125C682BC16FD5008A9065 /* AppDelegate.swift in Sources */,
+				87C837CE2BC33E76007D1703 /* UITextFieldExtention.swift in Sources */,
 				87125C6A2BC16FD5008A9065 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
