@@ -125,10 +125,39 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.delegate = self
         return textField
     }()
-//    lazy var logInButton: UIButton = {
-//        
-//    }()
-    
+    lazy var logInButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("შესვლა", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Sylfaen", size: 16)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor.blue
+        button.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    lazy var leftLine: UIView = {
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.backgroundColor = .gray
+        return line
+    }()
+    lazy var orLabel: UILabel = {
+        let label = UILabel()
+        label.text = "ან"
+        label.font = UIFont(name: "Sylfaen", size: 14)
+        label.setTextSpacingBy(value: 24 * 0.005)
+        label.font = label.font.withWeight(weight: UIFont.Weight(400))
+        label.setLineHeight(lineHeight: 22)
+        label.textColor = UIColor.black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    lazy var rightLine: UIView = {
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.backgroundColor = .gray
+        return line
+    }()
     lazy var instructionsStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -145,13 +174,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 24.0
-        stack.alignment = .center
+        stack.alignment = .fill
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [logInLabel,
          buttonAndTextFieldsStackView,
          linesAndOrStackView,
-         googleAndFacebookStackView
         ].forEach { stack.addArrangedSubview($0) }
         return stack
     }()
@@ -159,7 +187,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 8.0
-        stack.alignment = .leading
+        stack.alignment = .fill
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [nameTextFieldStackView,
@@ -172,7 +200,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 4.0
-        stack.alignment = .leading
+        stack.alignment = .fill
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [fullNameLabel,
@@ -184,7 +212,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 4.0
-        stack.alignment = .leading
+        stack.alignment = .fill
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [eMailLabel,
@@ -196,11 +224,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 4.0
-        stack.alignment = .center
+        stack.alignment = .fill
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [passwordLabel,
-         passwordTextField,
+         passwordTextField
         ].forEach { stack.addArrangedSubview($0) }
         return stack
     }()
@@ -208,9 +236,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 16.0
-        stack.alignment = .center
+        stack.alignment = .fill
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
+        [textFieldsStackView,
+         logInButton
+        ].forEach { stack.addArrangedSubview($0) }
         return stack
     }()
     lazy var linesAndOrStackView: UIStackView = {
@@ -220,13 +251,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         stack.alignment = .center
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
+        [leftLine,
+         orLabel,
+         rightLine
+        ].forEach { stack.addArrangedSubview($0) }
         return stack
     }()
     lazy var googleAndFacebookStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 16.0
-        stack.alignment = .center
+        stack.alignment = .fill
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -265,47 +300,66 @@ class ViewController: UIViewController, UITextFieldDelegate {
             view: logInStackView,
             topAnchorSeparationInRespectTo: instructionsLabel.bottomAnchor,
             topAnchorSeparationConstant: 20,
+            leadingAnchorSeparationInRespectTo: view.leadingAnchor,
+            leadingAnchorSeparationConstant: 20,
+            trailingAnchorSeparationInRespectTo: view.trailingAnchor,
+            trailingAnchorSeparationConstant: -20,
             centerXAnchorEqualTo: view.centerXAnchor
         )
         addViewConstraints(
             view: logInLabel,
             height: 40,
-            width: 326
+            leadingAnchorSeparationInRespectTo: logInStackView.leadingAnchor,
+            leadingAnchorSeparationConstant: 3,
+            trailingAnchorSeparationInRespectTo: logInStackView.trailingAnchor,
+            trailingAnchorSeparationConstant: -3,
+            centerXAnchorEqualTo: logInStackView.centerXAnchor
         )
         addViewConstraints(
             view: fullNameLabel,
-            height: 20,
-            width: 327
+            height: 20
         )
         addViewConstraints(
             view: nameTextField,
-            height: 44,
-            width: 335
+            height: 44
         )
         addViewConstraints(
             view: eMailTextField,
-            height: 68,
-            width: 335
+            height: 68
         )
         addViewConstraints(
             view: eMailLabel,
-            height: 20,
-            width: 327
+            height: 20
         )
         addViewConstraints(
             view: passwordTextField,
-            height: 68,
-            width: 335
+            height: 68
         )
         addViewConstraints(
             view: passwordLabel,
-            height: 20,
-            width: 327
+            height: 20
         )
         addBottomBorderTo(label: logInLabel)
         configureTapGesture()
-        
-        
+        addViewConstraints(
+            view: logInButton,
+            height: 46
+        )
+        addViewConstraints(
+            view: leftLine,
+            height: 1,
+            width: (UIScreen.main.bounds.width - 76)/2
+        )
+        addViewConstraints(
+            view: rightLine,
+            height: 1,
+            width: (UIScreen.main.bounds.width - 76)/2
+        )
+        addViewConstraints(
+            view: orLabel,
+            height: 22,
+            width: 14
+        )
     }
 
     
@@ -354,7 +408,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     func addBottomBorderTo (label: UILabel) {
         let bottomBorder = CALayer()
-            bottomBorder.frame = CGRect(x:0, y: 40, width: 326, height: 2)
+        bottomBorder.frame = CGRect(x:0, y: 40, width: UIScreen.main.bounds.width - 49, height: 2)
             bottomBorder.backgroundColor = UIColor.blue.cgColor
             label.layer.addSublayer(bottomBorder)
     }
@@ -362,15 +416,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if textField === eMailTextField {
             if eMailTextField.isEmail() {
                 textField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+                textField.textColor = UIColor.black
             } else {
                 textField.layer.borderColor = CGColor(red: 1, green: 0, blue: 0, alpha: 1)
+                textField.textColor = UIColor.red
             }
         } else if textField === passwordTextField {
             if let text = textField.text {
                 if text.count < 6 || text.count > 15 {
                     textField.layer.borderColor = CGColor(red: 1, green: 0, blue: 0, alpha: 1)
+                    textField.textColor = UIColor.red
                 } else {
                     textField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+                    textField.textColor = UIColor.black
                 }
             } else {
                 textField.layer.borderColor = CGColor(red: 1, green: 0, blue: 0, alpha: 1)
@@ -390,6 +448,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             textFieldShouldReturn(passwordTextField)
         }
         view.endEditing(false)
+    }
+    @objc func pressed() {
+        textFieldShouldReturn(eMailTextField)
+        textFieldShouldReturn(passwordTextField)
     }
 }
 
