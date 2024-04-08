@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     lazy var logInLabel: UILabel = {
         let label = UILabel()
         label.text = "ავტორიზაცია"
-        label.font = UIFont(name: "systemFont", size: 14)
+        label.font = UIFont(name: "Sylfaen", size: 14)
         label.font = label.font.withWeight(weight: UIFont.Weight(400))
         label.setLineHeight(lineHeight: 19.64)
         label.textColor = UIColor.black
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         label.setTextSpacingBy(value: 24 * 0.005)
         label.font = label.font.withWeight(weight: UIFont.Weight(400))
         label.setLineHeight(lineHeight: 20)
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 0.18, green: 0.18, blue:0.18, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -82,7 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         label.setTextSpacingBy(value: 24 * 0.005)
         label.font = label.font.withWeight(weight: UIFont.Weight(400))
         label.setLineHeight(lineHeight: 20)
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 0.18, green: 0.18, blue:0.18, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -107,7 +107,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         label.setTextSpacingBy(value: 24 * 0.005)
         label.font = label.font.withWeight(weight: UIFont.Weight(400))
         label.setLineHeight(lineHeight: 20)
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 0.18, green: 0.18, blue:0.18, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -138,7 +138,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     lazy var leftLine: UIView = {
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
-        line.backgroundColor = .gray
+        line.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
         return line
     }()
     lazy var orLabel: UILabel = {
@@ -155,9 +155,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
     lazy var rightLine: UIView = {
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
-        line.backgroundColor = .gray
+        line.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
         return line
     }()
+    lazy var logInWithGoogleButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("გამოიყენეთ გუგული", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Sylfaen", size: 14)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.backgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1)
+        button.addTarget(self, action: #selector(pressedAlternative), for: .touchUpInside)
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    lazy var logInWithFaceBookButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("გამოიყენეთ ფეიზბურგი", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Sylfaen", size: 14)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.backgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1)
+        button.addTarget(self, action: #selector(pressedAlternative), for: .touchUpInside)
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
     lazy var instructionsStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -180,6 +201,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         [logInLabel,
          buttonAndTextFieldsStackView,
          linesAndOrStackView,
+         googleAndFacebookStackView
         ].forEach { stack.addArrangedSubview($0) }
         return stack
     }()
@@ -264,9 +286,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         stack.alignment = .fill
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
+        [logInWithGoogleButton,
+         logInWithFaceBookButton
+        ].forEach { stack.addArrangedSubview($0) }
         return stack
     }()
-    
+    lazy var googleImage: UIImageView = {
+        let image = UIImage(systemName: "g.circle.fill")
+        let imageView = UIImageView(image: image)
+        imageView.tintColor = UIColor.black
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    lazy var faceBookImage: UIImageView = {
+        let image = UIImage(systemName: "f.circle.fill")
+        let imageView = UIImageView(image: image)
+        imageView.tintColor = UIColor.black
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -325,7 +363,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         )
         addViewConstraints(
             view: eMailTextField,
-            height: 68
+            height: 44
         )
         addViewConstraints(
             view: eMailLabel,
@@ -333,7 +371,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         )
         addViewConstraints(
             view: passwordTextField,
-            height: 68
+            height: 44
         )
         addViewConstraints(
             view: passwordLabel,
@@ -359,6 +397,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
             view: orLabel,
             height: 22,
             width: 14
+        )
+        addViewConstraints(
+            view: logInWithGoogleButton,
+            height: 48
+        )
+        addViewConstraints(
+            view: logInWithFaceBookButton,
+            height: 48
+        )
+        
+        logInWithFaceBookButton.addSubview(faceBookImage)
+        addViewConstraints(
+            view: faceBookImage,
+            height: 24,
+            width: 24,
+            topAnchorSeparationInRespectTo: logInWithFaceBookButton.topAnchor,
+            topAnchorSeparationConstant: 12,
+            trailingAnchorSeparationInRespectTo: logInWithFaceBookButton.titleLabel?.leadingAnchor,
+            trailingAnchorSeparationConstant: -12
+        )
+        logInWithGoogleButton.addSubview(googleImage)
+        addViewConstraints(
+            view: googleImage,
+            height: 24,
+            width: 24,
+            topAnchorSeparationInRespectTo: logInWithGoogleButton.topAnchor,
+            topAnchorSeparationConstant: 12,
+            trailingAnchorSeparationInRespectTo: logInWithGoogleButton.titleLabel?.leadingAnchor,
+            trailingAnchorSeparationConstant: -12
         )
     }
 
@@ -415,23 +482,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField === eMailTextField {
             if eMailTextField.isEmail() {
-                textField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
                 textField.textColor = UIColor.black
             } else {
-                textField.layer.borderColor = CGColor(red: 1, green: 0, blue: 0, alpha: 1)
                 textField.textColor = UIColor.red
             }
         } else if textField === passwordTextField {
             if let text = textField.text {
                 if text.count < 6 || text.count > 15 {
-                    textField.layer.borderColor = CGColor(red: 1, green: 0, blue: 0, alpha: 1)
                     textField.textColor = UIColor.red
                 } else {
-                    textField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
                     textField.textColor = UIColor.black
                 }
             } else {
-                textField.layer.borderColor = CGColor(red: 1, green: 0, blue: 0, alpha: 1)
+                textField.textColor = UIColor.red
             }
         }
         textField.resignFirstResponder()
@@ -443,9 +506,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     @objc func handleTap() {
         if eMailTextField.isFirstResponder {
-            textFieldShouldReturn(eMailTextField)
+            if eMailTextField.isEmail() {
+                eMailTextField.textColor = UIColor.black
+            } else {
+                eMailTextField.textColor = UIColor.red
+            }
         } else if passwordTextField.isFirstResponder {
-            textFieldShouldReturn(passwordTextField)
+            if let text = passwordTextField.text {
+                if text.count < 6 || text.count > 15 {
+                    passwordTextField.textColor = UIColor.red
+                } else {
+                    passwordTextField.textColor = UIColor.black
+                }
+            } else {
+                passwordLabel.textColor = UIColor.red
+            }
         }
         view.endEditing(false)
     }
@@ -453,8 +528,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textFieldShouldReturn(eMailTextField)
         textFieldShouldReturn(passwordTextField)
     }
-}
-
-#Preview {
-    UIViewController()
+    @objc func pressedAlternative() {
+    }
 }
