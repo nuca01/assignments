@@ -66,11 +66,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.placeholder = "მაგ: ქეთინო ფერი"
         textField.font = UIFont(name: "Sylfaen", size: 12)
         textField.borderStyle = UITextField.BorderStyle.roundedRect
-//        textField.autocorrectionType = UITextAutocorrectionType.no
-//        textField.keyboardType = UIKeyboardType.default
-//        textField.returnKeyType = UIReturnKeyType.done
-//        textField.clearButtonMode = UITextField.ViewMode.whileEditing
-//        textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self
         return textField
@@ -91,11 +86,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.placeholder = "მაგ: kusuna@mail.ru"
         textField.font = UIFont(name: "Sylfaen", size: 12)
         textField.borderStyle = UITextField.BorderStyle.roundedRect
-//        textField.autocorrectionType = UITextAutocorrectionType.no
-//        textField.keyboardType = UIKeyboardType.default
-//        textField.returnKeyType = UIReturnKeyType.done
-//        textField.clearButtonMode = UITextField.ViewMode.whileEditing
-//        textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self
         return textField
@@ -116,11 +106,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.placeholder = "მაგ: busuna123, jajanaIsMyKumiri2010"
         textField.font = UIFont(name: "Sylfaen", size: 12)
         textField.borderStyle = UITextField.BorderStyle.roundedRect
-//        textField.autocorrectionType = UITextAutocorrectionType.no
-//        textField.keyboardType = UIKeyboardType.default
-//        textField.returnKeyType = UIReturnKeyType.done
-//        textField.clearButtonMode = UITextField.ViewMode.whileEditing
-//        textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self
         return textField
@@ -443,14 +428,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         centerXAnchorEqualTo: NSLayoutAnchor<NSLayoutXAxisAnchor>? = nil,
         centerYAnchorEqualTo: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil
     ) {
-        view.frame = CGRect(x: 10, y: 10, width: 10, height: 10) //არ ვიცი რამდენად საჭიროა რადგან მაინც ქონსთრეინთები უნდა დავადო
+        view.frame = CGRect(x: 10, y: 10, width: 10, height: 10)
         if let height {
             view.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
         if let width {
             view.widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-        //არ ვიცი if let ის შიგნით რამე თუ იცვლება და მძიმე როგორ მუშაობს
         if let topAnchorSeparationConstant, let topAnchorSeparationInRespectTo {
             view.topAnchor.constraint(
                 equalTo: topAnchorSeparationInRespectTo,
