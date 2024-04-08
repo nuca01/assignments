@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 class ViewController: UIViewController, UITextFieldDelegate {
     lazy var computerImage: UIImageView = {
         let image = UIImage(systemName: "lock.laptopcomputer")
@@ -103,8 +102,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }()
     lazy var passwordTextField: UITextField = {
         let textField =  UITextField()
-        textField.placeholder = "მაგ: busuna123, jajanaIsMyKumiri2010"
-        textField.font = UIFont(name: "Sylfaen", size: 12)
+        textField.font = UIFont(name: "Password-Dots", size: 12)
+        let attributes = [
+            NSAttributedString.Key.font : UIFont(name: "Sylfaen", size: 12)!
+        ]
+        textField.attributedPlaceholder = NSAttributedString(string: "მაგ: busuna123, jajanaIsMyKumiri2010", attributes:attributes)
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self

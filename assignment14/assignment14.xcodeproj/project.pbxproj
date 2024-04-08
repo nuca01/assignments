@@ -17,6 +17,8 @@
 		87C837C82BC2C9F8007D1703 /* UIFontExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C837C72BC2C9F8007D1703 /* UIFontExtention.swift */; };
 		87C837CC2BC33E4B007D1703 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C837CB2BC33E4B007D1703 /* StringExtention.swift */; };
 		87C837CE2BC33E76007D1703 /* UITextFieldExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C837CD2BC33E76007D1703 /* UITextFieldExtention.swift */; };
+		87FC433D2BC3F6D300D84C87 /* OnlineWebFonts_COM_2eefdb720613b9ee6e757ac14bec1653 in Resources */ = {isa = PBXBuildFile; fileRef = 87FC433C2BC3F6D300D84C87 /* OnlineWebFonts_COM_2eefdb720613b9ee6e757ac14bec1653 */; };
+		87FC433F2BC3F97200D84C87 /* Password Dots Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87FC433E2BC3F83E00D84C87 /* Password Dots Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		87C837C72BC2C9F8007D1703 /* UIFontExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtention.swift; sourceTree = "<group>"; };
 		87C837CB2BC33E4B007D1703 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtention.swift; path = ../../../../../Applications/StringExtention.swift; sourceTree = "<group>"; };
 		87C837CD2BC33E76007D1703 /* UITextFieldExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtention.swift; sourceTree = "<group>"; };
+		87FC433C2BC3F6D300D84C87 /* OnlineWebFonts_COM_2eefdb720613b9ee6e757ac14bec1653 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OnlineWebFonts_COM_2eefdb720613b9ee6e757ac14bec1653; sourceTree = "<group>"; };
+		87FC433E2BC3F83E00D84C87 /* Password Dots Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Password Dots Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				87125C722BC16FD6008A9065 /* LaunchScreen.storyboard */,
 				87125C752BC16FD6008A9065 /* Info.plist */,
 				87125C7E2BC1C574008A9065 /* bpg_glaho_sylfaen.ttf */,
+				87FC433E2BC3F83E00D84C87 /* Password Dots Regular.ttf */,
+				87FC433C2BC3F6D300D84C87 /* OnlineWebFonts_COM_2eefdb720613b9ee6e757ac14bec1653 */,
 			);
 			path = assignment14;
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				87125C712BC16FD6008A9065 /* Assets.xcassets in Resources */,
+				87FC433D2BC3F6D300D84C87 /* OnlineWebFonts_COM_2eefdb720613b9ee6e757ac14bec1653 in Resources */,
+				87FC433F2BC3F97200D84C87 /* Password Dots Regular.ttf in Resources */,
 				87125C7F2BC1C574008A9065 /* bpg_glaho_sylfaen.ttf in Resources */,
 				87125C742BC16FD6008A9065 /* Base in Resources */,
 			);
