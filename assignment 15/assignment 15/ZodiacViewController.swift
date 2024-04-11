@@ -204,8 +204,6 @@ class ZodiacViewController: UIViewController, ColorChangableDelegate {
             view: wholeStackview,
             topAnchorSeparationInRespectTo: view.topAnchor,
             topAnchorSeparationConstant: 55,
-//            bottomAnchorSeparationInRespectTo: view.bottomAnchor,
-//            bottomAnchorSeparationConstant: -20,
             leadingAnchorSeparationInRespectTo: view.leadingAnchor,
             leadingAnchorSeparationConstant: 20,
             trailingAnchorSeparationInRespectTo: view.trailingAnchor,
