@@ -6,8 +6,10 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController {
+protocol ColorChangableDelegate {
+    func changeColor(color: UIColor)
+}
+class ViewController: UIViewController, ColorChangableDelegate {
     lazy var hubName: UILabel = {
         let label = UILabel()
         label.text = "მიშა ცაგარელის ჰაბი!"
@@ -202,10 +204,13 @@ class ViewController: UIViewController {
             view.centerYAnchor.constraint(equalTo: centerYAnchorEqualTo).isActive = true
         }
     }
-    private func addPadding() {
+    func addPadding() {
        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 44))
        zodiacTextField.leftView = paddingView
        zodiacTextField.leftViewMode = .always
+    }
+    func changeColor(color: UIColor) {
+        view.backgroundColor = color
     }
 
     @objc func pressed() {
@@ -214,36 +219,43 @@ class ViewController: UIViewController {
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.aries
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "taurus":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.taurus
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "gemini":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.gemini
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "sagittarius":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.saggitarius
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "cancer":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.cancer
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "libra":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.libra
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "scorpio":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.scorpio
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "capricorn":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
@@ -254,21 +266,25 @@ class ViewController: UIViewController {
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.leo
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "aquarius":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.aquarious
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "virgo":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.virgo
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         case "pisces":
             zodiacTextField.layer.borderColor = UIColor.white.cgColor
             let nextViewController = ZodiacViewController()
             nextViewController.mainZodiac = nextViewController.pisces
+            nextViewController.viewConroller = self
             navigationController?.pushViewController(nextViewController, animated: true)
         default:
             zodiacTextField.layer.borderColor = UIColor.red.cgColor

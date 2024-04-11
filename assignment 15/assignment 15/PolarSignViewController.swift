@@ -8,7 +8,7 @@
 import UIKit
 
 class PolarSignViewController: UIViewController {
-    var zodiacViewConroller: ColorChangableDelegate?
+    var viewConroller: ColorChangableDelegate?
     var polarSignName: String?
     lazy var zodiacImage: UIImageView = {
         let imageView = UIImageView()
@@ -159,10 +159,14 @@ class PolarSignViewController: UIViewController {
     }
 
     @objc func pressedBlue() {
-        zodiacViewConroller?.changeColor(color: UIColor.blue)
+        viewConroller?.changeColor(color: UIColor.blue)
+        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     @objc func pressedRed() {
-        zodiacViewConroller?.changeColor(color: UIColor.red)
+        viewConroller?.changeColor(color: UIColor.red)
+        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
 }

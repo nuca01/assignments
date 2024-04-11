@@ -6,12 +6,9 @@
 //
 import UIKit
 
-protocol ColorChangableDelegate {
-    func changeColor(color: UIColor)
-}
-
-class ZodiacViewController: UIViewController, ColorChangableDelegate {
+class ZodiacViewController: UIViewController {
     var mainZodiac: Zodiac?
+    var viewConroller: ColorChangableDelegate?
     lazy var aries: Zodiac = {
         let zodiac = Zodiac(
             name: "Aries",
@@ -301,7 +298,7 @@ class ZodiacViewController: UIViewController, ColorChangableDelegate {
     @objc func pressed() {
         let nextViewController = PolarSignViewController()
         nextViewController.polarSignName = mainZodiac?.polarSign
-        nextViewController.zodiacViewConroller = self
+        nextViewController.viewConroller = viewConroller
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 
