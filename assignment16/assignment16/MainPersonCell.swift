@@ -3,7 +3,6 @@ import UIKit
 class MainPersonCell: UITableViewCell {
     
     var personsImageView: UIImageView = UIImageView()
-    var person: Person?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

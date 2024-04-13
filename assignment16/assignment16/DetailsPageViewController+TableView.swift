@@ -7,6 +7,7 @@ extension DetailsPageViewController: UITableViewDelegate, UITableViewDataSource 
         1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Gender Cell") as! GenderCell
             cell.updateCell(with: person!)
@@ -20,5 +21,9 @@ extension DetailsPageViewController: UITableViewDelegate, UITableViewDataSource 
             cell.updateCell(with: person!)
             return cell
         }
+    }
+    func adjustTableViewHeight() {
+        let cell = HobbyCell()
+        tableView.heightAnchor.constraint(equalToConstant: cell.bounds.height * 3).isActive = true
     }
 }

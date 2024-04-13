@@ -13,14 +13,14 @@ class GenderCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addPersonsImageView()
+        addRightTextLabel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addPersonsImageView() {
+    func addRightTextLabel() {
         contentView.addSubview(rightTextLabel)
         rightTextLabel.addViewConstraints(
             height: 22,

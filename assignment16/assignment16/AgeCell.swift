@@ -1,6 +1,6 @@
 import UIKit
 
-class HobbyCell: UITableViewCell {
+class AgeCell: UITableViewCell {
     
     lazy var rightTextLabel: UILabel = {
         var label = UILabel()
@@ -13,14 +13,14 @@ class HobbyCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addPersonsImageView()
+        addRightTextLabel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addPersonsImageView() {
+    func addRightTextLabel() {
         contentView.addSubview(rightTextLabel)
         rightTextLabel.addViewConstraints(
             height: 22,
@@ -32,8 +32,8 @@ class HobbyCell: UITableViewCell {
     }
     
     func updateCell(with person: Person) {
-        textLabel?.text = "Hobby:"
-        rightTextLabel.text = "\(person.hobby)"
+        textLabel?.text = "Age:"
+        rightTextLabel.text = "\(person.age)"
         textLabel?.font = UIFont.systemFont(ofSize: 17)
         rightTextLabel.font = UIFont.systemFont(ofSize: 17)
     }

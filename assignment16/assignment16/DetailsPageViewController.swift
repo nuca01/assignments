@@ -30,11 +30,11 @@ class DetailsPageViewController: UIViewController {
     }()
     lazy var tableView: UITableView = {
         var tableView = UITableView()
-        tableView.backgroundColor = UIColor.clear
-        tableView.layer.cornerRadius = 10
+        tableView.backgroundColor = UIColor.white
+        //tableView.layer.cornerRadius = 10
+        //tableView.clipsToBounds = false
         tableView.delegate = self
         tableView.dataSource = self
-        self.view.addSubview(tableView)
         tableView.register(GenderCell.self, forCellReuseIdentifier: "Gender Cell")
         tableView.register(AgeCell.self, forCellReuseIdentifier: "Age Cell")
         tableView.register(HobbyCell.self, forCellReuseIdentifier: "Hobby Cell")
@@ -64,6 +64,12 @@ class DetailsPageViewController: UIViewController {
         addAndConstrainLabel()
         addConstraintsToTableView()
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //tableView.layer.masksToBounds = true
+        tableView.layer.cornerRadius = 10
+    }
+    
     func addAndConstrainImageView() {
         imageView.addViewConstraints(
             height: 183,
@@ -79,6 +85,7 @@ class DetailsPageViewController: UIViewController {
             topAnchorSeparationConstant: 125,
             centerXAnchorEqualTo: graySquare.centerXAnchor
         )
+        tableView.layer.masksToBounds = true
     }
     func addAndConstrainGraySquare() {
         view.addSubview(graySquare)
@@ -103,11 +110,11 @@ class DetailsPageViewController: UIViewController {
     func addConstraintsToTableView(){
         view.addSubview(tableView)
         tableView.addViewConstraints(
-            height: UIScreen.main.bounds.height - 100 - 40,
             width: UIScreen.main.bounds.width - 40,
             topAnchorSeparationInRespectTo: view.topAnchor,
             topAnchorSeparationConstant: 360,
             centerXAnchorEqualTo: view.centerXAnchor
         )
+        adjustTableViewHeight()
     }
 }

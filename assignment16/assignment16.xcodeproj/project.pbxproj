@@ -60,11 +60,6 @@
 		87F4A9ED2BC9704E00013D07 = {
 			isa = PBXGroup;
 			children = (
-				87F4AA212BCA971B00013D07 /* HobbyCell.swift */,
-				87F4AA1F2BCA968900013D07 /* AgeCell.swift */,
-				87F4AA1D2BCA932900013D07 /* GenderCell.swift */,
-				87F4AA1B2BCA10DB00013D07 /* DetailsPageViewController+TableView.swift */,
-				87F4AA192BCA09F600013D07 /* DetailsPageViewController.swift */,
 				87F4A9F82BC9704E00013D07 /* assignment16 */,
 				87F4A9F72BC9704E00013D07 /* Products */,
 			);
@@ -89,6 +84,11 @@
 				87F4AA0D2BC9713D00013D07 /* ViewController+TableView.swift */,
 				87F4AA112BC9A9E100013D07 /* MainPersonCell.swift */,
 				87F4AA132BC9BA1900013D07 /* UIViewExtention.swift */,
+				87F4AA212BCA971B00013D07 /* HobbyCell.swift */,
+				87F4AA1F2BCA968900013D07 /* AgeCell.swift */,
+				87F4AA1D2BCA932900013D07 /* GenderCell.swift */,
+				87F4AA1B2BCA10DB00013D07 /* DetailsPageViewController+TableView.swift */,
+				87F4AA192BCA09F600013D07 /* DetailsPageViewController.swift */,
 				87F4A9FF2BC9704E00013D07 /* Main.storyboard */,
 				87F4AA022BC9705000013D07 /* Assets.xcassets */,
 				87F4AA042BC9705000013D07 /* LaunchScreen.storyboard */,

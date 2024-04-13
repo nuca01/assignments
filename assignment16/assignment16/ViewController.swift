@@ -129,20 +129,17 @@ class ViewController: UIViewController {
         }
         return dictionary
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-//        addNameLabelAndItemsTableViewStackView()
         addAndConstrainWholeStackView()
         addConstraintsToListNameLabel()
         addConstraintsToItemsTableView()
         itemsTableView.register(MainPersonCell.self, forCellReuseIdentifier: "MainPersonCell")
         itemsTableView.register(PersonCell.self, forCellReuseIdentifier: "PersonCell")
-//        addConstraintsToLettersStackView()
-        
     }
-    
 
     func addConstraintsToListNameLabel() {
         listNameLabel.addViewConstraints(
