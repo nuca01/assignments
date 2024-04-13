@@ -46,14 +46,6 @@ extension ViewController: UITableViewDataSource {
             return cell
         }
     }
-    
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        
-//        let deleteAction = UIContextualAction(style: .destructive, title: "ABC") { _, _,_  in
-//            
-//        }
-//        return UISwipeActionsConfiguration(actions: [deleteAction])
-//    }
 }
 
 extension ViewController: UITableViewDelegate {
@@ -66,8 +58,13 @@ extension ViewController: UITableViewDelegate {
         }
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        fruit.remove(at: indexPath.row)
-//        itemsTableView.reloadData()
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextViewController = DetailsPageViewController()
+        if (indexPath.section == 0) {
+            nextViewController.person = person
+        } else {
+            nextViewController.person = lettersAndItems[Character(UnicodeScalar(indexPath.section + 64)!)]![indexPath.row]
+        }
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
 }

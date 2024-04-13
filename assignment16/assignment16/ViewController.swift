@@ -74,44 +74,45 @@ class ViewController: UIViewController {
     }()
     
     lazy var person: Person = {
-        let person = Person(name: "Nuca", surname: "Beriashvili", hobby: "Archery", age: 19, Image: "Intimidating Brunnete Girl")
+        let person = Person(name: "Nuca", surname: "Beriashvili", hobby: "Archery", age: 19, Image: "Intimidating Brunnete Girl", gender: .Female)
         return person
     }()
     lazy var persons: [Person] = {
         let array = [
-            Person(name: "nodar", surname: "ghachava", hobby: "running", age: 20, Image: "Brunnete Guy"),
-            Person(name: "elene", surname: "donadze", hobby: "climbimg", age: 19, Image: "Intimidating Brunnete Girl"),
-            Person(name: "temuri", surname: "chitashvili", hobby: "painting", age: 19, Image: "Brunnete Guy"),
-            Person(name: "irina", surname: "datoshvili", hobby: "diving", age: 22, Image: "Intimidating Brunnete Girl"),
-            Person(name: "tornike", surname: "elqanashvili", hobby: "singing", age: 23, Image: "Brunnete Guy"),
-            Person(name: "ana", surname: "ioramashvili", hobby: "sewing", age: 20, Image: "Blondie"),
-            Person(name: "nini", surname: "bardavelidze", hobby: "pilates", age: 18, Image: "Brunnete Girl With Berret"),
-            Person(name: "barbare", surname: "tepnadze", hobby: "watching movies", age: 20, Image: "Brunnete Girl With Berret"),
-            Person(name: "mariam", surname: "sreseli", hobby: "karate", age: 24, Image: "Brunnete Girl With Berret"),
-            Person(name: "valeri", surname: "mekhashishvili", hobby: "playing board games", age: 22, Image: "Brunnete Guy"),
-            Person(name: "zuka", surname: "papuashvili", hobby: "writing", age: 21, Image: "Brunnete Guy"),
-            Person(name: "luka", surname: "kharatishvili", hobby: "football", age: 20, Image: "Brunnete Guy"),
-            Person(name: "data", surname: "robakidze", hobby: "basketball", age: 26, Image: "Brunnete Guy"),
-            Person(name: "nik’a", surname: "kakhniashvili", hobby: "brewing", age: 19, Image: "Brunnete Guy"),
-            Person(name: "sandro", surname: "gelashvili", hobby: "fencing", age: 21, Image: "Brunnete Guy"),
-            Person(name: "ana", surname: "namgaladze", hobby: "drawing", age: 20, Image: "Brunnete Girl With Berret"),
-            Person(name: "bakar", surname: "kharabadze", hobby: "cooking", age: 20, Image: "Brunnete Guy"),
-            Person(name: "archil", surname: "menabde", hobby: "fishing", age: 25, Image: "Happy Blonde Guy"),
-            Person(name: "tamuna", surname: "kakhidze", hobby: "gardening", age: 26, Image: "Brunnete Girl With Berret"),
-            Person(name: "giorgi", surname: "michitashvili", hobby: "reading", age: 19, Image: "Brunnete Guy"),
-            Person(name: "salome", surname: "topuria", hobby: "tennis", age: 24, Image: "Brunnete Girl With Berret"),
-            Person(name: "luka", surname: "gujejiani", hobby: "swimming", age: 21, Image: "Brunnete Guy"),
-            Person(name: "gega", surname: "tatulishvili", hobby: "travelling", age: 21, Image: "Brunnete Guy"),
-            Person(name: "raisa", surname: "badalova", hobby: "piano", age: 20, Image: "Intimidating Brunnete Girl"),
-            Person(name: "aleksandre", surname: "saroiani", hobby: "boxing", age: 23, Image: "Happy Blonde Guy"),
-            Person(name: "begi", surname: "kopaliani", hobby: "bouldering", age: 19, Image: "Brunnete Guy"),
-            Person(name: "akaki", surname: "titberidze", hobby: "teaching", age: 25, Image: "Brunnete Guy"),
-            Person(name: "sandro", surname: "kupatadze", hobby: "skating", age: 22, Image: "Happy Blonde Guy"),
-            Person(name: "gvantsa", surname: "gvagvalia", hobby: "biking", age: 22, Image: "Intimidating Brunnete Girl"),
-            Person(name: "vano", surname: "kvakhadze", hobby: "rugby", age: 24, Image: "Brunnete Guy"),
-            Person(name: "vaso", surname: "baramidze", hobby: "basketball", age: 17, Image: "Brunnete Guy"),
-            Person(name: "davit", surname: "natenadze", hobby: "singing", age: 75, Image: "Bearded Guy"),
-            Person(name: "beqa-Giorgi", surname: "tabunidze", hobby: "stand-up comedian", age: 80, Image: "Brunnete Guy")
+            Person(name: "nodar", surname: "ghachava", hobby: "running", age: 20, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "elene", surname: "donadze", hobby: "climbimg", age: 19, Image: "Intimidating Brunnete Girl", gender: .Female),
+            Person(name: "temuri", surname: "chitashvili", hobby: "painting", age: 19, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "irina", surname: "datoshvili", hobby: "diving", age: 22, Image: "Intimidating Brunnete Girl", gender: .Female),
+            Person(name: "tornike", surname: "elqanashvili", hobby: "singing", age: 23, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "ana", surname: "ioramashvili", hobby: "sewing", age: 20, Image: "Blondie"
+                   , gender: .Female),
+            Person(name: "nini", surname: "bardavelidze", hobby: "pilates", age: 18, Image: "Brunnete Girl With Berret", gender: .Female),
+            Person(name: "barbare", surname: "tepnadze", hobby: "watching movies", age: 20, Image: "Brunnete Girl With Berret", gender: .Female),
+            Person(name: "mariam", surname: "sreseli", hobby: "karate", age: 24, Image: "Brunnete Girl With Berret", gender: .Female),
+            Person(name: "valeri", surname: "mekhashishvili", hobby: "playing board games", age: 22, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "zuka", surname: "papuashvili", hobby: "writing", age: 21, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "luka", surname: "kharatishvili", hobby: "football", age: 20, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "data", surname: "robakidze", hobby: "basketball", age: 26, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "nik’a", surname: "kakhniashvili", hobby: "brewing", age: 19, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "sandro", surname: "gelashvili", hobby: "fencing", age: 21, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "ana", surname: "namgaladze", hobby: "drawing", age: 20, Image: "Brunnete Girl With Berret", gender: .Female),
+            Person(name: "bakar", surname: "kharabadze", hobby: "cooking", age: 20, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "archil", surname: "menabde", hobby: "fishing", age: 25, Image: "Happy Blonde Guy", gender: .Male),
+            Person(name: "tamuna", surname: "kakhidze", hobby: "gardening", age: 26, Image: "Brunnete Girl With Berret", gender: .Female),
+            Person(name: "giorgi", surname: "michitashvili", hobby: "reading", age: 19, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "salome", surname: "topuria", hobby: "tennis", age: 24, Image: "Brunnete Girl With Berret", gender: .Female),
+            Person(name: "luka", surname: "gujejiani", hobby: "swimming", age: 21, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "gega", surname: "tatulishvili", hobby: "travelling", age: 21, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "raisa", surname: "badalova", hobby: "piano", age: 20, Image: "Intimidating Brunnete Girl", gender: .Female),
+            Person(name: "aleksandre", surname: "saroiani", hobby: "boxing", age: 23, Image: "Happy Blonde Guy", gender: .Male),
+            Person(name: "begi", surname: "kopaliani", hobby: "bouldering", age: 19, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "akaki", surname: "titberidze", hobby: "teaching", age: 25, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "sandro", surname: "kupatadze", hobby: "skating", age: 22, Image: "Happy Blonde Guy", gender: .Male),
+            Person(name: "gvantsa", surname: "gvagvalia", hobby: "biking", age: 22, Image: "Intimidating Brunnete Girl", gender: .Female),
+            Person(name: "vano", surname: "kvakhadze", hobby: "rugby", age: 24, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "vaso", surname: "baramidze", hobby: "basketball", age: 17, Image: "Brunnete Guy", gender: .Male),
+            Person(name: "davit", surname: "natenadze", hobby: "singing", age: 75, Image: "Bearded Guy", gender: .Male),
+            Person(name: "beqa-Giorgi", surname: "tabunidze", hobby: "stand-up comedian", age: 80, Image: "Brunnete Guy", gender: .Male)
             ]
         return array.sorted()
     }()
@@ -142,16 +143,7 @@ class ViewController: UIViewController {
         
     }
     
-//    func addNameLabelAndItemsTableViewStackView() {
-//        nameLabelAndItemsTableViewStackView.addViewConstraints(
-//            topAnchorSeparationInRespectTo: view.safeAreaLayoutGuide.topAnchor,
-//            topAnchorSeparationConstant: 40,
-//            bottomAnchorSeparationInRespectTo: view.safeAreaLayoutGuide.bottomAnchor,
-//            bottomAnchorSeparationConstant: 0,
-//            leadingAnchorSeparationInRespectTo: view.
-//            leadingAnchorSeparationConstant: <#T##CGFloat?#>
-//        )
-//    }
+
     func addConstraintsToListNameLabel() {
         listNameLabel.addViewConstraints(
             height: 41

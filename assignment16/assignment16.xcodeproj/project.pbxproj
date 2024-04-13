@@ -18,6 +18,11 @@
 		87F4AA122BC9A9E100013D07 /* MainPersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4AA112BC9A9E100013D07 /* MainPersonCell.swift */; };
 		87F4AA142BC9BA1900013D07 /* UIViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4AA132BC9BA1900013D07 /* UIViewExtention.swift */; };
 		87F4AA162BC9C39800013D07 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4AA152BC9C39800013D07 /* PersonCell.swift */; };
+		87F4AA1A2BCA09F600013D07 /* DetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4AA192BCA09F600013D07 /* DetailsPageViewController.swift */; };
+		87F4AA1C2BCA10DB00013D07 /* DetailsPageViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4AA1B2BCA10DB00013D07 /* DetailsPageViewController+TableView.swift */; };
+		87F4AA1E2BCA932900013D07 /* GenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4AA1D2BCA932900013D07 /* GenderCell.swift */; };
+		87F4AA202BCA968900013D07 /* AgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4AA1F2BCA968900013D07 /* AgeCell.swift */; };
+		87F4AA222BCA971B00013D07 /* HobbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4AA212BCA971B00013D07 /* HobbyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		87F4AA112BC9A9E100013D07 /* MainPersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPersonCell.swift; sourceTree = "<group>"; };
 		87F4AA132BC9BA1900013D07 /* UIViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtention.swift; sourceTree = "<group>"; };
 		87F4AA152BC9C39800013D07 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		87F4AA192BCA09F600013D07 /* DetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewController.swift; sourceTree = "<group>"; };
+		87F4AA1B2BCA10DB00013D07 /* DetailsPageViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsPageViewController+TableView.swift"; sourceTree = "<group>"; };
+		87F4AA1D2BCA932900013D07 /* GenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCell.swift; sourceTree = "<group>"; };
+		87F4AA1F2BCA968900013D07 /* AgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeCell.swift; sourceTree = "<group>"; };
+		87F4AA212BCA971B00013D07 /* HobbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +60,11 @@
 		87F4A9ED2BC9704E00013D07 = {
 			isa = PBXGroup;
 			children = (
+				87F4AA212BCA971B00013D07 /* HobbyCell.swift */,
+				87F4AA1F2BCA968900013D07 /* AgeCell.swift */,
+				87F4AA1D2BCA932900013D07 /* GenderCell.swift */,
+				87F4AA1B2BCA10DB00013D07 /* DetailsPageViewController+TableView.swift */,
+				87F4AA192BCA09F600013D07 /* DetailsPageViewController.swift */,
 				87F4A9F82BC9704E00013D07 /* assignment16 */,
 				87F4A9F72BC9704E00013D07 /* Products */,
 			);
@@ -153,12 +168,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87F4AA222BCA971B00013D07 /* HobbyCell.swift in Sources */,
 				87F4AA122BC9A9E100013D07 /* MainPersonCell.swift in Sources */,
+				87F4AA1A2BCA09F600013D07 /* DetailsPageViewController.swift in Sources */,
 				87F4AA102BC9730000013D07 /* Person.swift in Sources */,
 				87F4AA162BC9C39800013D07 /* PersonCell.swift in Sources */,
+				87F4AA1C2BCA10DB00013D07 /* DetailsPageViewController+TableView.swift in Sources */,
 				87F4AA142BC9BA1900013D07 /* UIViewExtention.swift in Sources */,
+				87F4AA1E2BCA932900013D07 /* GenderCell.swift in Sources */,
 				87F4A9FE2BC9704E00013D07 /* ViewController.swift in Sources */,
 				87F4A9FA2BC9704E00013D07 /* AppDelegate.swift in Sources */,
+				87F4AA202BCA968900013D07 /* AgeCell.swift in Sources */,
 				87F4AA0E2BC9713D00013D07 /* ViewController+TableView.swift in Sources */,
 				87F4A9FC2BC9704E00013D07 /* SceneDelegate.swift in Sources */,
 			);
