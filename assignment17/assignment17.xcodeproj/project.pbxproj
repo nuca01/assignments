@@ -13,6 +13,9 @@
 		87C5425A2BCAC77800A97C5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87C542592BCAC77800A97C5C /* Assets.xcassets */; };
 		87C5425D2BCAC77800A97C5C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 87C5425C2BCAC77800A97C5C /* Base */; };
 		87C542672BCAD12000A97C5C /* UIViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C542662BCAD12000A97C5C /* UIViewExtention.swift */; };
+		87C543222BCAE50100A97C5C /* UILabelExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C543212BCAE50100A97C5C /* UILabelExtention.swift */; };
+		87C543372BCAEB0700A97C5C /* FiraGO-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87C543352BCAEAFD00A97C5C /* FiraGO-Book.ttf */; };
+		87C543382BCAEB0A00A97C5C /* FiraGO-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87C543362BCAEAFD00A97C5C /* FiraGO-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +25,10 @@
 		87C542542BCAC77600A97C5C /* OnboardingOneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOneController.swift; sourceTree = "<group>"; };
 		87C542592BCAC77800A97C5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87C5425C2BCAC77800A97C5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		87C5425E2BCAC77800A97C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87C542662BCAD12000A97C5C /* UIViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtention.swift; sourceTree = "<group>"; };
+		87C543212BCAE50100A97C5C /* UILabelExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtention.swift; sourceTree = "<group>"; };
+		87C543352BCAEAFD00A97C5C /* FiraGO-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraGO-Book.ttf"; sourceTree = "<group>"; };
+		87C543362BCAEAFD00A97C5C /* FiraGO-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraGO-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +61,15 @@
 		87C5424F2BCAC77600A97C5C /* assignment17 */ = {
 			isa = PBXGroup;
 			children = (
+				87C543212BCAE50100A97C5C /* UILabelExtention.swift */,
 				87C542502BCAC77600A97C5C /* AppDelegate.swift */,
 				87C542522BCAC77600A97C5C /* SceneDelegate.swift */,
 				87C542542BCAC77600A97C5C /* OnboardingOneController.swift */,
 				87C542662BCAD12000A97C5C /* UIViewExtention.swift */,
 				87C542592BCAC77800A97C5C /* Assets.xcassets */,
 				87C5425B2BCAC77800A97C5C /* LaunchScreen.storyboard */,
-				87C5425E2BCAC77800A97C5C /* Info.plist */,
+				87C543362BCAEAFD00A97C5C /* FiraGO-Bold.ttf */,
+				87C543352BCAEAFD00A97C5C /* FiraGO-Book.ttf */,
 			);
 			path = assignment17;
 			sourceTree = "<group>";
@@ -125,6 +132,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87C543372BCAEB0700A97C5C /* FiraGO-Book.ttf in Resources */,
+				87C543382BCAEB0A00A97C5C /* FiraGO-Bold.ttf in Resources */,
 				87C5425A2BCAC77800A97C5C /* Assets.xcassets in Resources */,
 				87C5425D2BCAC77800A97C5C /* Base in Resources */,
 			);
@@ -138,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87C542552BCAC77600A97C5C /* OnboardingOneController.swift in Sources */,
+				87C543222BCAE50100A97C5C /* UILabelExtention.swift in Sources */,
 				87C542512BCAC77600A97C5C /* AppDelegate.swift in Sources */,
 				87C542532BCAC77600A97C5C /* SceneDelegate.swift in Sources */,
 				87C542672BCAD12000A97C5C /* UIViewExtention.swift in Sources */,
@@ -287,10 +297,9 @@
 				DEVELOPMENT_TEAM = 3AD552Z95A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = assignment17/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "\"\" UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,10 +323,9 @@
 				DEVELOPMENT_TEAM = 3AD552Z95A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = assignment17/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "\"\" UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
