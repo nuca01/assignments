@@ -57,3 +57,9 @@ extension MainPageController: UICollectionViewDelegateFlowLayout {
 //        }
 //    }
 //}
+extension MainPageController: AddCardDelegate {
+    func addCard(card: Card) {
+        arrayOfCards.append(card)
+        collectionView.reloadData()
+    }
+}

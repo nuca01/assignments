@@ -19,6 +19,8 @@
 		8789C9412BCC26D8004E9586 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789C9402BCC26D8004E9586 /* Card.swift */; };
 		8789C9432BCC2A82004E9586 /* MainPageController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789C9422BCC2A82004E9586 /* MainPageController+CollectionView.swift */; };
 		8789C9472BCC2F28004E9586 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789C9462BCC2F28004E9586 /* CardCell.swift */; };
+		8789C94E2BCC7FC3004E9586 /* AddNewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789C94D2BCC7FC3004E9586 /* AddNewCardViewController.swift */; };
+		8789C9502BCC845E004E9586 /* FiraGO-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8789C94F2BCC845E004E9586 /* FiraGO-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		8789C9402BCC26D8004E9586 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8789C9422BCC2A82004E9586 /* MainPageController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainPageController+CollectionView.swift"; sourceTree = "<group>"; };
 		8789C9462BCC2F28004E9586 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		8789C94D2BCC7FC3004E9586 /* AddNewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewController.swift; sourceTree = "<group>"; };
+		8789C94F2BCC845E004E9586 /* FiraGO-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraGO-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8789C9382BCAF1B2004E9586 /* FiraGO-Regular.ttf */,
+				8789C94F2BCC845E004E9586 /* FiraGO-Medium.ttf */,
 				8789C9362BCAF1A2004E9586 /* FiraGO-Bold.ttf */,
 			);
 			path = Fonts;
@@ -102,6 +107,7 @@
 			children = (
 				8789C9222BCAF0AD004E9586 /* OnboardingOneController.swift */,
 				8789C93E2BCC0A13004E9586 /* MainPageController.swift */,
+				8789C94D2BCC7FC3004E9586 /* AddNewCardViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 				8789C9392BCAF1B2004E9586 /* FiraGO-Regular.ttf in Resources */,
 				8789C9282BCAF0AF004E9586 /* Assets.xcassets in Resources */,
 				8789C92B2BCAF0AF004E9586 /* Base in Resources */,
+				8789C9502BCC845E004E9586 /* FiraGO-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +244,7 @@
 				8789C91F2BCAF0AD004E9586 /* AppDelegate.swift in Sources */,
 				8789C9432BCC2A82004E9586 /* MainPageController+CollectionView.swift in Sources */,
 				8789C9212BCAF0AD004E9586 /* SceneDelegate.swift in Sources */,
+				8789C94E2BCC7FC3004E9586 /* AddNewCardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

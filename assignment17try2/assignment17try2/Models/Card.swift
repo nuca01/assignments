@@ -9,12 +9,12 @@ import Foundation
 
 class Card {
 //MARK: - Properties
-    var icon: String
-    var title: String
-    var description: String
+    var icon: String?
+    var title: String?
+    var description: String?
     
 //MARK: - Initilizers
-    init(icon: String, title: String, description: String) {
+    init(icon: String? = nil, title: String? = nil, description: String? = nil) {
         self.icon = icon
         self.title = title
         self.description = description

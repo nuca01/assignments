@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+protocol AddCardDelegate {
+    func addCard(card: Card)
+}
 class MainPageController: UIViewController {
     //MARK: - Properties
     let screenSize = UIScreen.main.bounds.size
@@ -48,13 +50,13 @@ class MainPageController: UIViewController {
     ),
     Card(
         icon: "Blue Icon",
-        title: "Beka ras gverchi?",
-        description: "ახლა გავხსენი დავალება ეს რააარიიი"
+        title: "რამე სიმღერა მირჩიეთ",
+        description: "დავალების კეთებისას ღამე ძაან მეძინება, ყავამ არ მიშველა"
     ),
     Card(
         icon: "Green Icon",
-        title: "რამე სიმღერა მირჩიეთ",
-        description: "დავალების კეთებისას ღამე ძაან მეძინება, ყავამ არ მიშველა"
+        title: "ფიგმამ თქვენც დაგტანჯათ?",
+        description: "შევწუხდი დაბალი ხარისხით იწერს ყველას"
     ),
     Card(
         icon: "Yellow Icon",
@@ -147,7 +149,7 @@ class MainPageController: UIViewController {
     func adjustFontSize() {
         //ფიგმას ზომების მიხედვით ფონტის ზომა სიგანეზე 3.4ჯერ პატარაა
         let fontSizeaccordingToWidth = addingButton.bounds.height * (14 / 48)
-        addingButton.titleLabel?.font = UIFont(name: "FiraGO-Bold", size: fontSizeaccordingToWidth)
+        addingButton.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: fontSizeaccordingToWidth)
     }
     
     func scaledSizeAccordingToScreenWidthOf(figmaSize: CGFloat) -> CGFloat {
@@ -159,8 +161,9 @@ class MainPageController: UIViewController {
     }
     
     func pressed() {
-//        let nextViewController = ZodiacViewController()
-//        navigationController?.pushViewController(nextViewController, animated: true)
+        let nextViewController = AddNewCardViewController()
+        nextViewController.delegate = self
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
 

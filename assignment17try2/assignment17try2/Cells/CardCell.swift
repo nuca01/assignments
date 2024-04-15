@@ -103,9 +103,12 @@ class CardCell: UICollectionViewCell {
     
     func constrainTitleTextView() {
         //dimension-ები ფიგმადან
-        let scaledHeightAccordingToCurrentWidth = scaledSizeAccordingToScreenWidthOf(figmaSize: 116) * (102 / 116)
+        let iconSize = scaledSizeAccordingToScreenWidthOf(figmaSize: 40)
+        let distanceFromEdges: CGFloat = 20 * 2
+        let distanceFromIcon: CGFloat = 10
+        let scaledHeightAccordingToCellHeight = contentView.bounds.height - distanceFromEdges - distanceFromIcon - iconSize
         NSLayoutConstraint.activate([
-            titleAndDescriptionTextView.heightAnchor.constraint(equalToConstant: scaledHeightAccordingToCurrentWidth),
+            titleAndDescriptionTextView.heightAnchor.constraint(equalToConstant: scaledHeightAccordingToCellHeight),
             titleAndDescriptionTextView.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 116))
         ])
     }
@@ -115,7 +118,8 @@ class CardCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
     
@@ -124,42 +128,34 @@ class CardCell: UICollectionViewCell {
     }
     
     func updateCell(with card: Card) {
-        iconImage.image = UIImage(named: card.icon)
-        editTextViewWith(title: card.title, description: card.description)
+        iconImage.image = UIImage(named: card.icon!)
+        editTextViewWith(title: card.title!, description: card.description!)
     }
     
     func editTextViewWith(title: String, description: String) {
         let attributedString = NSMutableAttributedString()
         
         //სათაურის ტექსტის მახასიათებლები
-        let firstText = NSAttributedString(
-            string: "\(title)\n",
-            attributes: [
-                NSAttributedString.Key.font: UIFont(
-                    name: "FiraGO-Bold",
-                    size: scaledSizeAccordingToScreenWidthOf(figmaSize: 16)
-                )!,
-                NSAttributedString.Key.foregroundColor: UIColor(white: 1, alpha: 1)]
+        let firstText = createAttributedString(
+            with: "\(title)\n",
+            figmaSize: 16,
+            color: UIColor.white
         )
         //სათაურის ტექსტის ჩამატება სტრინგში თავისი მახასიათებლებით
         attributedString.append(firstText)
-
+        
         //აღწერის ტექსტის მახასიათებლები
-        let secondText = NSAttributedString(
-            string: description,
-            attributes: [
-                NSAttributedString.Key.font: UIFont(
-                    name: "FiraGO-Bold",
-                    size: scaledSizeAccordingToScreenWidthOf(figmaSize: 10)
-                )!,
-                NSAttributedString.Key.foregroundColor: UIColor(red: 0.36, green: 0.38, blue: 0.44, alpha: 1)]
+        let secondText = createAttributedString(
+            with: (description),
+            figmaSize: 10,
+            color: UIColor(red: 0.36, green: 0.38, blue: 0.44, alpha: 1)
         )
         //აღწერის ტექსტის ჩამატება სტრინგში თავისი მახასიათებლებით
         attributedString.append(secondText)
         
         //მიტყეპებული რომ არ იყოს ერთმანეთზე (ფიგმაში დაშორებულია)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 2
+        paragraphStyle.lineSpacing = 3
         attributedString.addAttribute(
             .paragraphStyle,
             value: paragraphStyle,
@@ -169,6 +165,23 @@ class CardCell: UICollectionViewCell {
         
         //textView-ს ტექსტისთვის ჩვენი attributedString ცვლადის მინიჭება
         titleAndDescriptionTextView.attributedText = attributedString
+    }
+    
+    func createAttributedString(
+        with text: String,
+        figmaSize: CGFloat,
+        color: UIColor
+    ) -> NSAttributedString{
+        //სათაურის ტექსტის მახასიათებლები
+        return NSAttributedString(
+            string: text,
+            attributes: [
+                NSAttributedString.Key.font: UIFont(
+                    name: "FiraGO-Medium",
+                    size: scaledSizeAccordingToScreenWidthOf(figmaSize: figmaSize)
+                )!,
+                NSAttributedString.Key.foregroundColor: color]
+        )
     }
 //    @objc func removeButtonTapped() {
 //        delegate?.removeFruit(from: self)

@@ -120,7 +120,7 @@ class OnboardingOneController: UIViewController {
     func adjustFontSize() {
         //ფიგმას ზომების მიხედვით ფონტის ზომა სიგანეზე 3.4ჯერ პატარაა
         let fontSizeaccordingToWidth = startButton.bounds.height / 3.4
-        startButton.titleLabel?.font = UIFont(name: "FiraGO-Bold", size: fontSizeaccordingToWidth)
+        startButton.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: fontSizeaccordingToWidth)
     }
     
     func pressed() {
