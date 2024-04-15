@@ -21,34 +21,6 @@ extension MainPageController: UICollectionViewDataSource {
     }
 }
 
-//extension MainPageController: UICollectionViewDelegate {
-//    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let selected = fruits[indexPath.row]
-//        print("navigate to \(selected) details")
-//    }
-//}
-
-extension MainPageController: UICollectionViewDelegateFlowLayout {
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        if indexPath.row < 9 {
-//            return CGSize(width: 50, height: 50)
-//        } else {
-//            return CGSize(width: 100, height: 50)
-//        }
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//
-//    }
-}
-//
-//#Preview {
-//    FruitsVC()
-//}
-
 //extension FruitsVC: FruitCellDelegate {
 //    func removeFruit(from cell: FruitCell) {
 //        if let indexPath = collectioView.indexPath(for: cell) {

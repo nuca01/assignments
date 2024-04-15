@@ -315,7 +315,7 @@ class AddNewCardViewController: UIViewController {
     }
     
     func checkIfIconIsSelectedAndAddCard() {
-        if let icon = card.icon {
+        if card.icon != nil {
             delegate?.addCard(card: card)
             navigationController?.popViewController(animated: true)
         }
