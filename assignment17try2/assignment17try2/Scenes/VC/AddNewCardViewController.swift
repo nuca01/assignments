@@ -197,14 +197,14 @@ class AddNewCardViewController: UIViewController {
     func constrain(textField: UITextField) {
         NSLayoutConstraint.activate([
             textField.heightAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenHeightOf(figmaSize: 45)),
-            textField.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 310))
+            textField.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 330))
         ])
     }
     
     func constrain(label: UILabel) {
         NSLayoutConstraint.activate([
             label.heightAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenHeightOf(figmaSize: 24)),
-            label.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 116))
+            label.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 125))
         ])
     }
     
@@ -223,9 +223,13 @@ class AddNewCardViewController: UIViewController {
         //ფიგმას ზომების მიხედვით ფონტის ზომების მიხედვით სკალირება
         let addingButtonFontSizeaccordingToWidth = addingButton.bounds.height * (14 / 48)
         addingButton.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: addingButtonFontSizeaccordingToWidth)
+        titleLabel.font = UIFont(name: "FiraGO-Medium", size: addingButtonFontSizeaccordingToWidth)
+        descriptionLabel.font = UIFont(name: "FiraGO-Medium", size: addingButtonFontSizeaccordingToWidth)
+        iconSelectionLabel.font = UIFont(name: "FiraGO-Medium", size: addingButtonFontSizeaccordingToWidth)
         let textFieldFontSizeaccordingToWidth = addingButton.bounds.height * (12 / 45)
         titleTextfield.font = UIFont(name: "FiraGO-Medium", size: textFieldFontSizeaccordingToWidth)
         descriptionTextfield.font = UIFont(name: "FiraGO-Medium", size: textFieldFontSizeaccordingToWidth)
+        
     }
     
     func scaledSizeAccordingToScreenWidthOf(figmaSize: CGFloat) -> CGFloat {
@@ -298,7 +302,11 @@ class AddNewCardViewController: UIViewController {
     func textfieldIsNotEmpty(for textfield: UITextField) -> Bool {
         if textfield.text != "" {
             setBorderColor(of: textfield, with: UIColor(red: 0.55, green: 0.55, blue: 0.55, alpha: 1).cgColor)
-            card.title = textfield.text
+            if textfield === titleTextfield{
+                card.title = textfield.text
+            } else {
+                card.description = textfield.text
+            }
             return true
         } else {
             setBorderColor(of: textfield, with: UIColor.red.cgColor)

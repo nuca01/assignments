@@ -163,6 +163,8 @@ class MainPageController: UIViewController {
     func pressed() {
         let nextViewController = AddNewCardViewController()
         nextViewController.delegate = self
+        //უკან გამოსვლის საშუალება მივცეთ
+        nextViewController.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
