@@ -15,15 +15,15 @@ class AddNewCardViewController: UIViewController {
     
     var card: Card = Card()
     
-    lazy var titleLabel = getLabelWith(text: " სათაური")
+    lazy var titleLabel = getLabelWith(text: "  სათაური")
     lazy var titleTextfield = getTextfieldWith(placeholder: "მაგ: პანიკა, დახმარება მჭირდება")
     lazy var titleStackView = getLabelTextFieldStackViewWith(label: titleLabel, textField: titleTextfield)
     
-    lazy var descriptionLabel = getLabelWith(text: " აღწერა")
+    lazy var descriptionLabel = getLabelWith(text: "  აღწერა")
     lazy var descriptionTextfield = getTextfieldWith(placeholder: "მაგ: ფიგმამ გამიჭედა და ვინმემ გამომიგზავნეთ")
     lazy var descriptionStackView = getLabelTextFieldStackViewWith(label: descriptionLabel, textField: descriptionTextfield)
     
-    lazy var iconSelectionLabel = getLabelWith(text: " აირჩიეთ აიქონი")
+    lazy var iconSelectionLabel = getLabelWith(text: "  აირჩიეთ აიქონი")
     
     lazy var redIcon = getButtonWith(image: "Red Icon")
     lazy var blueIcon = getButtonWith(image: "Blue Icon")
@@ -76,7 +76,7 @@ class AddNewCardViewController: UIViewController {
     lazy var iconsStackview: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.spacing = 2.0
+        stack.spacing = 25.0
         stack.alignment = .center
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -93,7 +93,7 @@ class AddNewCardViewController: UIViewController {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 10.0
-        stack.alignment = .leading
+        stack.alignment = .center
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [
@@ -107,7 +107,7 @@ class AddNewCardViewController: UIViewController {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 20.0
-        stack.alignment = .leading
+        stack.alignment = .center
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [
@@ -128,14 +128,12 @@ class AddNewCardViewController: UIViewController {
         adjustAddButtonCorners()
         adjustFontSizes()
     }
-    
     //MARK: - Helper Methods
     func setUpUI(){
         addAndConstrainBackground()
         addAndConstrainAddButton()
         constrainTextFields()
         constrainLabels()
-        constrainIconsStackView()
         constrainWholeStackView()
         constrainIcons()
     }
@@ -154,7 +152,7 @@ class AddNewCardViewController: UIViewController {
         view.addSubview(addingButton)
         NSLayoutConstraint.activate([
             addingButton.heightAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenHeightOf(figmaSize: 48)),
-            addingButton.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 290)),
+            addingButton.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 132)),
             addingButton.topAnchor.constraint(
                 equalTo: view.topAnchor,
                 constant: scaledSizeAccordingToScreenHeightOf(figmaSize: 660)
@@ -174,11 +172,6 @@ class AddNewCardViewController: UIViewController {
         constrain(label: iconSelectionLabel)
     }
     
-    func constrainIconsStackView(){
-        NSLayoutConstraint.activate([
-            iconsStackview.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 310))
-        ])
-    }
     func constrainWholeStackView() {
         view.addSubview(wholeStackView)
         NSLayoutConstraint.activate([
@@ -204,7 +197,7 @@ class AddNewCardViewController: UIViewController {
     func constrain(label: UILabel) {
         NSLayoutConstraint.activate([
             label.heightAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenHeightOf(figmaSize: 24)),
-            label.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 125))
+            label.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 330))
         ])
     }
     
@@ -230,14 +223,6 @@ class AddNewCardViewController: UIViewController {
         titleTextfield.font = UIFont(name: "FiraGO-Medium", size: textFieldFontSizeaccordingToWidth)
         descriptionTextfield.font = UIFont(name: "FiraGO-Medium", size: textFieldFontSizeaccordingToWidth)
         
-    }
-    
-    func scaledSizeAccordingToScreenWidthOf(figmaSize: CGFloat) -> CGFloat {
-        (figmaSize / 375) * UIScreen.main.bounds.size.width
-    }
-    
-    func scaledSizeAccordingToScreenHeightOf(figmaSize: CGFloat) -> CGFloat {
-        (figmaSize / 812) * UIScreen.main.bounds.size.height
     }
     
     func getTextfieldWith(placeholder: String) -> UITextField {

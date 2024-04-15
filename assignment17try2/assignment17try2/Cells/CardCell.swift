@@ -7,14 +7,9 @@
 
 import UIKit
 
-protocol CardCellDelegate {
-    func removeCard(from cell: CardCell)
-}
-
 class CardCell: UICollectionViewCell {
  //MARK: - Properties
     static let identifier = "CardCell"
-    var delegate: CardCellDelegate?
     
     lazy var titleAndDescriptionTextView: UITextView = {
         let textView =  UITextView()
@@ -31,19 +26,6 @@ class CardCell: UICollectionViewCell {
         textView.textContainer.lineFragmentPadding = 0
         return textView
     }()
-    
-//    lazy var removeButton: UIButton = {
-//       let button = UIButton()
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.setTitle("წაშალე", for: .normal)
-//        button.setTitleColor(.blue, for: .normal)
-//        button.titleLabel?.font = UIFont(
-//            name: "FiraGO-Regular",
-//            size: scaledSizeAccordingToScreenWidthOf(figmaSize: 10)
-//        )
-//        button.backgroundColor = .purple
-//        return button
-//    }()
     
     lazy var iconImage: UIImageView = {
         let imageView = UIImageView()
@@ -64,7 +46,7 @@ class CardCell: UICollectionViewCell {
         ].forEach { stack.addArrangedSubview($0) }
         return stack
     }()
-    
+
 //MARK: - Initilizators
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -81,9 +63,6 @@ class CardCell: UICollectionViewCell {
         addAndConstrainIconImage()
         constrainTitleTextView()
         addAndConstrainStackView()
-//        removeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-//        
-//        removeButton.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
     }
     
     func configureBackgroundAndShape() {
@@ -121,10 +100,6 @@ class CardCell: UICollectionViewCell {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
-    }
-    
-    func scaledSizeAccordingToScreenWidthOf(figmaSize: CGFloat) -> CGFloat {
-        figmaSize / 375 * UIScreen.main.bounds.size.width
     }
     
     func updateCell(with card: Card) {
@@ -183,7 +158,4 @@ class CardCell: UICollectionViewCell {
                 NSAttributedString.Key.foregroundColor: color]
         )
     }
-//    @objc func removeButtonTapped() {
-//        delegate?.removeFruit(from: self)
-//    }
 }

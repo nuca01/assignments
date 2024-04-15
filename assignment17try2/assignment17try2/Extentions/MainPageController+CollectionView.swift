@@ -16,19 +16,12 @@ extension MainPageController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CardCell
         let currentCard = arrayOfCards[indexPath.row]
+        let addedByMe = indexPath.row > 3
         cardCell.updateCell(with: currentCard)
         return cardCell
     }
 }
 
-//extension FruitsVC: FruitCellDelegate {
-//    func removeFruit(from cell: FruitCell) {
-//        if let indexPath = collectioView.indexPath(for: cell) {
-//            fruits.remove(at: indexPath.row)
-//            collectioView.reloadData()
-//        }
-//    }
-//}
 extension MainPageController: AddCardDelegate {
     func addCard(card: Card) {
         arrayOfCards.append(card)

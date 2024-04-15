@@ -21,6 +21,7 @@
 		8789C9472BCC2F28004E9586 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789C9462BCC2F28004E9586 /* CardCell.swift */; };
 		8789C94E2BCC7FC3004E9586 /* AddNewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789C94D2BCC7FC3004E9586 /* AddNewCardViewController.swift */; };
 		8789C9502BCC845E004E9586 /* FiraGO-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8789C94F2BCC845E004E9586 /* FiraGO-Medium.ttf */; };
+		8789C9522BCD197E004E9586 /* UIViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8789C9512BCD197E004E9586 /* UIViewControllerExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8789C9462BCC2F28004E9586 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		8789C94D2BCC7FC3004E9586 /* AddNewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewController.swift; sourceTree = "<group>"; };
 		8789C94F2BCC845E004E9586 /* FiraGO-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraGO-Medium.ttf"; sourceTree = "<group>"; };
+		8789C9512BCD197E004E9586 /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				8789C9342BCAF10E004E9586 /* UILabelExtention.swift */,
 				8789C9422BCC2A82004E9586 /* MainPageController+CollectionView.swift */,
+				8789C9512BCD197E004E9586 /* UIViewControllerExtention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8789C93F2BCC0A13004E9586 /* MainPageController.swift in Sources */,
+				8789C9522BCD197E004E9586 /* UIViewControllerExtention.swift in Sources */,
 				8789C9412BCC26D8004E9586 /* Card.swift in Sources */,
 				8789C9232BCAF0AD004E9586 /* OnboardingOneController.swift in Sources */,
 				8789C9472BCC2F28004E9586 /* CardCell.swift in Sources */,

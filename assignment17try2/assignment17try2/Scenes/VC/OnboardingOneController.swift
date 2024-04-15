@@ -29,10 +29,8 @@ class OnboardingOneController: UIViewController {
         label.textAlignment = .left
         label.text = "შედი\nაპლიკაციაში\nდა იწუწუნე\nრამდენიც გინდა"
         label.numberOfLines = 4
-        label.font = UIFont(name: "FiraGO-Regular", size: 30)
         label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setLineHeight(lineHeight: 48)
         return label
     }()
     
@@ -91,24 +89,22 @@ class OnboardingOneController: UIViewController {
         //ცენტრიდან ოდნავ ჩამოწეული დაბლა ეკრანის ზომის მიხედვით
         let spacingFromCenter = view.bounds.height / 10
         NSLayoutConstraint.activate([
-            instructionsLabel.heightAnchor.constraint(equalToConstant: 192),
-            instructionsLabel.widthAnchor.constraint(equalToConstant: 263),
+            instructionsLabel.heightAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenHeightOf(figmaSize: 192)),
+            instructionsLabel.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 270)),
             instructionsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             instructionsLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: spacingFromCenter)
         ])
     }
     
     func addAndConstrainStartButton(){
-        //ფიგმას ზომების მიხედვით ეკრანის სიგრძეზე 16-ჯერ და სიგანეზე 3 ჯერ პატარაა
-        let widthAccordingToCurrentScreen = screenSize.height / 16
-        let heightAccordingToCurrentScreen = screenSize.width / 3
-        //ეკრანის ზომის 80%ით არის დაშორებული ზედა საზღვრიდან
-        let spacingFromTopAccordingToScreenSize = screenSize.height * 0.8
         view.addSubview(startButton)
         NSLayoutConstraint.activate([
-            startButton.heightAnchor.constraint(equalToConstant: widthAccordingToCurrentScreen),
-            startButton.widthAnchor.constraint(equalToConstant: heightAccordingToCurrentScreen),
-            startButton.topAnchor.constraint(equalTo: view.topAnchor, constant: spacingFromTopAccordingToScreenSize),
+            startButton.heightAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenHeightOf(figmaSize: 48)),
+            startButton.widthAnchor.constraint(equalToConstant: scaledSizeAccordingToScreenWidthOf(figmaSize: 123)),
+            startButton.topAnchor.constraint(
+                equalTo: view.topAnchor,
+                constant: scaledSizeAccordingToScreenHeightOf(figmaSize: 660)
+            ),
             startButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30)
         ])
     }
@@ -118,20 +114,18 @@ class OnboardingOneController: UIViewController {
     }
     
     func adjustFontSize() {
-        //ფიგმას ზომების მიხედვით ფონტის ზომა სიგანეზე 3.4ჯერ პატარაა
-        let fontSizeaccordingToWidth = startButton.bounds.height / 3.4
-        startButton.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: fontSizeaccordingToWidth)
+        //ფიგმას ზომების მიხედვით ფონტის ზომა სიზგრძეზე (48/14)-ჯერ პატარაა
+        let fontSizeOfButtonccordingToHeight = startButton.bounds.height / (48/14)
+        startButton.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: fontSizeOfButtonccordingToHeight)
+        let fontSizeOfLabelAccordingToHeight = instructionsLabel.bounds.height / (192/30)
+        instructionsLabel.font = UIFont(name: "FiraGO-Regular", size: fontSizeOfLabelAccordingToHeight)
+        let lineHeightAccordingToHeight = instructionsLabel.bounds.height / (192/48)
+        instructionsLabel.setLineHeight(lineHeight: lineHeightAccordingToHeight)
     }
     
     func pressed() {
         let nextViewController = MainPageController()
-        disableGoingBack(for: nextViewController)
         navigationController?.pushViewController(nextViewController, animated: true)
-    }
-    
-    func disableGoingBack(for viewcontroller: UIViewController) {
-        viewcontroller.navigationItem.hidesBackButton = true
-        viewcontroller.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 }
 

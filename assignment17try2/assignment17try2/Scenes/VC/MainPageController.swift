@@ -98,6 +98,10 @@ class MainPageController: UIViewController {
         adjustFontSize()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        disableGoingBack()
+    }
     //MARK: - Helper Methods
     func setUpUI(){
         addAndConstrainBackground()
@@ -117,7 +121,7 @@ class MainPageController: UIViewController {
     
     func setupCollectionView() {
         collectionView.dataSource = self
-        collectionView.delegate = self
+//        collectionView.delegate = self
         
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
@@ -152,12 +156,9 @@ class MainPageController: UIViewController {
         addingButton.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: fontSizeaccordingToWidth)
     }
     
-    func scaledSizeAccordingToScreenWidthOf(figmaSize: CGFloat) -> CGFloat {
-        (figmaSize / 375) * UIScreen.main.bounds.size.width
-    }
-    
-    func scaledSizeAccordingToScreenHeightOf(figmaSize: CGFloat) -> CGFloat {
-        (figmaSize / 812) * UIScreen.main.bounds.size.height
+    func disableGoingBack() {
+        navigationItem.hidesBackButton = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     func pressed() {
