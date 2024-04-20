@@ -1,5 +1,5 @@
 //
-//  DetailsPageController.swift
+//  DetailsPageViewController.swift
 //  assignment19
 //
 //  Created by nuca on 19.04.24.
@@ -13,7 +13,7 @@ class DetailsPageViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.text = "Details"
-        label.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -21,8 +21,8 @@ class DetailsPageViewController: UIViewController {
     
     lazy var image: UIImageView = {
         let imageView = UIImageView()
-        imageView.clipsToBounds = false
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 15
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -83,7 +83,7 @@ class DetailsPageViewController: UIViewController {
         stack.alignment = .center
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
-        [detailsAndImageStackview,
+        [labelsAndImageStackview,
          descriptionTextView
         ].forEach { stack.addArrangedSubview($0) }
         return stack
@@ -96,17 +96,19 @@ class DetailsPageViewController: UIViewController {
     }
     //MARK: - Helper Methods
     func setUpUI(){
-        addAndConstrainWholeStackView()
+        view.backgroundColor = .white
         constrainDetailsLabel()
-        constrainTimeLabel()
         constrainImage()
+        constrainTimeLabel()
+        constrainDescriptionTextView()
+        addAndConstrainWholeStackView()
+
     }
     
     func addAndConstrainWholeStackView() {
         view.addSubview(wholeStackview)
         NSLayoutConstraint.activate([
             wholeStackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            wholeStackview.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             wholeStackview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
             wholeStackview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30)
         ])
@@ -121,21 +123,21 @@ class DetailsPageViewController: UIViewController {
     
     func constrainTimeLabel() {
         NSLayoutConstraint.activate([
-            timeLabel.heightAnchor.constraint(equalToConstant: 19),
-            timeLabel.widthAnchor.constraint(equalToConstant: 38)
+            timeLabel.heightAnchor.constraint(equalToConstant: 19)
         ])
     }
     
     func constrainImage() {
         NSLayoutConstraint.activate([
-            timeLabel.heightAnchor.constraint(equalToConstant: 190),
-            timeLabel.widthAnchor.constraint(equalToConstant: 327)
+            image.heightAnchor.constraint(equalToConstant: 190),
+            image.widthAnchor.constraint(equalToConstant: 327)
         ])
     }
     
     func constrainDescriptionTextView() {
         NSLayoutConstraint.activate([
-            timeLabel.widthAnchor.constraint(equalToConstant: 303)
+            descriptionTextView.widthAnchor.constraint(equalToConstant: 303),
+            descriptionTextView.heightAnchor.constraint(equalToConstant: 287)
         ])
     }
 }
