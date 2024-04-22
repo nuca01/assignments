@@ -23,11 +23,13 @@ class DetailsPageViewController: UIViewController {
     
     lazy var shadowView: UIView = {
         let outerView = UIView()
-        outerView.clipsToBounds = false
+        outerView.backgroundColor = .clear
         outerView.layer.shadowColor = UIColor.black.cgColor
-        outerView.layer.shadowOpacity = 1
-        outerView.layer.shadowOffset = CGSizeMake(0, 2)
-        outerView.layer.shadowRadius = 10
+        outerView.layer.shadowOffset = .zero
+        outerView.layer.shadowRadius = 2
+        outerView.layer.shadowOpacity = 0.5
+        outerView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        outerView.translatesAutoresizingMaskIntoConstraints = false
         return outerView
     }()
     
@@ -153,12 +155,10 @@ class DetailsPageViewController: UIViewController {
     func constrainScrollView() {
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 20),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-            scrollView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 20),
-            scrollView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height - 40)
+            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            scrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            scrollView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            scrollView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height)
         ])
     }
     
@@ -166,9 +166,7 @@ class DetailsPageViewController: UIViewController {
         scrollView.addSubview(scrollViewStackview)
         NSLayoutConstraint.activate([
             scrollViewStackview.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 1),
-            scrollViewStackview.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -1),
-            scrollViewStackview.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 1),
-            scrollViewStackview.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -1)
+            scrollViewStackview.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),            scrollViewStackview.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -1)
         ])
     }
     
@@ -176,13 +174,16 @@ class DetailsPageViewController: UIViewController {
         let widthACCordingToScreen = UIScreen.main.bounds.width - 40
         let heightAccordingToWidth = widthACCordingToScreen / 1.5
         NSLayoutConstraint.activate([
+            shadowView.widthAnchor.constraint(equalToConstant: widthACCordingToScreen),
+            shadowView.heightAnchor.constraint(equalToConstant: heightAccordingToWidth)
+        ])
+        shadowView.addSubview(flagImage)
+        NSLayoutConstraint.activate([
             flagImage.widthAnchor.constraint(equalToConstant: widthACCordingToScreen),
             flagImage.heightAnchor.constraint(equalToConstant: heightAccordingToWidth),
-            shadowView.widthAnchor.constraint(equalToConstant: widthACCordingToScreen + 10),
-            shadowView.heightAnchor.constraint(equalToConstant: heightAccordingToWidth + 10)
+            flagImage.centerXAnchor.constraint(equalTo: shadowView.centerXAnchor),
+            flagImage.centerYAnchor.constraint(equalTo: shadowView.centerYAnchor),
         ])
-        shadowView.layer.shadowPath = UIBezierPath(roundedRect: shadowView.bounds, cornerRadius: 10).cgPath
-        shadowView.addSubview(flagImage)
     }
     
     func genetarteSemiTitleLabel(with text: String) -> UILabel {
@@ -263,6 +264,7 @@ class DetailsPageViewController: UIViewController {
         }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
+    
     @objc func secondImageTapped() {
         guard let url = URL(string: country?.maps?.googleMaps ?? "google.com") else {
             return
