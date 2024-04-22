@@ -17,7 +17,7 @@
 		87C58EE22BD6988500236BD0 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE12BD6988500236BD0 /* CountryCell.swift */; };
 		87C58EE42BD6A69800236BD0 /* GetImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE32BD6A69800236BD0 /* GetImages.swift */; };
 		87C58EE62BD6AD8300236BD0 /* CountriesViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE52BD6AD8300236BD0 /* CountriesViewController+TableView.swift */; };
-		87C58EE82BD6C60700236BD0 /* DetailsControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE72BD6C60700236BD0 /* DetailsControllerView.swift */; };
+		87C58EE82BD6C60700236BD0 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE72BD6C60700236BD0 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		87C58EE12BD6988500236BD0 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		87C58EE32BD6A69800236BD0 /* GetImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImages.swift; sourceTree = "<group>"; };
 		87C58EE52BD6AD8300236BD0 /* CountriesViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountriesViewController+TableView.swift"; sourceTree = "<group>"; };
-		87C58EE72BD6C60700236BD0 /* DetailsControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsControllerView.swift; sourceTree = "<group>"; };
+		87C58EE72BD6C60700236BD0 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				87C58EC42BD68C9400236BD0 /* CountriesViewController.swift */,
-				87C58EE72BD6C60700236BD0 /* DetailsControllerView.swift */,
+				87C58EE72BD6C60700236BD0 /* DetailsViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87C58EE82BD6C60700236BD0 /* DetailsControllerView.swift in Sources */,
+				87C58EE82BD6C60700236BD0 /* DetailsViewController.swift in Sources */,
 				87C58EC52BD68C9400236BD0 /* CountriesViewController.swift in Sources */,
 				87C58EE42BD6A69800236BD0 /* GetImages.swift in Sources */,
 				87C58EDE2BD68F7D00236BD0 /* GetObjects.swift in Sources */,

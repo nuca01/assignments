@@ -32,14 +32,17 @@ extension CountriesViewController: UITableViewDelegate {
         return 60
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let nextViewController = CountriesViewController()
-//        //cell-იდან ინფორმაციის ამოღება და შემდეგი კონტროლერისთვის გადაწოდება
-//        if let cell = tableView.cellForRow(at: indexPath) as? CountryCell {
-//            nextViewController.image.image = cell.backgroundImage.image
-//            nextViewController.timeLabel.text = cell.timeLabel.text
-//            nextViewController.descriptionTextView.text = cell.titleLabel.text
-//        }
-//        navigationController?.pushViewController(nextViewController, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextViewController = DetailsPageViewController()
+        //cell-იდან ფოტოს ამოღება და შემდეგი კონტროლერისთვის გადაწოდება
+        if let cell = tableView.cellForRow(at: indexPath) as? CountryCell {
+            nextViewController.flagImage.image = cell.flagImage.image
+        }
+        nextViewController.country = countriesArray[indexPath.row]
+        
+        let backButtonImage = UIImage(named: "chevron 2")
+        navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
 }
