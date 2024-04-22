@@ -39,6 +39,10 @@ class NewsPageViewController: UIViewController {
         setUpUI()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
     //MARK: - Helper Methods
     func setUpUI(){
         view.backgroundColor = .white

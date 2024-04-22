@@ -1,37 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "86D0B7AB-5792-4D3C-9614-E5140A55D0E2"
+   uuid = "4D6683F0-C168-44C2-905B-2385F4EB7F69"
    type = "1"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B0A4428B-D7AC-43E5-B872-C8018901F3AC"
+            uuid = "6DB4F4EB-DB4A-4084-B81F-634AFE1B3423"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "assignment19/Networking/GetObjects.swift"
+            filePath = "assignment20/Scenes/VC/CountriesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "getData(urlString:comletion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2F91E430-2597-4BAC-B485-AFF88AE4683E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "assignment19/Scenes/VC/NewsPageViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -39,15 +23,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C5AC9B7E-50A2-4A63-BD80-A92C712B24FF"
+            uuid = "4CF188F2-F99A-4080-9F20-473D688E99D5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "assignment19/Networking/GetObjects.swift"
+            filePath = "assignment20/Networking/GetObjects.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "getData(urlString:comletion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -55,15 +39,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6CD80F38-D56E-4172-961E-2DF09A247577"
+            uuid = "720B52DB-4007-48A8-8EB8-741418048FF9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "assignment19/Networking/GetObjects.swift"
+            filePath = "assignment20/Networking/GetObjects.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "getData(urlString:comletion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,15 +55,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "56538F30-8E80-4245-B6B7-3832A3B3C95E"
+            uuid = "D3963429-97AE-4B44-911B-4A01FC29217E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "assignment19/Networking/GetObjects.swift"
+            filePath = "assignment20/Networking/GetObjects.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "getData(urlString:comletion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -87,15 +71,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "693ADD4F-FC74-4C8F-AF46-4D8D892896F9"
+            uuid = "B207C021-D4FA-4F86-98A9-E2D3D5047454"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "assignment19/Networking/GetObjects.swift"
+            filePath = "assignment20/Networking/GetObjects.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "getData(urlString:comletion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -103,16 +87,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "382B6004-5C6B-4505-BAD4-CC5BD1597BAB"
+            uuid = "002D4F55-3150-40BF-BC71-D4B771AA05FB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "assignment19/Cells/NewsCell.swift"
+            filePath = "assignment20/Scenes/VC/CountriesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "updateCell(with:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "getData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93B494B6-3677-4171-B787-BC458C3BA6F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assignment20/Scenes/VC/CountriesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
