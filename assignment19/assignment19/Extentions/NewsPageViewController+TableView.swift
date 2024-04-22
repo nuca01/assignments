@@ -4,6 +4,7 @@
 //
 //  Created by nuca on 19.04.24.
 //
+
 import UIKit
 
 extension NewsPageViewController: UITableViewDataSource {

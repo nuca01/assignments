@@ -21,12 +21,23 @@ class DetailsPageViewController: UIViewController {
         return label
     }()
     
+    lazy var shadowView: UIView = {
+        let outerView = UIView()
+        outerView.clipsToBounds = false
+        outerView.layer.shadowColor = UIColor.black.cgColor
+        outerView.layer.shadowOpacity = 1
+        outerView.layer.shadowOffset = CGSizeMake(0, 2)
+        outerView.layer.shadowRadius = 10
+        return outerView
+    }()
+    
     lazy var flagImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.cornerRadius = 20
         return imageView
     }()
     
@@ -34,12 +45,22 @@ class DetailsPageViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.text = country?.flags?.alt ?? "not available"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = UIColor.black
         label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    lazy var horizontalInformationStackViews = [
+        generateHorizontalInformationStackView(with: "official name:", and: country?.name?.official ?? "unavailable"),
+        generateHorizontalInformationStackView(with: "common name:", and: country?.name?.common ?? "unavailable"),
+        generateHorizontalInformationStackView(with: "independent:", and: country?.independent?.description ?? "unavailable"),
+        generateHorizontalInformationStackView(with: "region:", and: country?.region ?? "unavailable"),
+        generateHorizontalInformationStackView(with: "area:", and: String(country?.area ?? 0)),
+        generateHorizontalInformationStackView(with: "start of week:", and: country?.startOfWeek ?? "unavailable"),
+    ]
     
     lazy var informationLabelsStackview: UIStackView = {
         let stack = UIStackView()
@@ -48,33 +69,41 @@ class DetailsPageViewController: UIViewController {
         stack.alignment = .leading
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
-        [generateHorizontalInformationStackView(with: "official name:", and: country?.name?.official ?? "unavailable"),
-         generateHorizontalInformationStackView(with: "common name:", and: country?.name?.common ?? "unavailable"),
-         generateHorizontalInformationStackView(with: "independent:", and: country?.independent?.description ?? "unavailable"),
-         generateHorizontalInformationStackView(with: "region:", and: country?.region ?? "unavailable"),
-         generateHorizontalInformationStackView(with: "area:", and: String(country?.area ?? 0)),
-         generateHorizontalInformationStackView(with: "start of week:", and: country?.startOfWeek ?? "unavailable"),
-        ].forEach { stack.addArrangedSubview($0) }
+        horizontalInformationStackViews.forEach {stack.addArrangedSubview($0) }
         return stack
     }()
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.isScrollEnabled = true
+        scrollView.isUserInteractionEnabled = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
+    
+    lazy var titleLabels = [
+        genetarteSemiTitleLabel(with: "About The Flag:"),
+        genetarteSemiTitleLabel(with: "Basic information:"),
+        genetarteSemiTitleLabel(with: "Useful links:")
+    ]
+    
+    lazy var titleAndDescriptionStackViews = [
+        generateTitleAndDescriptionStackview(with: titleLabels[0], and: aboutFlagLabel),
+        generateTitleAndDescriptionStackview(with: titleLabels[1], and: informationLabelsStackview),
+        generateTitleAndDescriptionStackview(with: titleLabels[2], and: mapsImagesStackview)
+    ]
     
     lazy var scrollViewStackview: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 20.0
-        stack.alignment = .trailing
+        stack.alignment = .center
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
-        [generateTitleAndDescriptionStackview(with: genetarteSemiTitleLabel(with: "About The Flag:"), and: aboutFlagLabel),
-         generateTitleAndDescriptionStackview(with: genetarteSemiTitleLabel(with: "Basic information:"), and: informationLabelsStackview),
-         generateTitleAndDescriptionStackview(with: genetarteSemiTitleLabel(with: "Useful links:"), and: mapsImagesStackview)
+        [countryLabel,
+         shadowView
         ].forEach { stack.addArrangedSubview($0) }
+        titleAndDescriptionStackViews.forEach { stack.addArrangedSubview($0) }
         return stack
     }()
     
@@ -91,24 +120,16 @@ class DetailsPageViewController: UIViewController {
         return stack
     }()
     
-    lazy var wholeStackview: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 30.0
-        stack.alignment = .center
-        stack.distribution = .equalSpacing
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        [countryLabel,
-         flagImage,
-         scrollView
-        ].forEach { stack.addArrangedSubview($0) }
-        return stack
-    }()
-    
     //MARK: - LyfeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        for stack in horizontalInformationStackViews {
+            stack.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 42).isActive = true
+        }
     }
     //MARK: - Helper Methods
     func setUpUI(){
@@ -116,57 +137,52 @@ class DetailsPageViewController: UIViewController {
         configureFlagImage()
         constrainAboutFlagLabel()
         constrainInformationLabelsStackview()
-        constrainScrollViewStackview()
+        constrainScrollViewStackView()
         constrainScrollView()
-        addAndConstrainWholeStackView()
-    }
-    
-    func addAndConstrainWholeStackView() {
-        view.addSubview(wholeStackview)
-        NSLayoutConstraint.activate([
-            wholeStackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            wholeStackview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            wholeStackview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            wholeStackview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
-        ])
+        
     }
     
     func constrainAboutFlagLabel() {
-        aboutFlagLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 15).isActive = true
+        aboutFlagLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 42).isActive = true
     }
     
     func constrainInformationLabelsStackview() {
-        informationLabelsStackview.widthAnchor.constraint(equalToConstant: view.bounds.width - 15).isActive = true
+        informationLabelsStackview.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 42).isActive = true
     }
-    
-    func constrainScrollViewStackview() {
-        scrollViewStackview.widthAnchor.constraint(equalToConstant: view.bounds.width - 15).isActive = true
-    }
-    
+
     func constrainScrollView() {
         view.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 20),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            scrollView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 20),
+            scrollView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height - 40)
+        ])
+    }
+    
+    func constrainScrollViewStackView() {
         scrollView.addSubview(scrollViewStackview)
         NSLayoutConstraint.activate([
-            scrollView.widthAnchor.constraint(equalToConstant: scrollViewStackview.bounds.width),
-            scrollView.heightAnchor.constraint(equalToConstant: scrollViewStackview.bounds.height)
+            scrollViewStackview.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 1),
+            scrollViewStackview.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -1),
+            scrollViewStackview.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 1),
+            scrollViewStackview.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -1)
         ])
     }
     
     func configureFlagImage() {
-        var widthACCordingToScreen = view.bounds.width - 10
-        var heightAccordingToWidth = widthACCordingToScreen / 1.5
+        let widthACCordingToScreen = UIScreen.main.bounds.width - 40
+        let heightAccordingToWidth = widthACCordingToScreen / 1.5
         NSLayoutConstraint.activate([
             flagImage.widthAnchor.constraint(equalToConstant: widthACCordingToScreen),
-            flagImage.heightAnchor.constraint(equalToConstant: heightAccordingToWidth)
+            flagImage.heightAnchor.constraint(equalToConstant: heightAccordingToWidth),
+            shadowView.widthAnchor.constraint(equalToConstant: widthACCordingToScreen + 10),
+            shadowView.heightAnchor.constraint(equalToConstant: heightAccordingToWidth + 10)
         ])
-        flagImage.layer.cornerRadius = 20
-        flagImage.layer.masksToBounds = true
-        flagImage.translatesAutoresizingMaskIntoConstraints = false
-        flagImage.layer.shadowColor = UIColor.black.cgColor
-        flagImage.layer.shadowOpacity = 0.5
-        flagImage.layer.shadowOffset = CGSize(width: 0, height: 4)
-        flagImage.layer.shadowRadius = 4
-        flagImage.layer.masksToBounds = false
+        shadowView.layer.shadowPath = UIBezierPath(roundedRect: shadowView.bounds, cornerRadius: 10).cgPath
+        shadowView.addSubview(flagImage)
     }
     
     func genetarteSemiTitleLabel(with text: String) -> UILabel {
@@ -175,7 +191,6 @@ class DetailsPageViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.textColor = UIColor.black
         label.text = text
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
     
@@ -190,15 +205,10 @@ class DetailsPageViewController: UIViewController {
     }
     
     func generateHorizontalInformationStackView(with explanation: String, and value: String) -> UIStackView {
-        var separatorView = UIView()
-        separatorView.backgroundColor = .clear
-        var explanationLabel = generateInformationLabel(with: explanation)
-        var valueLabel = generateInformationLabel(with: value)
-        let constraint = separatorView.widthAnchor.constraint(equalToConstant: view.bounds.width)
-        constraint.isActive = true
-        constraint.priority = UILayoutPriority(1)
-        separatorView.heightAnchor.constraint(equalToConstant: valueLabel.bounds.width).isActive = true
-        
+        let explanationLabel = generateInformationLabel(with: explanation)
+        explanationLabel.numberOfLines = 0
+        let valueLabel = generateInformationLabel(with: value)
+        valueLabel.numberOfLines = 0
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.spacing = 0.0
@@ -206,7 +216,6 @@ class DetailsPageViewController: UIViewController {
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [explanationLabel,
-         separatorView,
          valueLabel
         ].forEach { stack.addArrangedSubview($0) }
         return stack
@@ -218,7 +227,6 @@ class DetailsPageViewController: UIViewController {
         stack.spacing = 20.0
         stack.alignment = .leading
         stack.distribution = .equalSpacing
-        stack.translatesAutoresizingMaskIntoConstraints = false
         [title,
          description
         ].forEach { stack.addArrangedSubview($0) }
@@ -227,7 +235,7 @@ class DetailsPageViewController: UIViewController {
     
     func generateMapsImage(with imageName: String, first: Bool) -> UIImageView {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: imageName)
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.black.cgColor

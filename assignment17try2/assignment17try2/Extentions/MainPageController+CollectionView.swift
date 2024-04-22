@@ -16,7 +16,6 @@ extension MainPageController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CardCell
         let currentCard = arrayOfCards[indexPath.row]
-        let addedByMe = indexPath.row > 3
         cardCell.updateCell(with: currentCard)
         return cardCell
     }
