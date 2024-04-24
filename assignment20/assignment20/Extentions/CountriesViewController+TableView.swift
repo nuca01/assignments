@@ -39,10 +39,6 @@ extension CountriesViewController: UITableViewDelegate {
             nextViewController.flagImage.image = cell.flagImage.image
         }
         nextViewController.country = countriesArray[indexPath.row]
-        
-        let backButtonImage = UIImage(named: "chevron 2")
-        navigationController?.navigationBar.backIndicatorImage = backButtonImage
-        
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

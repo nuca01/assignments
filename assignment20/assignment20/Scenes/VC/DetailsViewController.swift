@@ -136,6 +136,8 @@ class DetailsPageViewController: UIViewController {
     //MARK: - Helper Methods
     func setUpUI(){
         view.backgroundColor = .white
+//        let backButtonImage = UIImage(named: "chevron 2")
+//        navigationController?.navigationBar.backIndicatorImage = backButtonImage
         configureFlagImage()
         constrainAboutFlagLabel()
         constrainInformationLabelsStackview()
