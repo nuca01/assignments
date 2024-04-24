@@ -17,8 +17,10 @@ protocol DetailsPageViewModelDelegate {
 }
 
 class DetailsPageViewModel {
+//    MARK: - Property
     var country: Country?
     
+//    MARK: - Functions
     func getOfficialName() -> String {
         country?.name?.official ?? "unavailable"
     }

@@ -8,8 +8,13 @@
 import UIKit
 
 class ImageService {
+//    MARK: - Singleton Instance
     static var imageService = ImageService()
+    
+//    MARK: - Private Initilizer
     private init(){}
+    
+//    MARK: - Function
     func loadImageFromURL(_ urlString: String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: urlString) else {
             //თუ ვერ შექიმნა ვაწოდებთ ნილს

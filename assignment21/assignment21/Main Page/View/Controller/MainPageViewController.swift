@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainPageViewController: UIViewController, MainPageViewDelegate, MainPageViewModelDelegate {
+class MainPageViewController: UIViewController {
     var mainPageView: MainPageView
     var viewModel: MainPageViewModel
 
@@ -28,28 +28,7 @@ class MainPageViewController: UIViewController, MainPageViewDelegate, MainPageVi
         view = mainPageView
         view.backgroundColor = .white
     }
-
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-    func getData() {
-        viewModel.getData()
-    }
-    func passDataTo(
-        nextViewController: DetailsPageViewController,
-        using indexPath: IndexPath,
-        and tableView: UITableView) {
-        viewModel.passDataTo(nextViewController: nextViewController, using: indexPath, and: tableView)
-    }
-    func getCountriesCount() -> Int {
-        viewModel.getCountriesCount()
-    }
-    func getCountryFor(index: Int) -> Country {
-        viewModel.getCountryFor(index: index)
-    }
-    func reloadTableView() {
-        mainPageView.reloadTableView()
-    }
+    
     func pushViewController(nextViewController: UIViewController, animated: Bool) {
         navigationController?.pushViewController(nextViewController, animated: animated)
     }

@@ -7,8 +7,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BE3CA267-BB40-4CDF-8CD7-B6F1BCBD9DEA"
-            shouldBeEnabled = "Yes"
+            uuid = "7495EB82-8FAC-4C42-AABB-6E8EB6BBF583"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "assignment21/Main Page/View/View Extentions/MainViewCintroller+TableView.swift"
@@ -23,32 +23,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7495EB82-8FAC-4C42-AABB-6E8EB6BBF583"
-            shouldBeEnabled = "Yes"
+            uuid = "104D6D2F-AD34-4583-A6DE-61A6374E5CBF"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "assignment21/Main Page/View/View Extentions/MainViewCintroller+TableView.swift"
+            filePath = "assignment21/Details Page/ViewModel/DetailsPageViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "getOfficialName()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "104D6D2F-AD34-4583-A6DE-61A6374E5CBF"
-            shouldBeEnabled = "Yes"
+            uuid = "70148D30-55D6-4ED7-ACDA-0477244CFB42"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "assignment21/Details Page/ViewModel/DetailsPageViewModel.swift"
+            filePath = "assignment21/Details Page/View/View Extentions/ViewConstraintFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "getOfficialName()"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "constrainInformationLabelsStackview()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD6707D7-C3B5-4EDC-AD3B-6AC7FE4EF0F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assignment21/Details Page/View/View Extentions/ViewGenerateView Functions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "generateHorizontalInformationStackView(with:and:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -39,7 +39,6 @@ extension MainPageView: UITableViewDelegate {
         if let cell = tableView.cellForRow(at: indexPath) as? CountryCell {
             nextViewController.detailsPageView!.flagImage.image = cell.flagImage.image
         }
-        nextViewController.detailsPageViewModel!.country = currentCountry
         delegate?.pushViewController(nextViewController: nextViewController, animated: true)
     }
 }

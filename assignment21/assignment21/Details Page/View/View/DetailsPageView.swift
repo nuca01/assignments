@@ -8,6 +8,10 @@
 import UIKit
 class DetailsPageView: UIView {
     var delegate: DetailsPageViewModelDelegate?
+    
+    lazy var scrollViewWidth: CGFloat = {
+        UIScreen.main.bounds.width - 40
+    }()
     lazy var countryLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -118,6 +122,17 @@ class DetailsPageView: UIView {
         ].forEach { stack.addArrangedSubview($0) }
         return stack
     }()
+    
+//    MARK: - Initializers
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+        }
+
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+//    MARK: - Functions
     func setUpUI(){
         backgroundColor = .white
 //        let backButtonImage = UIImage(named: "chevron 2")
@@ -129,29 +144,4 @@ class DetailsPageView: UIView {
         constrainScrollView()
         
     }
-    
-   
-    
-    @objc func firstImageTapped() {
-        guard let url = URL(string: delegate!.getMapsOpenStreetMaps()) else {
-            return
-        }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-    }
-    
-    @objc func secondImageTapped() {
-        guard let url = URL(string: delegate!.getMapsGoogleMaps()) else {
-            return
-        }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-    }
-//    MARK: - Initializers
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }

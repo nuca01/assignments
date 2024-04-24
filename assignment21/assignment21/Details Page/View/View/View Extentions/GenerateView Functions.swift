@@ -8,6 +8,7 @@
 import UIKit
 
 extension DetailsPageView {
+    
     func genetarteSemiTitleLabel(with text: String) -> UILabel {
         let label = UILabel()
         label.textAlignment = .left
@@ -19,7 +20,7 @@ extension DetailsPageView {
     
     func generateInformationLabel(with text: String) -> UILabel {
         let label = UILabel()
-        label.textAlignment = .left
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = UIColor.black
         label.text = text
@@ -28,14 +29,19 @@ extension DetailsPageView {
     }
     
     func generateHorizontalInformationStackView(with explanation: String, and value: String) -> UIStackView {
+        //ლეიბლების დაგენერირება
         let explanationLabel = generateInformationLabel(with: explanation)
-        explanationLabel.numberOfLines = 0
         let valueLabel = generateInformationLabel(with: value)
-        valueLabel.numberOfLines = 0
+        //მივაწეპოთ კიდეებზე
+        explanationLabel.textAlignment = .left
+        valueLabel.textAlignment = .right
+        //განვუსაზღვროთ სიგანეები
+        constrain(explanationLabel: explanationLabel, valueLabel: valueLabel)
+        
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.spacing = 0.0
-        stack.alignment = .fill
+        stack.alignment = .leading
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [explanationLabel,

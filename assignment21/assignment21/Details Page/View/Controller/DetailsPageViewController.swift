@@ -8,18 +8,17 @@
 import UIKit
 
 class DetailsPageViewController: UIViewController {
-    //MARK: - Properties
+//    MARK: - Properties
     var detailsPageViewModel: DetailsPageViewModel?
     var detailsPageView: DetailsPageView?
     
-    //MARK: - Initilizers
+//    MARK: - Initilizers
     init(model: Country) {
-        detailsPageView = DetailsPageView()
-
         detailsPageViewModel = DetailsPageViewModel()
+        detailsPageViewModel?.country = model
+        detailsPageView = DetailsPageView()
         super.init(nibName: nil, bundle: nil)
         detailsPageView?.delegate = self
-        detailsPageView?.setUpUI()
     }
     
     required init?(coder: NSCoder) {
@@ -28,6 +27,9 @@ class DetailsPageViewController: UIViewController {
 //    MARK: - Lifecycle
     override func loadView() {
         view = detailsPageView
-        view.backgroundColor = .white
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        detailsPageView?.setUpUI()
     }
 }

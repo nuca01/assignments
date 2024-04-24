@@ -6,13 +6,18 @@
 //
 
 import UIKit
+
 protocol MainPageViewModelDelegate {
     func reloadTableView()
 }
+
 class MainPageViewModel {
+//    MARK: - Properties
     var delegate: MainPageViewModelDelegate?
-    private let urlString = "https://restcountries.com/v3.1/all"
-    private var countriesArray = [Country]()
+    let urlString = "https://restcountries.com/v3.1/all"
+    var countriesArray = [Country]()
+    
+//    MARK: - Functions
     func getData() {
         NetworkService.networkService.getData(urlString: urlString) { (result: Result<[Country], Error>) in
             switch result {
@@ -35,9 +40,11 @@ class MainPageViewModel {
         }
             nextViewController.detailsPageViewModel!.country = countriesArray[indexPath.row]
     }
+    
     func getCountriesCount() -> Int {
         return countriesArray.count
     }
+    
     func getCountryFor(index: Int) -> Country {
         return countriesArray[index]
     }

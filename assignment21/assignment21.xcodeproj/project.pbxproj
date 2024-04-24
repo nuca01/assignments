@@ -23,8 +23,14 @@
 		87C58F2B2BD981A100236BD0 /* DetailsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F2A2BD981A100236BD0 /* DetailsPageView.swift */; };
 		87C58F2D2BD986A700236BD0 /* DetailsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F2C2BD986A700236BD0 /* DetailsPageViewModel.swift */; };
 		87C58F322BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F312BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift */; };
-		87C58F352BD9933500236BD0 /* ViewConstraintFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F342BD9933500236BD0 /* ViewConstraintFunctions.swift */; };
-		87C58F372BD9938000236BD0 /* ViewGenerateView Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F362BD9938000236BD0 /* ViewGenerateView Functions.swift */; };
+		87C58F352BD9933500236BD0 /* ConstraintFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F342BD9933500236BD0 /* ConstraintFunctions.swift */; };
+		87C58F372BD9938000236BD0 /* GenerateView Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F362BD9938000236BD0 /* GenerateView Functions.swift */; };
+		87C58F3B2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3A2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift */; };
+		87C58F3D2BD9B92F00236BD0 /* UpdateHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3C2BD9B92F00236BD0 /* UpdateHelperFunctions.swift */; };
+		87C58F402BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3F2BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift */; };
+		87C58F432BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F422BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift */; };
+		87C58F452BD9BBB900236BD0 /* MainPageViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F442BD9BBB900236BD0 /* MainPageViewModelDelegate.swift */; };
+		87C58F4C2BD9BDB400236BD0 /* TapImageFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F4B2BD9BDB400236BD0 /* TapImageFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +52,14 @@
 		87C58F2A2BD981A100236BD0 /* DetailsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageView.swift; sourceTree = "<group>"; };
 		87C58F2C2BD986A700236BD0 /* DetailsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewModel.swift; sourceTree = "<group>"; };
 		87C58F312BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewModelDelegateExtension.swift; sourceTree = "<group>"; };
-		87C58F342BD9933500236BD0 /* ViewConstraintFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstraintFunctions.swift; sourceTree = "<group>"; };
-		87C58F362BD9938000236BD0 /* ViewGenerateView Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewGenerateView Functions.swift"; sourceTree = "<group>"; };
+		87C58F342BD9933500236BD0 /* ConstraintFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintFunctions.swift; sourceTree = "<group>"; };
+		87C58F362BD9938000236BD0 /* GenerateView Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenerateView Functions.swift"; sourceTree = "<group>"; };
+		87C58F3A2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpUIHelperFunctions.swift; sourceTree = "<group>"; };
+		87C58F3C2BD9B92F00236BD0 /* UpdateHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHelperFunctions.swift; sourceTree = "<group>"; };
+		87C58F3F2BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSubViewsHelperMethods.swift; sourceTree = "<group>"; };
+		87C58F422BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainPageViewDelegate Extention.swift"; sourceTree = "<group>"; };
+		87C58F442BD9BBB900236BD0 /* MainPageViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModelDelegate.swift; sourceTree = "<group>"; };
+		87C58F4B2BD9BDB400236BD0 /* TapImageFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapImageFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +113,9 @@
 		87C58F0A2BD95E3E00236BD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				87C58F472BD9BC2300236BD0 /* View */,
+				87C58F462BD9BC0A00236BD0 /* Controller */,
 				87C58F1D2BD9671100236BD0 /* Cells */,
-				87C58F182BD963AB00236BD0 /* View Extentions */,
-				87C58F162BD9631500236BD0 /* MainPageViewController.swift */,
-				87C58F192BD9649E00236BD0 /* MainPageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,10 +185,8 @@
 		87C58F132BD960F400236BD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				87C58F332BD9931700236BD0 /* View Extentions */,
-				87C58F2E2BD991BD00236BD0 /* ViewController Extentions */,
-				87C58F282BD9817700236BD0 /* DetailsPageViewController.swift */,
-				87C58F2A2BD981A100236BD0 /* DetailsPageView.swift */,
+				87C58F492BD9BD1C00236BD0 /* View */,
+				87C58F482BD9BD0D00236BD0 /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,25 +211,82 @@
 			isa = PBXGroup;
 			children = (
 				87C58F1E2BD9673B00236BD0 /* CountryCell.swift */,
+				87C58F392BD9B8B100236BD0 /* Cell Extentions */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		87C58F2E2BD991BD00236BD0 /* ViewController Extentions */ = {
+		87C58F2E2BD991BD00236BD0 /* Controller Extentions */ = {
 			isa = PBXGroup;
 			children = (
 				87C58F312BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift */,
 			);
-			path = "ViewController Extentions";
+			path = "Controller Extentions";
 			sourceTree = "<group>";
 		};
 		87C58F332BD9931700236BD0 /* View Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				87C58F342BD9933500236BD0 /* ViewConstraintFunctions.swift */,
-				87C58F362BD9938000236BD0 /* ViewGenerateView Functions.swift */,
+				87C58F342BD9933500236BD0 /* ConstraintFunctions.swift */,
+				87C58F362BD9938000236BD0 /* GenerateView Functions.swift */,
+				87C58F4B2BD9BDB400236BD0 /* TapImageFunctions.swift */,
 			);
 			path = "View Extentions";
+			sourceTree = "<group>";
+		};
+		87C58F392BD9B8B100236BD0 /* Cell Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				87C58F3A2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift */,
+				87C58F3C2BD9B92F00236BD0 /* UpdateHelperFunctions.swift */,
+				87C58F3F2BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift */,
+			);
+			path = "Cell Extentions";
+			sourceTree = "<group>";
+		};
+		87C58F412BD9BB0000236BD0 /* Controller Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				87C58F422BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift */,
+				87C58F442BD9BBB900236BD0 /* MainPageViewModelDelegate.swift */,
+			);
+			path = "Controller Extentions";
+			sourceTree = "<group>";
+		};
+		87C58F462BD9BC0A00236BD0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				87C58F412BD9BB0000236BD0 /* Controller Extentions */,
+				87C58F162BD9631500236BD0 /* MainPageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		87C58F472BD9BC2300236BD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87C58F192BD9649E00236BD0 /* MainPageView.swift */,
+				87C58F182BD963AB00236BD0 /* View Extentions */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87C58F482BD9BD0D00236BD0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				87C58F282BD9817700236BD0 /* DetailsPageViewController.swift */,
+				87C58F2E2BD991BD00236BD0 /* Controller Extentions */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		87C58F492BD9BD1C00236BD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87C58F2A2BD981A100236BD0 /* DetailsPageView.swift */,
+				87C58F332BD9931700236BD0 /* View Extentions */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,17 +360,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				87C58F172BD9631500236BD0 /* MainPageViewController.swift in Sources */,
+				87C58F4C2BD9BDB400236BD0 /* TapImageFunctions.swift in Sources */,
 				87C58F322BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift in Sources */,
-				87C58F372BD9938000236BD0 /* ViewGenerateView Functions.swift in Sources */,
+				87C58F372BD9938000236BD0 /* GenerateView Functions.swift in Sources */,
+				87C58F402BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift in Sources */,
 				87C58F1A2BD9649E00236BD0 /* MainPageView.swift in Sources */,
 				87C58F2B2BD981A100236BD0 /* DetailsPageView.swift in Sources */,
+				87C58F3D2BD9B92F00236BD0 /* UpdateHelperFunctions.swift in Sources */,
+				87C58F452BD9BBB900236BD0 /* MainPageViewModelDelegate.swift in Sources */,
 				87C58F2D2BD986A700236BD0 /* DetailsPageViewModel.swift in Sources */,
 				87C58EF62BD9533D00236BD0 /* AppDelegate.swift in Sources */,
+				87C58F432BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift in Sources */,
 				87C58F272BD97A1600236BD0 /* ImageService.swift in Sources */,
 				87C58F212BD9694E00236BD0 /* Country.swift in Sources */,
 				87C58F252BD9799300236BD0 /* NetworkService.swift in Sources */,
-				87C58F352BD9933500236BD0 /* ViewConstraintFunctions.swift in Sources */,
+				87C58F352BD9933500236BD0 /* ConstraintFunctions.swift in Sources */,
 				87C58EF82BD9533D00236BD0 /* SceneDelegate.swift in Sources */,
+				87C58F3B2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift in Sources */,
 				87C58F232BD969A200236BD0 /* MainPageViewModel.swift in Sources */,
 				87C58F292BD9817700236BD0 /* DetailsPageViewController.swift in Sources */,
 				87C58F1C2BD966F000236BD0 /* MainViewCintroller+TableView.swift in Sources */,

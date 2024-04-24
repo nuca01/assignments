@@ -14,9 +14,13 @@ enum NetworkError: Error {
 }
 
 class NetworkService {
+//    MARK: - Singleton Instance
     static var networkService = NetworkService()
     
+//    MARK: - Private Initilizer
     private init(){}
+    
+//    MARK: - Function
     func getData<T: Decodable>(urlString: String, comletion: @escaping (Result<T,Error>) ->(Void)) {
         let url = URL(string: urlString)!
 
