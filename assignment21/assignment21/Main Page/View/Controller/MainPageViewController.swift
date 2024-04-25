@@ -8,11 +8,11 @@
 import UIKit
 
 class MainPageViewController: UIViewController {
-//    MARK: - Properties
+    //    MARK: - Properties
     var mainPageView: MainPageView
     var viewModel: MainPageViewModel
-
-//    MARK: - Initializers
+    
+    //    MARK: - Initializers
     init() {
         mainPageView = MainPageView()
         viewModel = MainPageViewModel()
@@ -21,17 +21,16 @@ class MainPageViewController: UIViewController {
         mainPageView.delegate = self
         mainPageView.setUpUI()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func loadView() {
         view = mainPageView
-        definesPresentationContext = true
     }
     
-//    MARK: - Function
+    //    MARK: - Function
     func pushViewController(nextViewController: UIViewController, animated: Bool) {
         navigationController?.pushViewController(nextViewController, animated: animated)
     }

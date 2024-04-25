@@ -15,10 +15,11 @@ class DetailsPageView: UIView {
     
     lazy var countryLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.text = delegate?.getOfficialName()
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.textColor = UIColor.label
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -136,12 +137,11 @@ class DetailsPageView: UIView {
 //    MARK: - Functions
     func setUpUI() {
         backgroundColor = UIColor(named: "Background Color")
-//        let backButtonImage = UIImage(named: "chevron 2")
-//        navigationController?.navigationBar.backIndicatorImage = backButtonImage
         configureFlagImage()
         constrainAboutFlagLabel()
         constrainInformationLabelsStackview()
         constrainScrollViewStackView()
         constrainScrollView()
+        constrainCountryLabel()
     }
 }

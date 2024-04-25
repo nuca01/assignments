@@ -61,4 +61,10 @@ extension DetailsPageView {
             flagImage.centerYAnchor.constraint(equalTo: shadowView.centerYAnchor),
         ])
     }
+    
+    func constrainCountryLabel() {
+        NSLayoutConstraint.activate([
+            countryLabel.widthAnchor.constraint(equalToConstant: scrollViewWidth - 100)
+        ])
+    }
 }

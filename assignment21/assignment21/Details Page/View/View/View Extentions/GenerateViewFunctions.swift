@@ -1,5 +1,5 @@
 //
-//  View GenerateView Functions.swift
+//  GenerateViewFunctions.swift
 //  assignment21
 //
 //  Created by nuca on 24.04.24.

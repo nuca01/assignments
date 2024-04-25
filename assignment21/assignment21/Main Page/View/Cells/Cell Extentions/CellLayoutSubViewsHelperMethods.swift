@@ -1,5 +1,5 @@
 //
-//  LayoutSubViewsHelperMethods.swift
+//  CellLayoutSubViewsHelperMethods.swift
 //  assignment21
 //
 //  Created by nuca on 25.04.24.

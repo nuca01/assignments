@@ -15,7 +15,7 @@
 		87C58F022BD9533F00236BD0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 87C58F012BD9533F00236BD0 /* Base */; };
 		87C58F172BD9631500236BD0 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F162BD9631500236BD0 /* MainPageViewController.swift */; };
 		87C58F1A2BD9649E00236BD0 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F192BD9649E00236BD0 /* MainPageView.swift */; };
-		87C58F1C2BD966F000236BD0 /* MainViewCintroller+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F1B2BD966F000236BD0 /* MainViewCintroller+TableView.swift */; };
+		87C58F1C2BD966F000236BD0 /* MainViewC0ntroller+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F1B2BD966F000236BD0 /* MainViewC0ntroller+TableView.swift */; };
 		87C58F1F2BD9673B00236BD0 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F1E2BD9673B00236BD0 /* CountryCell.swift */; };
 		87C58F212BD9694E00236BD0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F202BD9694E00236BD0 /* Country.swift */; };
 		87C58F232BD969A200236BD0 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F222BD969A200236BD0 /* MainPageViewModel.swift */; };
@@ -26,11 +26,11 @@
 		87C58F2D2BD986A700236BD0 /* DetailsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F2C2BD986A700236BD0 /* DetailsPageViewModel.swift */; };
 		87C58F322BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F312BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift */; };
 		87C58F352BD9933500236BD0 /* DetailsPageViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F342BD9933500236BD0 /* DetailsPageViewConstraints.swift */; };
-		87C58F372BD9938000236BD0 /* GenerateView Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F362BD9938000236BD0 /* GenerateView Functions.swift */; };
+		87C58F372BD9938000236BD0 /* GenerateViewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F362BD9938000236BD0 /* GenerateViewFunctions.swift */; };
 		87C58F3B2BD9B8CA00236BD0 /* MainPageCellConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3A2BD9B8CA00236BD0 /* MainPageCellConstraints.swift */; };
-		87C58F3D2BD9B92F00236BD0 /* UpdateHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3C2BD9B92F00236BD0 /* UpdateHelperFunctions.swift */; };
-		87C58F402BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3F2BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift */; };
-		87C58F432BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F422BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift */; };
+		87C58F3D2BD9B92F00236BD0 /* CellUpdateHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3C2BD9B92F00236BD0 /* CellUpdateHelperFunctions.swift */; };
+		87C58F402BD9B9F800236BD0 /* CellLayoutSubViewsHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3F2BD9B9F800236BD0 /* CellLayoutSubViewsHelperMethods.swift */; };
+		87C58F432BD9BB5F00236BD0 /* MainPageViewDelegateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F422BD9BB5F00236BD0 /* MainPageViewDelegateExtention.swift */; };
 		87C58F452BD9BBB900236BD0 /* MainPageViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F442BD9BBB900236BD0 /* MainPageViewModelDelegate.swift */; };
 		87C58F4C2BD9BDB400236BD0 /* TapImageFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F4B2BD9BDB400236BD0 /* TapImageFunctions.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +46,7 @@
 		87C58F032BD9533F00236BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87C58F162BD9631500236BD0 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		87C58F192BD9649E00236BD0 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
-		87C58F1B2BD966F000236BD0 /* MainViewCintroller+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewCintroller+TableView.swift"; sourceTree = "<group>"; };
+		87C58F1B2BD966F000236BD0 /* MainViewC0ntroller+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewC0ntroller+TableView.swift"; sourceTree = "<group>"; };
 		87C58F1E2BD9673B00236BD0 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		87C58F202BD9694E00236BD0 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		87C58F222BD969A200236BD0 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
@@ -57,11 +57,11 @@
 		87C58F2C2BD986A700236BD0 /* DetailsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewModel.swift; sourceTree = "<group>"; };
 		87C58F312BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewModelDelegateExtension.swift; sourceTree = "<group>"; };
 		87C58F342BD9933500236BD0 /* DetailsPageViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewConstraints.swift; sourceTree = "<group>"; };
-		87C58F362BD9938000236BD0 /* GenerateView Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenerateView Functions.swift"; sourceTree = "<group>"; };
+		87C58F362BD9938000236BD0 /* GenerateViewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewFunctions.swift; sourceTree = "<group>"; };
 		87C58F3A2BD9B8CA00236BD0 /* MainPageCellConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageCellConstraints.swift; sourceTree = "<group>"; };
-		87C58F3C2BD9B92F00236BD0 /* UpdateHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHelperFunctions.swift; sourceTree = "<group>"; };
-		87C58F3F2BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSubViewsHelperMethods.swift; sourceTree = "<group>"; };
-		87C58F422BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainPageViewDelegate Extention.swift"; sourceTree = "<group>"; };
+		87C58F3C2BD9B92F00236BD0 /* CellUpdateHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUpdateHelperFunctions.swift; sourceTree = "<group>"; };
+		87C58F3F2BD9B9F800236BD0 /* CellLayoutSubViewsHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLayoutSubViewsHelperMethods.swift; sourceTree = "<group>"; };
+		87C58F422BD9BB5F00236BD0 /* MainPageViewDelegateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewDelegateExtention.swift; sourceTree = "<group>"; };
 		87C58F442BD9BBB900236BD0 /* MainPageViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModelDelegate.swift; sourceTree = "<group>"; };
 		87C58F4B2BD9BDB400236BD0 /* TapImageFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapImageFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,7 +206,7 @@
 		87C58F182BD963AB00236BD0 /* View Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				87C58F1B2BD966F000236BD0 /* MainViewCintroller+TableView.swift */,
+				87C58F1B2BD966F000236BD0 /* MainViewC0ntroller+TableView.swift */,
 				8770003F2BDA9CEE0034B6A7 /* MainPageViewConstraints.swift */,
 				877000412BDAE74A0034B6A7 /* MainPageView+Searchbar.swift */,
 			);
@@ -234,7 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				87C58F342BD9933500236BD0 /* DetailsPageViewConstraints.swift */,
-				87C58F362BD9938000236BD0 /* GenerateView Functions.swift */,
+				87C58F362BD9938000236BD0 /* GenerateViewFunctions.swift */,
 				87C58F4B2BD9BDB400236BD0 /* TapImageFunctions.swift */,
 			);
 			path = "View Extentions";
@@ -244,8 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				87C58F3A2BD9B8CA00236BD0 /* MainPageCellConstraints.swift */,
-				87C58F3C2BD9B92F00236BD0 /* UpdateHelperFunctions.swift */,
-				87C58F3F2BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift */,
+				87C58F3C2BD9B92F00236BD0 /* CellUpdateHelperFunctions.swift */,
+				87C58F3F2BD9B9F800236BD0 /* CellLayoutSubViewsHelperMethods.swift */,
 			);
 			path = "Cell Extentions";
 			sourceTree = "<group>";
@@ -253,7 +253,7 @@
 		87C58F412BD9BB0000236BD0 /* Controller Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				87C58F422BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift */,
+				87C58F422BD9BB5F00236BD0 /* MainPageViewDelegateExtention.swift */,
 				87C58F442BD9BBB900236BD0 /* MainPageViewModelDelegate.swift */,
 			);
 			path = "Controller Extentions";
@@ -368,16 +368,16 @@
 				87C58F172BD9631500236BD0 /* MainPageViewController.swift in Sources */,
 				87C58F4C2BD9BDB400236BD0 /* TapImageFunctions.swift in Sources */,
 				87C58F322BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift in Sources */,
-				87C58F372BD9938000236BD0 /* GenerateView Functions.swift in Sources */,
+				87C58F372BD9938000236BD0 /* GenerateViewFunctions.swift in Sources */,
 				877000422BDAE74A0034B6A7 /* MainPageView+Searchbar.swift in Sources */,
-				87C58F402BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift in Sources */,
+				87C58F402BD9B9F800236BD0 /* CellLayoutSubViewsHelperMethods.swift in Sources */,
 				87C58F1A2BD9649E00236BD0 /* MainPageView.swift in Sources */,
 				87C58F2B2BD981A100236BD0 /* DetailsPageView.swift in Sources */,
-				87C58F3D2BD9B92F00236BD0 /* UpdateHelperFunctions.swift in Sources */,
+				87C58F3D2BD9B92F00236BD0 /* CellUpdateHelperFunctions.swift in Sources */,
 				87C58F452BD9BBB900236BD0 /* MainPageViewModelDelegate.swift in Sources */,
 				87C58F2D2BD986A700236BD0 /* DetailsPageViewModel.swift in Sources */,
 				87C58EF62BD9533D00236BD0 /* AppDelegate.swift in Sources */,
-				87C58F432BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift in Sources */,
+				87C58F432BD9BB5F00236BD0 /* MainPageViewDelegateExtention.swift in Sources */,
 				877000402BDA9CEE0034B6A7 /* MainPageViewConstraints.swift in Sources */,
 				87C58F272BD97A1600236BD0 /* ImageService.swift in Sources */,
 				87C58F212BD9694E00236BD0 /* Country.swift in Sources */,
@@ -387,7 +387,7 @@
 				87C58F3B2BD9B8CA00236BD0 /* MainPageCellConstraints.swift in Sources */,
 				87C58F232BD969A200236BD0 /* MainPageViewModel.swift in Sources */,
 				87C58F292BD9817700236BD0 /* DetailsPageViewController.swift in Sources */,
-				87C58F1C2BD966F000236BD0 /* MainViewCintroller+TableView.swift in Sources */,
+				87C58F1C2BD966F000236BD0 /* MainViewC0ntroller+TableView.swift in Sources */,
 				87C58F1F2BD9673B00236BD0 /* CountryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

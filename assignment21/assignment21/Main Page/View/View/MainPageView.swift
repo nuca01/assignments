@@ -50,7 +50,6 @@ class MainPageView: UIView {
         tableview.translatesAutoresizingMaskIntoConstraints = false
         tableview.dataSource = self
         tableview.delegate = self
-        //tableview.tableHeaderView = searchBarAndTitleStackView
         tableview.backgroundColor = .clear
         return tableview
     }()

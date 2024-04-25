@@ -1,5 +1,5 @@
 //
-//  MainViewCintroller+TableView.swift
+//  MainViewController+TableView.swift
 //  assignment21
 //
 //  Created by nuca on 24.04.24.

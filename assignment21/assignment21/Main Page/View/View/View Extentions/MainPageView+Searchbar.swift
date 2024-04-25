@@ -1,5 +1,5 @@
 //
-//  MainPageView+Searchbar1.swift
+//  MainPageView+Searchbar.swift
 //  assignment21
 //
 //  Created by nuca on 25.04.24.
