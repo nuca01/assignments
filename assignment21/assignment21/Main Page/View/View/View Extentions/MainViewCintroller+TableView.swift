@@ -45,21 +45,6 @@ extension MainPageView: UITableViewDelegate {
 
 extension MainPageView {
     
-    func configureCountriesTableView() {
-        addSubview(countriesTableView)
-        
-        NSLayoutConstraint.activate([
-            countriesTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            countriesTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            countriesTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -30),
-            countriesTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30)
-        ])
-        
-        countriesTableView.register(CountryCell.self, forCellReuseIdentifier: CountryCell.identifier)
-        
-        countriesTableView.separatorStyle = .none
-    }
-    
     func reloadTableView(){
         countriesTableView.reloadData()
     }

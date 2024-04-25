@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		877000402BDA9CEE0034B6A7 /* MainPageViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8770003F2BDA9CEE0034B6A7 /* MainPageViewConstraints.swift */; };
+		877000422BDAE74A0034B6A7 /* MainPageView+Searchbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877000412BDAE74A0034B6A7 /* MainPageView+Searchbar.swift */; };
 		87C58EF62BD9533D00236BD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EF52BD9533D00236BD0 /* AppDelegate.swift */; };
 		87C58EF82BD9533D00236BD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EF72BD9533D00236BD0 /* SceneDelegate.swift */; };
 		87C58EFF2BD9533F00236BD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87C58EFE2BD9533F00236BD0 /* Assets.xcassets */; };
@@ -23,9 +25,9 @@
 		87C58F2B2BD981A100236BD0 /* DetailsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F2A2BD981A100236BD0 /* DetailsPageView.swift */; };
 		87C58F2D2BD986A700236BD0 /* DetailsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F2C2BD986A700236BD0 /* DetailsPageViewModel.swift */; };
 		87C58F322BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F312BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift */; };
-		87C58F352BD9933500236BD0 /* ConstraintFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F342BD9933500236BD0 /* ConstraintFunctions.swift */; };
+		87C58F352BD9933500236BD0 /* DetailsPageViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F342BD9933500236BD0 /* DetailsPageViewConstraints.swift */; };
 		87C58F372BD9938000236BD0 /* GenerateView Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F362BD9938000236BD0 /* GenerateView Functions.swift */; };
-		87C58F3B2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3A2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift */; };
+		87C58F3B2BD9B8CA00236BD0 /* MainPageCellConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3A2BD9B8CA00236BD0 /* MainPageCellConstraints.swift */; };
 		87C58F3D2BD9B92F00236BD0 /* UpdateHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3C2BD9B92F00236BD0 /* UpdateHelperFunctions.swift */; };
 		87C58F402BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F3F2BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift */; };
 		87C58F432BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58F422BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8770003F2BDA9CEE0034B6A7 /* MainPageViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewConstraints.swift; sourceTree = "<group>"; };
+		877000412BDAE74A0034B6A7 /* MainPageView+Searchbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainPageView+Searchbar.swift"; sourceTree = "<group>"; };
 		87C58EF22BD9533D00236BD0 /* assignment21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = assignment21.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87C58EF52BD9533D00236BD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87C58EF72BD9533D00236BD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,9 +56,9 @@
 		87C58F2A2BD981A100236BD0 /* DetailsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageView.swift; sourceTree = "<group>"; };
 		87C58F2C2BD986A700236BD0 /* DetailsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewModel.swift; sourceTree = "<group>"; };
 		87C58F312BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewModelDelegateExtension.swift; sourceTree = "<group>"; };
-		87C58F342BD9933500236BD0 /* ConstraintFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintFunctions.swift; sourceTree = "<group>"; };
+		87C58F342BD9933500236BD0 /* DetailsPageViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewConstraints.swift; sourceTree = "<group>"; };
 		87C58F362BD9938000236BD0 /* GenerateView Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenerateView Functions.swift"; sourceTree = "<group>"; };
-		87C58F3A2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpUIHelperFunctions.swift; sourceTree = "<group>"; };
+		87C58F3A2BD9B8CA00236BD0 /* MainPageCellConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageCellConstraints.swift; sourceTree = "<group>"; };
 		87C58F3C2BD9B92F00236BD0 /* UpdateHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHelperFunctions.swift; sourceTree = "<group>"; };
 		87C58F3F2BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSubViewsHelperMethods.swift; sourceTree = "<group>"; };
 		87C58F422BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainPageViewDelegate Extention.swift"; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				87C58F1B2BD966F000236BD0 /* MainViewCintroller+TableView.swift */,
+				8770003F2BDA9CEE0034B6A7 /* MainPageViewConstraints.swift */,
+				877000412BDAE74A0034B6A7 /* MainPageView+Searchbar.swift */,
 			);
 			path = "View Extentions";
 			sourceTree = "<group>";
@@ -227,7 +233,7 @@
 		87C58F332BD9931700236BD0 /* View Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				87C58F342BD9933500236BD0 /* ConstraintFunctions.swift */,
+				87C58F342BD9933500236BD0 /* DetailsPageViewConstraints.swift */,
 				87C58F362BD9938000236BD0 /* GenerateView Functions.swift */,
 				87C58F4B2BD9BDB400236BD0 /* TapImageFunctions.swift */,
 			);
@@ -237,7 +243,7 @@
 		87C58F392BD9B8B100236BD0 /* Cell Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				87C58F3A2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift */,
+				87C58F3A2BD9B8CA00236BD0 /* MainPageCellConstraints.swift */,
 				87C58F3C2BD9B92F00236BD0 /* UpdateHelperFunctions.swift */,
 				87C58F3F2BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift */,
 			);
@@ -363,6 +369,7 @@
 				87C58F4C2BD9BDB400236BD0 /* TapImageFunctions.swift in Sources */,
 				87C58F322BD9925B00236BD0 /* DetailsPageViewModelDelegateExtension.swift in Sources */,
 				87C58F372BD9938000236BD0 /* GenerateView Functions.swift in Sources */,
+				877000422BDAE74A0034B6A7 /* MainPageView+Searchbar.swift in Sources */,
 				87C58F402BD9B9F800236BD0 /* LayoutSubViewsHelperMethods.swift in Sources */,
 				87C58F1A2BD9649E00236BD0 /* MainPageView.swift in Sources */,
 				87C58F2B2BD981A100236BD0 /* DetailsPageView.swift in Sources */,
@@ -371,12 +378,13 @@
 				87C58F2D2BD986A700236BD0 /* DetailsPageViewModel.swift in Sources */,
 				87C58EF62BD9533D00236BD0 /* AppDelegate.swift in Sources */,
 				87C58F432BD9BB5F00236BD0 /* MainPageViewDelegate Extention.swift in Sources */,
+				877000402BDA9CEE0034B6A7 /* MainPageViewConstraints.swift in Sources */,
 				87C58F272BD97A1600236BD0 /* ImageService.swift in Sources */,
 				87C58F212BD9694E00236BD0 /* Country.swift in Sources */,
 				87C58F252BD9799300236BD0 /* NetworkService.swift in Sources */,
-				87C58F352BD9933500236BD0 /* ConstraintFunctions.swift in Sources */,
+				87C58F352BD9933500236BD0 /* DetailsPageViewConstraints.swift in Sources */,
 				87C58EF82BD9533D00236BD0 /* SceneDelegate.swift in Sources */,
-				87C58F3B2BD9B8CA00236BD0 /* SetUpUIHelperFunctions.swift in Sources */,
+				87C58F3B2BD9B8CA00236BD0 /* MainPageCellConstraints.swift in Sources */,
 				87C58F232BD969A200236BD0 /* MainPageViewModel.swift in Sources */,
 				87C58F292BD9817700236BD0 /* DetailsPageViewController.swift in Sources */,
 				87C58F1C2BD966F000236BD0 /* MainViewCintroller+TableView.swift in Sources */,

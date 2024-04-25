@@ -28,6 +28,7 @@ class MainPageViewController: UIViewController {
 
     override func loadView() {
         view = mainPageView
+        definesPresentationContext = true
     }
     
 //    MARK: - Function

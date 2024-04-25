@@ -27,4 +27,8 @@ extension MainPageViewController: MainPageViewDelegate {
     func getCountryFor(index: Int) -> Country {
         viewModel.getCountryFor(index: index)
     }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        viewModel.filterContentForSearchText(searchText)
+    }
 }
