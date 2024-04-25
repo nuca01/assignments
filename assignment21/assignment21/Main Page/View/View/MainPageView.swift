@@ -22,7 +22,7 @@ class MainPageView: UIView {
         let label = UILabel()
         label.textAlignment = .left
         label.text = "Countries"
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -34,6 +34,7 @@ class MainPageView: UIView {
         tableview.dataSource = self
         tableview.delegate = self
         tableview.tableHeaderView = headerLabel
+        tableview.backgroundColor = .clear
         return tableview
     }()
     override init(frame: CGRect) {
@@ -46,7 +47,7 @@ class MainPageView: UIView {
     
     func setUpUI(){
         delegate!.getData()
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "Background Color")
         configureCountriesTableView()
     }
 }

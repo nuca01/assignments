@@ -23,7 +23,9 @@ extension DetailsPageView {
             scrollView.centerXAnchor.constraint(equalTo: centerXAnchor),
             scrollView.centerYAnchor.constraint(equalTo: centerYAnchor),
             scrollView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            scrollView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height)
+            //navigation bar back button-ის გასწვრივ რომ იყოს scrollView-ს დასაწყისი
+            scrollView.topAnchor.constraint(equalTo: topAnchor, constant: -33),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     

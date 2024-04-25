@@ -13,7 +13,7 @@ extension DetailsPageView {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.text = text
         return label
     }
@@ -22,7 +22,7 @@ extension DetailsPageView {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.text = text
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -67,7 +67,7 @@ extension DetailsPageView {
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: imageName)
         imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderColor = UIColor.label.cgColor
         imageView.layer.cornerRadius = 25
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false

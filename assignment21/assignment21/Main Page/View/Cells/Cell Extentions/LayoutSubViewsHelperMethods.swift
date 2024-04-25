@@ -15,7 +15,7 @@ extension CountryCell {
     
     func configureBorder() {
         contentView.layer.cornerRadius = contentView.bounds.height / 2
-        contentView.layer.borderColor = UIColor.black.cgColor
+        contentView.layer.borderColor = UIColor.label.cgColor
         contentView.layer.borderWidth = 1
     }
 }

@@ -12,12 +12,13 @@ class DetailsPageView: UIView {
     lazy var scrollViewWidth: CGFloat = {
         UIScreen.main.bounds.width - 40
     }()
+    
     lazy var countryLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.text = delegate?.getOfficialName()
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -49,7 +50,7 @@ class DetailsPageView: UIView {
         label.textAlignment = .left
         label.text = delegate?.getFlagsAlt()
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -133,8 +134,8 @@ class DetailsPageView: UIView {
         }
         
 //    MARK: - Functions
-    func setUpUI(){
-        backgroundColor = .white
+    func setUpUI() {
+        backgroundColor = UIColor(named: "Background Color")
 //        let backButtonImage = UIImage(named: "chevron 2")
 //        navigationController?.navigationBar.backIndicatorImage = backButtonImage
         configureFlagImage()
@@ -142,6 +143,5 @@ class DetailsPageView: UIView {
         constrainInformationLabelsStackview()
         constrainScrollViewStackView()
         constrainScrollView()
-        
     }
 }

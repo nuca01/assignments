@@ -24,7 +24,7 @@ class CountryCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -70,6 +70,7 @@ class CountryCell: UITableViewCell {
     
     //MARK: - Methods
     func setUpUI() {
+        backgroundColor = .clear
         addAndConstrainFlagImage()
         constrainChevronImage()
         addAndConstrainLabelAndChevronStackview()

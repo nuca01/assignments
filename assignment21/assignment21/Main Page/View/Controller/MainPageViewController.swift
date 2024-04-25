@@ -8,9 +8,11 @@
 import UIKit
 
 class MainPageViewController: UIViewController {
+//    MARK: - Properties
     var mainPageView: MainPageView
     var viewModel: MainPageViewModel
 
+//    MARK: - Initializers
     init() {
         mainPageView = MainPageView()
         viewModel = MainPageViewModel()
@@ -26,9 +28,9 @@ class MainPageViewController: UIViewController {
 
     override func loadView() {
         view = mainPageView
-        view.backgroundColor = .white
     }
     
+//    MARK: - Function
     func pushViewController(nextViewController: UIViewController, animated: Bool) {
         navigationController?.pushViewController(nextViewController, animated: animated)
     }

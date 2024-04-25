@@ -92,12 +92,12 @@
 		87C58EF42BD9533D00236BD0 /* assignment21 */ = {
 			isa = PBXGroup;
 			children = (
+				87C58F0D2BD95E8C00236BD0 /* App */,
 				87C58F152BD9623B00236BD0 /* Launch */,
 				87C58F092BD95E3400236BD0 /* Model */,
 				87C58F0F2BD9606800236BD0 /* Main Page */,
 				87C58F102BD960DD00236BD0 /* Details Page */,
 				87C58F0E2BD95EAD00236BD0 /* Resources */,
-				87C58F0D2BD95E8C00236BD0 /* App */,
 			);
 			path = assignment21;
 			sourceTree = "<group>";
