@@ -22,7 +22,7 @@ class CountriesViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.text = "Countries"
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -34,6 +34,7 @@ class CountriesViewController: UIViewController {
         tableview.dataSource = self
         tableview.delegate = self
         tableview.tableHeaderView = headerLabel
+        tableview.backgroundColor = .clear
         return tableview
     }()
 
@@ -50,7 +51,7 @@ class CountriesViewController: UIViewController {
     
     //MARK: - Helper Methods
     private func setUpUI(){
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "Background Color")
         configureCountriesTableView()
     }
     

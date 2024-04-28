@@ -16,7 +16,7 @@ class DetailsPageViewController: UIViewController {
         label.textAlignment = .left
         label.text = viewModel.commonCountryNameTitle
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -38,7 +38,7 @@ class DetailsPageViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true        
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowColor = UIColor.label.cgColor
         imageView.layer.cornerRadius = 20
         return imageView
     }()
@@ -48,7 +48,7 @@ class DetailsPageViewController: UIViewController {
         label.textAlignment = .left
         label.text = viewModel.countryFlag
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -146,7 +146,7 @@ class DetailsPageViewController: UIViewController {
     }
     //MARK: - Helper Methods
     func setUpUI(){
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "Background Color")
         loadFlag()
         configureFlagImage()
         constrainAboutFlagLabel()
@@ -202,7 +202,7 @@ class DetailsPageViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.text = text
         return label
     }
@@ -211,7 +211,7 @@ class DetailsPageViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.text = text
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -251,7 +251,7 @@ class DetailsPageViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: imageName)
         imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderColor = UIColor.label.cgColor
         imageView.layer.cornerRadius = 25
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false

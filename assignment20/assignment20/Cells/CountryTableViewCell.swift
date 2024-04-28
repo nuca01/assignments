@@ -24,7 +24,7 @@ class CountryTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -72,6 +72,7 @@ class CountryTableViewCell: UITableViewCell {
     
     //MARK: - Helper Methods
     func setUpUI() {
+        backgroundColor = .clear
         addAndConstrainFlagImage()
         constrainChevronImage()
         addAndConstrainLabelAndChevronStackview()
@@ -79,7 +80,7 @@ class CountryTableViewCell: UITableViewCell {
     
     func configureBorder() {
         contentView.layer.cornerRadius = contentView.bounds.height / 2
-        contentView.layer.borderColor = UIColor.black.cgColor
+        contentView.layer.borderColor = UIColor.label.cgColor
         contentView.layer.borderWidth = 1
     }
     
