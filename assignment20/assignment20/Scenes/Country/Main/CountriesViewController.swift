@@ -9,9 +9,16 @@ import UIKit
 
 class CountriesViewController: UIViewController {
     //MARK: - Properties
-    let urlString = "https://restcountries.com/v3.1/all"
+    var viewModel = CountriesViewModel()
     
-    lazy var headerLabel: UILabel = {
+    lazy var alert: UIAlertController = {
+        let alert = UIAlertController(title: "გამარჯობა", message: "თქვენ პირველად დალოგინდით გისურვებთ სასიამოვნო გამოცდილებას!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "მადლობა", style: .default, handler: nil)
+        alert.addAction(okAction)
+        return alert
+    }()
+    
+    private lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.text = "Countries"
@@ -21,7 +28,7 @@ class CountriesViewController: UIViewController {
         return label
     }()
     
-    lazy var countriesTableView: UITableView = {
+    private lazy var countriesTableView: UITableView = {
         let tableview = UITableView()
         tableview.translatesAutoresizingMaskIntoConstraints = false
         tableview.dataSource = self
@@ -29,23 +36,25 @@ class CountriesViewController: UIViewController {
         tableview.tableHeaderView = headerLabel
         return tableview
     }()
-    
-    var countriesArray = [Country]()
+
     
     //MARK: - LyfeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+        viewModel.didLoad()
+        reloadData()
+        navigateToDetails()
+        presentAlert()
         setUpUI()
     }
     
     //MARK: - Helper Methods
-    func setUpUI(){
+    private func setUpUI(){
         view.backgroundColor = .white
         configureCountriesTableView()
     }
     
-    func configureCountriesTableView() {
+    private func configureCountriesTableView() {
         view.addSubview(countriesTableView)
         
         NSLayoutConstraint.activate([
@@ -55,21 +64,30 @@ class CountriesViewController: UIViewController {
             countriesTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30)
         ])
         
-        countriesTableView.register(CountryCell.self, forCellReuseIdentifier: CountryCell.identifier)
+        countriesTableView.register(CountryTableViewCell.self, forCellReuseIdentifier: CountryTableViewCell.identifier)
         
         countriesTableView.separatorStyle = .none
     }
     
-    func getData() {
-        NetworkService.networkService.getData(urlString: urlString) { (result: Result<[Country], Error>) in
-            switch result {
-            case .success(let success):
-                self.countriesArray = success
-                self.countriesTableView.reloadData()
-            case .failure(let failure):
-                //ერორის პრინტვა
-                print(failure.localizedDescription)
+    private func reloadData() {
+        viewModel.onCountryUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                self?.countriesTableView.reloadData()
             }
+        }
+    }
+    
+    private func navigateToDetails() {
+        viewModel.onCountriesSelected = { [weak self] country in
+            let countryDetailsViewModel = CountryDetailsViewModel(country: country)
+            let countryDetailsViewController = DetailsPageViewController(viewModel: countryDetailsViewModel)
+            self?.navigationController?.pushViewController(countryDetailsViewController, animated: false)
+        }
+    }
+    
+    private func presentAlert() {
+        if viewModel.firstLoggedIn {
+            present(alert, animated: true, completion: nil)
         }
     }
 }

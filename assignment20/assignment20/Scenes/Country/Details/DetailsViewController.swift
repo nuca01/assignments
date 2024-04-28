@@ -8,13 +8,13 @@
 import UIKit
 
 class DetailsPageViewController: UIViewController {
-    //MARK: - Properties
-    var country: Country?
-    
+//    MARK: - Properties
+    private let viewModel: CountryDetailsViewModel
+
     lazy var countryLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = country?.name?.official ?? "not available"
+        label.text = viewModel.commonCountryNameTitle
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +46,7 @@ class DetailsPageViewController: UIViewController {
     lazy var aboutFlagLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = country?.flags?.alt ?? "not available"
+        label.text = viewModel.countryFlag
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = UIColor.black
         label.numberOfLines = 0
@@ -56,12 +56,12 @@ class DetailsPageViewController: UIViewController {
     }()
     
     lazy var horizontalInformationStackViews = [
-        generateHorizontalInformationStackView(with: "official name:", and: country?.name?.official ?? "unavailable"),
-        generateHorizontalInformationStackView(with: "common name:", and: country?.name?.common ?? "unavailable"),
-        generateHorizontalInformationStackView(with: "independent:", and: country?.independent?.description ?? "unavailable"),
-        generateHorizontalInformationStackView(with: "region:", and: country?.region ?? "unavailable"),
-        generateHorizontalInformationStackView(with: "area:", and: String(country?.area ?? 0)),
-        generateHorizontalInformationStackView(with: "start of week:", and: country?.startOfWeek ?? "unavailable"),
+        generateHorizontalInformationStackView(with: "official name:", and: viewModel.officialCountryNameTitle),
+        generateHorizontalInformationStackView(with: "common name:", and: viewModel.commonCountryNameTitle),
+        generateHorizontalInformationStackView(with: "independent:", and: viewModel.countryIndependenceDescription),
+        generateHorizontalInformationStackView(with: "region:", and: viewModel.countryRegion),
+        generateHorizontalInformationStackView(with: "area:", and: viewModel.countryArea),
+        generateHorizontalInformationStackView(with: "start of week:", and: viewModel.startOfTeWeek),
     ]
     
     lazy var informationLabelsStackview: UIStackView = {
@@ -122,9 +122,20 @@ class DetailsPageViewController: UIViewController {
         return stack
     }()
     
+    //    MARK: - Initilizers
+        init(viewModel: CountryDetailsViewModel) {
+            self.viewModel = viewModel
+            super.init(nibName: nil, bundle: nil)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    
     //MARK: - LyfeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.loadFlag()
         setUpUI()
     }
     override func viewDidLayoutSubviews() {
@@ -136,8 +147,7 @@ class DetailsPageViewController: UIViewController {
     //MARK: - Helper Methods
     func setUpUI(){
         view.backgroundColor = .white
-//        let backButtonImage = UIImage(named: "chevron 2")
-//        navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        loadFlag()
         configureFlagImage()
         constrainAboutFlagLabel()
         constrainInformationLabelsStackview()
@@ -259,18 +269,21 @@ class DetailsPageViewController: UIViewController {
         ])
         return imageView
     }
-    
-    @objc func firstImageTapped() {
-        guard let url = URL(string: country?.maps?.openStreetMaps ?? "google.com") else {
-            return
+    func loadFlag(){
+        viewModel.onFetchImage = {[weak self] image in
+            let image = UIImage(data: image)
+            DispatchQueue.main.async {
+                self?.flagImage.image = image
+            }
         }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+//    MARK: - Button Methods
+    @objc func firstImageTapped() {
+        UIApplication.shared.open(viewModel.openStreetMapsUrl!, options: [:], completionHandler: nil)
     }
     
     @objc func secondImageTapped() {
-        guard let url = URL(string: country?.maps?.googleMaps ?? "google.com") else {
-            return
-        }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        UIApplication.shared.open(viewModel.googleMapsUrl!, options: [:], completionHandler: nil)
     }
 }

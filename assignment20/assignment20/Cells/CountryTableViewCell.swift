@@ -1,5 +1,5 @@
 //
-//  CountryCell.swift
+//  CountryTableViewCell.swift
 //  assignment20
 //
 //  Created by nuca on 22.04.24.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CountryCell: UITableViewCell {
+class CountryTableViewCell: UITableViewCell {
     //MARK: - Properties
-    static let identifier = "CountriesCell"
+    static let identifier = "CountryTableViewCell"
     
     lazy var flagImage: UIImageView = {
         let imageView = UIImageView()
@@ -62,6 +62,7 @@ class CountryCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+//    MARK: - lifeCycle
     override func layoutSubviews() {
         super.layoutSubviews()
         //დაშორება სელებს შოორის
@@ -114,42 +115,12 @@ class CountryCell: UITableViewCell {
         ])
     }
     
-    func setTitleText(using country: Country) {
-        if let name = country.name{
-            if let common = name.common {
-                titleLabel.text = common
-            } else {
-                titleLabel.text = "Unknown"
-            }
-        } else {
-            titleLabel.text = "Unknown"
+    func updateCell(with item: CountryTableViewCellViewModel) {
+        titleLabel.text = item.countryName
+        guard let url = item.flagUrl
+        else{
+            return
         }
-    }
-    
-    func setFlagImage(using country: Country) {
-        setTitleText(using: country)
-        if let flags = country.flags{
-            if let png = flags.png {
-                ImageService.imageService.loadImageFromURL(png){ image in
-                    if let image = image {
-                        self.flagImage.image = image
-                    } else {
-                        self.flagImage.image = UIImage(named: "question mark")
-                    }
-                }
-            } else {
-                self.flagImage.image = UIImage(named: "question mark")
-            }
-            if let alt = flags.alt {
-                flagImage.accessibilityLabel = alt
-            } else {
-                flagImage.accessibilityLabel = "info unavailable"
-            }
-        }
-    }
-    
-    func updateCell(with country: Country) {
-        setTitleText(using: country)
-        setFlagImage(using: country)
+        flagImage.fetchImage(url: url)
     }
 }

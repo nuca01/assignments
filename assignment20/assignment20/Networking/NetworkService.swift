@@ -1,5 +1,5 @@
-//
-//  GetObjects.swift
+//.
+//  NetworkService.swift
 //  assignment20
 //
 //  Created by nuca on 22.04.24.
@@ -9,8 +9,6 @@ import UIKit
 
 enum NetworkError: Error {
     case decodeError
-    case wrongResponse
-    case wrongStatusCode(code: Int)
 }
 
 class NetworkService {

@@ -14,14 +14,13 @@ extension CountriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        countriesArray.count
+        viewModel.numberOfCountries
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CountryCell.identifier) as! CountryCell
-        let currentCountry = countriesArray[indexPath.row]
-        cell.updateCell(with: currentCountry)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CountryTableViewCell.identifier) as! CountryTableViewCell
+        let countryCellViewModel = viewModel.countryTableViewCellViewModel[indexPath.row]
+        cell.updateCell(with: countryCellViewModel)
         return cell
     }
 }
@@ -33,12 +32,6 @@ extension CountriesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextViewController = DetailsPageViewController()
-        //cell-იდან ფოტოს ამოღება და შემდეგი კონტროლერისთვის გადაწოდება
-        if let cell = tableView.cellForRow(at: indexPath) as? CountryCell {
-            nextViewController.flagImage.image = cell.flagImage.image
-        }
-        nextViewController.country = countriesArray[indexPath.row]
-        navigationController?.pushViewController(nextViewController, animated: true)
+        viewModel.navigateToCountryDetails(index: indexPath.row)
     }
 }

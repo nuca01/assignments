@@ -12,12 +12,18 @@
 		87C58EC52BD68C9400236BD0 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EC42BD68C9400236BD0 /* CountriesViewController.swift */; };
 		87C58ECA2BD68C9700236BD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87C58EC92BD68C9700236BD0 /* Assets.xcassets */; };
 		87C58ECD2BD68C9700236BD0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 87C58ECC2BD68C9700236BD0 /* Base */; };
-		87C58EDE2BD68F7D00236BD0 /* GetObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EDD2BD68F7D00236BD0 /* GetObjects.swift */; };
+		87C58EDE2BD68F7D00236BD0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EDD2BD68F7D00236BD0 /* NetworkService.swift */; };
 		87C58EE02BD694EB00236BD0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EDF2BD694EB00236BD0 /* Country.swift */; };
-		87C58EE22BD6988500236BD0 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE12BD6988500236BD0 /* CountryCell.swift */; };
-		87C58EE42BD6A69800236BD0 /* GetImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE32BD6A69800236BD0 /* GetImages.swift */; };
+		87C58EE22BD6988500236BD0 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE12BD6988500236BD0 /* CountryTableViewCell.swift */; };
 		87C58EE62BD6AD8300236BD0 /* CountriesViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE52BD6AD8300236BD0 /* CountriesViewController+TableView.swift */; };
 		87C58EE82BD6C60700236BD0 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C58EE72BD6C60700236BD0 /* DetailsViewController.swift */; };
+		87FBD27F2BDD4DE800E71011 /* CountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FBD27E2BDD4DE800E71011 /* CountriesViewModel.swift */; };
+		87FBD2812BDD4DFD00E71011 /* CountryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FBD2802BDD4DFD00E71011 /* CountryDetailsViewModel.swift */; };
+		87FBD2832BDD55D300E71011 /* CountryTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FBD2822BDD55D300E71011 /* CountryTableViewCellViewModel.swift */; };
+		87FBD2852BDD5B1D00E71011 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FBD2842BDD5B1D00E71011 /* UIImageViewExtension.swift */; };
+		87FBD2882BDDA1E100E71011 /* LogInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FBD2872BDDA1E100E71011 /* LogInPageViewController.swift */; };
+		87FBD28A2BDDA98800E71011 /* LogInPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FBD2892BDDA98800E71011 /* LogInPageViewModel.swift */; };
+		87FBD28C2BDDB22B00E71011 /* LoginPageViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FBD28B2BDDB22B00E71011 /* LoginPageViewController+ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +34,18 @@
 		87C58EC92BD68C9700236BD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87C58ECC2BD68C9700236BD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87C58ECE2BD68C9700236BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87C58EDD2BD68F7D00236BD0 /* GetObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetObjects.swift; sourceTree = "<group>"; };
+		87C58EDD2BD68F7D00236BD0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		87C58EDF2BD694EB00236BD0 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		87C58EE12BD6988500236BD0 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
-		87C58EE32BD6A69800236BD0 /* GetImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImages.swift; sourceTree = "<group>"; };
+		87C58EE12BD6988500236BD0 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		87C58EE52BD6AD8300236BD0 /* CountriesViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountriesViewController+TableView.swift"; sourceTree = "<group>"; };
 		87C58EE72BD6C60700236BD0 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		87FBD27E2BDD4DE800E71011 /* CountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewModel.swift; sourceTree = "<group>"; };
+		87FBD2802BDD4DFD00E71011 /* CountryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewModel.swift; sourceTree = "<group>"; };
+		87FBD2822BDD55D300E71011 /* CountryTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		87FBD2842BDD5B1D00E71011 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		87FBD2872BDDA1E100E71011 /* LogInPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPageViewController.swift; sourceTree = "<group>"; };
+		87FBD2892BDDA98800E71011 /* LogInPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPageViewModel.swift; sourceTree = "<group>"; };
+		87FBD28B2BDDB22B00E71011 /* LoginPageViewController+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginPageViewController+ImagePicker.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,7 @@
 		87C58EBF2BD68C9400236BD0 /* assignment20 */ = {
 			isa = PBXGroup;
 			children = (
+				87FBD27B2BDD4D7100E71011 /* Supporting Files */,
 				87C58ED42BD68D2E00236BD0 /* App */,
 				87C58ED52BD68D3D00236BD0 /* Scenes */,
 				87C58ED82BD68D6100236BD0 /* Resources */,
@@ -89,19 +102,19 @@
 		87C58ED52BD68D3D00236BD0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				87C58ED72BD68D5600236BD0 /* Launch */,
-				87C58ED62BD68D4700236BD0 /* VC */,
+				87FBD2862BDDA1CE00E71011 /* Log In */,
+				87C58ED62BD68D4700236BD0 /* Country */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		87C58ED62BD68D4700236BD0 /* VC */ = {
+		87C58ED62BD68D4700236BD0 /* Country */ = {
 			isa = PBXGroup;
 			children = (
-				87C58EC42BD68C9400236BD0 /* CountriesViewController.swift */,
-				87C58EE72BD6C60700236BD0 /* DetailsViewController.swift */,
+				87FBD27D2BDD4DC300E71011 /* Main */,
+				87FBD27C2BDD4DB400E71011 /* Details */,
 			);
-			path = VC;
+			path = Country;
 			sourceTree = "<group>";
 		};
 		87C58ED72BD68D5600236BD0 /* Launch */ = {
@@ -116,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				87C58EC92BD68C9700236BD0 /* Assets.xcassets */,
-				87C58ECE2BD68C9700236BD0 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -124,7 +136,8 @@
 		87C58ED92BD68D7400236BD0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				87C58EE12BD6988500236BD0 /* CountryCell.swift */,
+				87C58EE12BD6988500236BD0 /* CountryTableViewCell.swift */,
+				87FBD2822BDD55D300E71011 /* CountryTableViewCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -141,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				87C58EE52BD6AD8300236BD0 /* CountriesViewController+TableView.swift */,
+				87FBD2842BDD5B1D00E71011 /* UIImageViewExtension.swift */,
+				87FBD28B2BDDB22B00E71011 /* LoginPageViewController+ImagePicker.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -148,10 +163,45 @@
 		87C58EDC2BD68F6000236BD0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				87C58EDD2BD68F7D00236BD0 /* GetObjects.swift */,
-				87C58EE32BD6A69800236BD0 /* GetImages.swift */,
+				87C58EDD2BD68F7D00236BD0 /* NetworkService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		87FBD27B2BDD4D7100E71011 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				87C58ECE2BD68C9700236BD0 /* Info.plist */,
+				87C58ED72BD68D5600236BD0 /* Launch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87FBD27C2BDD4DB400E71011 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				87C58EE72BD6C60700236BD0 /* DetailsViewController.swift */,
+				87FBD2802BDD4DFD00E71011 /* CountryDetailsViewModel.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		87FBD27D2BDD4DC300E71011 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				87C58EC42BD68C9400236BD0 /* CountriesViewController.swift */,
+				87FBD27E2BDD4DE800E71011 /* CountriesViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		87FBD2862BDDA1CE00E71011 /* Log In */ = {
+			isa = PBXGroup;
+			children = (
+				87FBD2872BDDA1E100E71011 /* LogInPageViewController.swift */,
+				87FBD2892BDDA98800E71011 /* LogInPageViewModel.swift */,
+			);
+			path = "Log In";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,12 +276,18 @@
 			files = (
 				87C58EE82BD6C60700236BD0 /* DetailsViewController.swift in Sources */,
 				87C58EC52BD68C9400236BD0 /* CountriesViewController.swift in Sources */,
-				87C58EE42BD6A69800236BD0 /* GetImages.swift in Sources */,
-				87C58EDE2BD68F7D00236BD0 /* GetObjects.swift in Sources */,
+				87FBD27F2BDD4DE800E71011 /* CountriesViewModel.swift in Sources */,
+				87FBD28A2BDDA98800E71011 /* LogInPageViewModel.swift in Sources */,
+				87C58EDE2BD68F7D00236BD0 /* NetworkService.swift in Sources */,
+				87FBD2832BDD55D300E71011 /* CountryTableViewCellViewModel.swift in Sources */,
 				87C58EE62BD6AD8300236BD0 /* CountriesViewController+TableView.swift in Sources */,
-				87C58EE22BD6988500236BD0 /* CountryCell.swift in Sources */,
+				87C58EE22BD6988500236BD0 /* CountryTableViewCell.swift in Sources */,
+				87FBD2812BDD4DFD00E71011 /* CountryDetailsViewModel.swift in Sources */,
+				87FBD2882BDDA1E100E71011 /* LogInPageViewController.swift in Sources */,
 				87C58EC12BD68C9400236BD0 /* AppDelegate.swift in Sources */,
+				87FBD28C2BDDB22B00E71011 /* LoginPageViewController+ImagePicker.swift in Sources */,
 				87C58EE02BD694EB00236BD0 /* Country.swift in Sources */,
+				87FBD2852BDD5B1D00E71011 /* UIImageViewExtension.swift in Sources */,
 				87C58EC32BD68C9400236BD0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +434,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3AD552Z95A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = assignment20/Resources/Info.plist;
+				INFOPLIST_FILE = "assignment20/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -405,7 +461,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3AD552Z95A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = assignment20/Resources/Info.plist;
+				INFOPLIST_FILE = "assignment20/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
