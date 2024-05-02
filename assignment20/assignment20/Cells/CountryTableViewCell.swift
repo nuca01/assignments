@@ -118,10 +118,7 @@ class CountryTableViewCell: UITableViewCell {
     
     func updateCell(with item: CountryTableViewCellViewModel) {
         titleLabel.text = item.countryName
-        guard let url = item.flagUrl
-        else{
-            return
-        }
+        guard let url = item.flagUrl else{return}
         flagImage.fetchImage(url: url)
     }
 }
