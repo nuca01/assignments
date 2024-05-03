@@ -17,6 +17,17 @@ class MainPageViewController: UIViewController {
 //    MARK: - Properties
     var delegate: MainPageViewControllerDelegate = MainPageViewModel()
     
+    private lazy var headerLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "Purr-fectly Fascinating Facts About Cats🙀🙀"
+        label.numberOfLines = 0
+        label.textColor = UIColor.label
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     lazy var factsTableView: UITableView = {
         let tableview = UITableView()
         tableview.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +35,8 @@ class MainPageViewController: UIViewController {
         tableview.delegate = self
         tableview.backgroundColor = .clear
         tableview.rowHeight = UITableView.automaticDimension
+        tableview.tableHeaderView = headerLabel
+        tableview.separatorInset = .zero
         tableview.estimatedRowHeight = 100
         return tableview
     }()
@@ -37,8 +50,9 @@ class MainPageViewController: UIViewController {
     
 //    MARK: - Methods
     func setUpUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         addAndConstrainFactsTableView()
+        constrainHeaderLabel()
     }
     
     func addAndConstrainFactsTableView() {
@@ -46,11 +60,17 @@ class MainPageViewController: UIViewController {
         NSLayoutConstraint.activate([
             factsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             factsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            factsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            factsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+            factsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5),
+            factsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5)
         ])
         
         factsTableView.register(FactsCell.self, forCellReuseIdentifier: FactsCell.identifier)
+    }
+    
+    private func constrainHeaderLabel() {
+        NSLayoutConstraint.activate([
+            headerLabel.widthAnchor.constraint(equalTo: factsTableView.widthAnchor)
+        ])
     }
 
 }
