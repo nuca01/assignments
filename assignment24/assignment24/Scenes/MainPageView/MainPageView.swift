@@ -18,7 +18,7 @@ class MainPageView: UIView, mainPageViewControllerDelegate {
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Int, PhotoModel> = UICollectionViewDiffableDataSource<Int, PhotoModel>(collectionView: collectionView) {
         (collectionView: UICollectionView, indexPath: IndexPath, identifier: PhotoModel) -> UICollectionViewCell? in
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainPageViewCell", for: indexPath) as! MainPageViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! Cell
         cell.updateCell(with: identifier.urls.regular)
         return cell
     }
@@ -57,12 +57,9 @@ class MainPageView: UIView, mainPageViewControllerDelegate {
     }
     
     //MARK: - LifeCycles
-    func didLoad(with mainPageViewDelegate: MainPageViewDelegate, at index: IndexPath? = nil) {
+    func didLoad(with mainPageViewDelegate: MainPageViewDelegate) {
         delegate = mainPageViewDelegate
         setUpUI()
-        if let index {
-            scrollToSelectedPhoto(at: index)
-        }
     }
     
     //MARK: - functions
@@ -77,10 +74,6 @@ class MainPageView: UIView, mainPageViewControllerDelegate {
         snapshot.appendSections([0])
         snapshot.appendItems(photos)
         dataSource.apply(snapshot, animatingDifferences: true)
-    }
-    
-    func scrollToSelectedPhoto(at index: IndexPath) {
-        collectionView.scrollToItem(at: index, at: .top, animated: true)
     }
 }
 
@@ -101,7 +94,7 @@ extension MainPageView {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
-        collectionView.register(MainPageViewCell.self, forCellWithReuseIdentifier: MainPageViewCell.identifier)
+        collectionView.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
         collectionView.delegate = self
     }
     

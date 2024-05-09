@@ -17,7 +17,7 @@ class FullScreenView: UIView, FullScreenViewControllerDelegate {
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Int, PhotoModel> = UICollectionViewDiffableDataSource<Int, PhotoModel>(collectionView: collectionView) {
         (collectionView: UICollectionView, indexPath: IndexPath, identifier: PhotoModel) -> UICollectionViewCell? in
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainPageViewCell", for: indexPath) as! MainPageViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! Cell
         cell.updateCell(with: identifier.urls.regular)
         return cell
     }
@@ -26,15 +26,13 @@ class FullScreenView: UIView, FullScreenViewControllerDelegate {
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
         collectionViewFlowLayout.scrollDirection = .horizontal
         collectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-//        collectionViewFlowLayout.minimumLineSpacing = 0
-//        collectionViewFlowLayout.minimumInteritemSpacing = 0
-        collectionViewFlowLayout.minimumInteritemSpacing = 10
+        collectionViewFlowLayout.minimumLineSpacing = 0
+        collectionViewFlowLayout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(
             frame: CGRect(x: 0, y: 0, width: 100, height: 100),
             collectionViewLayout: collectionViewFlowLayout
         )
         collectionView.backgroundColor = .clear
-//        collectionView.isPagingEnabled = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -49,14 +47,11 @@ class FullScreenView: UIView, FullScreenViewControllerDelegate {
     }
     
     //MARK: - LifeCycles
-    func didLoad(with fullScreenViewDelegate: FullScreenViewDelegate, at index: IndexPath? = nil){
+    func didLoad(with fullScreenViewDelegate: FullScreenViewDelegate){
         delegate = fullScreenViewDelegate
         setUpUI()
-        if let index {
-            self.scrollToSelectedPhoto(at: index)
-        }
     }
-    
+
     //MARK: - function
     func setUpUI(){
         backgroundColor = .systemBackground
@@ -78,11 +73,12 @@ class FullScreenView: UIView, FullScreenViewControllerDelegate {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
-        collectionView.register(MainPageViewCell.self, forCellWithReuseIdentifier: MainPageViewCell.identifier)
+        collectionView.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
     }
     
     func scrollToSelectedPhoto(at index: IndexPath) {
         collectionView.layoutIfNeeded()
-        self.collectionView.scrollToItem(at: index, at: .left, animated: true)
+        collectionView.scrollToItem(at: index, at: .left, animated: true)
+        collectionView.isPagingEnabled = true
     }
 }

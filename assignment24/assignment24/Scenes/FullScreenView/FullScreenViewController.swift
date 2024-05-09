@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FullScreenViewControllerDelegate: UIView {
-    func didLoad(with: FullScreenViewDelegate, at: IndexPath?)
+    func didLoad(with: FullScreenViewDelegate)
     func galleryDataUpdated(with photos: [PhotoModel])
 }
 
@@ -17,13 +17,15 @@ class FullScreenViewController: UIViewController, FullScreenViewDelegate, ViewMo
     //MARK: - Properties
     var fullPageView: FullScreenView = FullScreenView()
     var viewModel: ViewModel?
+    var index: IndexPath?
     
     //MARK: - Initialisers
     init(index: IndexPath?, viewModel: ViewModel) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
         viewModel.didLoad(with: self)
-        fullPageView.didLoad(with: self, at: index)
+        fullPageView.didLoad(with: self)
+        self.index = index
     }
     
     required init?(coder: NSCoder) {
@@ -34,6 +36,12 @@ class FullScreenViewController: UIViewController, FullScreenViewDelegate, ViewMo
     override func loadView() {
         view = fullPageView
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let index = self.index {
+            fullPageView.scrollToSelectedPhoto(at: index)
+        }
+    }
     //MARK: - Function
     
     func dataFetched(of photos: [PhotoModel]) {
@@ -43,4 +51,6 @@ class FullScreenViewController: UIViewController, FullScreenViewDelegate, ViewMo
     func getPhotosFor(index: Int) -> PhotoModel {
         viewModel!.getPhotosFor(index: index)
     }
+    
+    
 }

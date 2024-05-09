@@ -7,7 +7,7 @@
 
 import UIKit
 protocol mainPageViewControllerDelegate: UIView {
-    func didLoad(with: MainPageViewDelegate, at: IndexPath?)
+    func didLoad(with: MainPageViewDelegate)
     func galleryDataUpdated(with photos: [PhotoModel])
 }
 class MainPageViewController: UIViewController, MainPageViewDelegate, ViewModelDelegate {
@@ -21,7 +21,7 @@ class MainPageViewController: UIViewController, MainPageViewDelegate, ViewModelD
     init() {
         super.init(nibName: nil, bundle: nil)
         viewModel.delegate = self
-        pageView.didLoad(with: self, at: nil)
+        pageView.didLoad(with: self)
         viewModel.didLoad(with: self)
     }
     

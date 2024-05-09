@@ -1,5 +1,5 @@
 //
-//  MainPageViewCell.swift
+//  Cell.swift
 //  assignment24
 //
 //  Created by Nuca on 09.05.24.
@@ -7,9 +7,9 @@
 
 import UIKit
 import ImageService
-class MainPageViewCell: UICollectionViewCell {
+class Cell: UICollectionViewCell {
     //MARK: - Properties
-    static let identifier = "MainPageViewCell"
+    static let identifier = "Cell"
     
     lazy var image: UIImageView = {
         let imageView = UIImageView()
