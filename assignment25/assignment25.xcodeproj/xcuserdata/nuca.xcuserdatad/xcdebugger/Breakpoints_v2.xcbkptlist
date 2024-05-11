@@ -14,8 +14,8 @@
             filePath = "assignment25/Scenes/Main Page/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "checkIfSongEnded()"
             landmarkType = "7">
          </BreakpointContent>

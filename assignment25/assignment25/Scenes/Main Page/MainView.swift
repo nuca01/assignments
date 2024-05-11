@@ -118,6 +118,7 @@ final class MainView: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         [
             progressBarView,
+            timeStackView,
             playPauseStackView
         ].forEach {
             stack.addArrangedSubview($0)
@@ -157,7 +158,7 @@ final class MainView: UIView {
         label.textAlignment = .left
         label.text = "\(String(describing: getMinutesFromSeconds(seconds: delegate?.getSongPlayedTime() ?? 0)))"
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -172,11 +173,26 @@ final class MainView: UIView {
         label.textAlignment = .left
         label.text = "\(String(describing: getMinutesFromSeconds(seconds: delegate?.getSongLength() ?? 0)))"
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    private lazy var timeStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.distribution = .equalSpacing
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        [
+            playedTimeLabel,
+            lengthLabel
+        ].forEach {
+            stack.addArrangedSubview($0)
+        }
+        
+        return stack
+    }()
     //MARK: - initialisers
     
     init(delegate: MainViewDelegate) {
@@ -220,7 +236,9 @@ final class MainView: UIView {
     }
     
     private func getMinutesFromSeconds(seconds: Double) -> String {
-        String(seconds / 60.0)
+        let minutes = Int(seconds / 60)
+        let seconds = Int(seconds) - (minutes * 60)
+        return String(String(minutes) + ":" + String(seconds))
     }
     
     //MARK: - HandleTapOnPause Helper Methods
@@ -262,7 +280,7 @@ final class MainView: UIView {
     
     private func checkIfSongEnded() {
         if progressBarAnimation.state == UIViewAnimatingState.inactive {
-            progressBarAnimation =  UIViewPropertyAnimator(duration: TimeInterval(5), curve: .easeInOut) { [weak self] in
+            progressBarAnimation =  UIViewPropertyAnimator(duration: TimeInterval(delegate?.getSongLength() ?? 0), curve: .easeInOut) { [weak self] in
                 self?.progressBarView.layoutIfNeeded()
             }
             progressBlueBarWidthConstraint?.constant = 0
@@ -297,7 +315,7 @@ final class MainView: UIView {
                 guard let self = self else { return }
                 if progressBarAnimation.state != UIViewAnimatingState.inactive
                 {
-                    delegate?.setSongPlayedTime(with: (delegate?.getSongPlayedTime() ?? 0) + 0.1)
+                    delegate?.setSongPlayedTime(with: (delegate?.getSongPlayedTime() ?? 0) + 1)
                     playedTimeLabel.text = getMinutesFromSeconds(seconds: delegate?.getSongPlayedTime() ?? 0)
                     print(delegate?.getSongPlayedTime() ?? 0)
                 } else {
