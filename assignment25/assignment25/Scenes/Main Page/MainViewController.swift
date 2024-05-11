@@ -54,4 +54,12 @@ extension MainViewController: MainViewDelegate {
     func getSongCoverImageName() -> String {
         mainViewModel.getSongCoverImageName()
     }
+    
+    func getSongPlayedTime() -> Double {
+        mainViewModel.getSongPlayedTime()
+    }
+    
+    func setSongPlayedTime(with time: Double) {
+        mainViewModel.setSongPlayedTime(with: time)
+    }
 }

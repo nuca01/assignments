@@ -13,7 +13,8 @@ protocol MainViewDelegate {
     func getSongArtist() -> String
     func getSongLength() -> Double
     func getSongCoverImageName() -> String
-    
+    func setSongPlayedTime(with: Double)
+    func getSongPlayedTime() -> Double
 }
 
 final class MainView: UIView {
@@ -23,7 +24,7 @@ final class MainView: UIView {
     
     private lazy var songImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "Never Gonna Give You Up")
+        imageView.image = UIImage(named: delegate?.getSongCoverImageName() ?? "")
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
@@ -132,7 +133,7 @@ final class MainView: UIView {
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         [
-            songImageView
+            songImageView,
         ].forEach {
             stack.addArrangedSubview($0)
         }
@@ -140,10 +141,47 @@ final class MainView: UIView {
         return stack
     }()
     
+    //MARK: - circularProgressBar
+    private lazy var circularProgressBar: CircularProgressView = {
+        let circleOnSceneView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        circleOnSceneView.setProgressColor = .clear
+        circleOnSceneView.setTrackColor = .clear
+        circleOnSceneView.translatesAutoresizingMaskIntoConstraints = false
+        return circleOnSceneView
+    }()
+    
+    //MARK: - playedTimeLabel
+    
+    private lazy var playedTimeLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "\(String(describing: getMinutesFromSeconds(seconds: delegate?.getSongPlayedTime() ?? 0)))"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.textColor = UIColor.black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    private var timer: Timer?
+    
+    private var isTimerRunning = false
+    
+    //MARK: - lengthLabel
+    
+    private lazy var lengthLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "\(String(describing: getMinutesFromSeconds(seconds: delegate?.getSongLength() ?? 0)))"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.textColor = UIColor.black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     //MARK: - initialisers
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(delegate: MainViewDelegate) {
+        self.delegate = delegate
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {
@@ -153,11 +191,14 @@ final class MainView: UIView {
     //MARK: - Methods
     private func setUpUI(){
         setBackgroundColor()
-        configureUpperStackView()
-        configureLowerStackView()
+        constrain(view: circularProgressBar, height: 50, width: 50)
         constrain(view: progressBarView, height: 4, width: 400)
         configureProgressBlueBar()
         constrain(view: songImageView, height: 215, width: 204)
+        addSubview(circularProgressBar)
+        configureUpperStackView()
+        configureCircularStackView()
+        configureLowerStackView()
     }
     
     private func setBackgroundColor() {
@@ -178,25 +219,45 @@ final class MainView: UIView {
             interchangePlayPause()
     }
     
+    private func getMinutesFromSeconds(seconds: Double) -> String {
+        String(seconds / 60.0)
+    }
+    
+    //MARK: - HandleTapOnPause Helper Methods
     private func interchangePlayPause() {
         // სწორი ზომის აიქონი რომ გამოვიდეს
-        playPauseImageView?.deactivateAllConstraints()
-        if playPauseImageView?.image == playImageView.image {
-            scaleImage()
-            checkIfSongEnded()
-            progressBlueBarWidthConstraint?.constant = lowerStackView.bounds.width
-            startFillUp()
-            playPauseImageView?.image = pauseImageView.image
-            constrain(view: playPauseImageView!, height: 40, width: 40)
-        } else {
-            descaleImage()
-            playPauseImageView?.image = playImageView.image
-            constrain(view: playPauseImageView!, height: 30, width: 30)
-            if progressBarAnimation.isRunning {
-                self.progressBarAnimation.pauseAnimation()
+        self.playPauseImageView?.deactivateAllConstraints()
+        if self.playPauseImageView?.image == self.playImageView.image {
+            load()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
+            {
+                self.timeCountingEnable()
+                self.deactivateLoading()
+                self.scaleImage()
+                self.checkIfSongEnded()
+                self.startFillUp()
+                self.playPauseImageView?.image = self.pauseImageView.image
+                self.constrain(view: self.playPauseImageView!, height: 40, width: 40)
             }
+        } else {
+            timeCountingDisable()
+            self.descaleImage()
+            self.playPauseImageView?.image = self.playImageView.image
+            self.constrain(view: self.playPauseImageView!, height: 30, width: 30)
+            self.progressBarAnimation.pauseAnimation()
             
         }
+    }
+    
+    private func load() {
+        circularProgressBar.setProgressColor = .blue
+        circularProgressBar.setTrackColor = .gray
+        circularProgressBar.setProgressWithAnimation(duration: 0.5, value: 1)
+    }
+    
+    private func deactivateLoading() {
+        circularProgressBar.setProgressColor = .clear
+        circularProgressBar.setTrackColor = .clear
     }
     
     private func checkIfSongEnded() {
@@ -206,16 +267,19 @@ final class MainView: UIView {
             }
             progressBlueBarWidthConstraint?.constant = 0
             progressBarView.layoutIfNeeded()
+            delegate?.setSongPlayedTime(with: 0)
+            playedTimeLabel.text = getMinutesFromSeconds(seconds: delegate?.getSongPlayedTime() ?? 0)
         }
     }
     
     private func startFillUp() {
+        progressBlueBarWidthConstraint?.constant = lowerStackView.bounds.width
         self.progressBarAnimation.startAnimation()
     }
     
     private func scaleImage() {
         UIView.animate(withDuration: 1, animations: {
-            self.songImageView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            self.songImageView.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
         }) { _ in
         }
     }
@@ -224,6 +288,28 @@ final class MainView: UIView {
         UIView.animate(withDuration: 1) {
             self.songImageView.transform = .identity
         }
+    }
+    
+    private func timeCountingEnable() {
+        if !isTimerRunning {
+            isTimerRunning = true
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+                guard let self = self else { return }
+                if progressBarAnimation.state != UIViewAnimatingState.inactive
+                {
+                    delegate?.setSongPlayedTime(with: (delegate?.getSongPlayedTime() ?? 0) + 0.1)
+                    playedTimeLabel.text = getMinutesFromSeconds(seconds: delegate?.getSongPlayedTime() ?? 0)
+                    print(delegate?.getSongPlayedTime() ?? 0)
+                } else {
+                    isTimerRunning = false
+                }
+            }
+        }
+    }
+    
+    private func timeCountingDisable() {
+        timer?.invalidate()
+        isTimerRunning = false
     }
 }
 
@@ -234,8 +320,8 @@ extension MainView {
         NSLayoutConstraint.activate([
             lowerStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             lowerStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            lowerStackView.topAnchor.constraint(equalTo: upperStackView.bottomAnchor, constant: 40),
-            lowerStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            lowerStackView.topAnchor.constraint(equalTo: circularProgressBar.bottomAnchor, constant: 40),
+            lowerStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
     
@@ -243,7 +329,7 @@ extension MainView {
         addSubview(upperStackView)
         NSLayoutConstraint.activate([
             upperStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            upperStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60)
+            upperStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 80)
         ])
     }
     
@@ -279,7 +365,16 @@ extension MainView {
             progressBlueBarWidthConstraint!
         ])
     }
+    
+    private func configureCircularStackView() {
+        NSLayoutConstraint.activate([
+            circularProgressBar.topAnchor.constraint(equalTo: upperStackView.bottomAnchor, constant: 20),
+            circularProgressBar.centerXAnchor.constraint(equalTo: centerXAnchor),
+        ])
+    }
+
 }
+
 
 //MARK: - MainViewControllerDelegate
 extension MainView: MainViewControllerDelegate {

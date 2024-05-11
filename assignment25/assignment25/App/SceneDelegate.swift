@@ -19,15 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func initializeRootViewController() -> MainViewController {
-        let mainView = MainView()
         let song = Song(
-            title: "",
-            artist: "",
-            length: 300, 
+            title: "Never Gonna Give You Up",
+            artist: "Rick Astley",
+            length: 300,
             playedTime: 0,
-            cover: ""
+            cover: "Never Gonna Give You Up"
         )
         let mainViewModel = MainViewModel(song: song)
+        let mainView = MainView(delegate: mainViewModel)
         return MainViewController(mainViewModel: mainViewModel, mainView: mainView)
     }
 }

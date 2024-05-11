@@ -49,6 +49,10 @@ extension MainViewModel: MainViewDelegate {
         song.cover
     }
     
+    func getSongPlayedTime() -> Double {
+        song.playedTime
+    }
+    
     func setSongPlayedTime(with time: Double) {
         song.playedTime = time
     }
