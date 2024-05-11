@@ -99,7 +99,7 @@ final class MainView: UIView {
     
     private lazy var progressBlueBar: UIView = {
         let progressBlueBar = UIView()
-        progressBlueBar.backgroundColor = .blue
+        progressBlueBar.backgroundColor = UIColor(red: 58/255, green: 137/255, blue: 1, alpha: 1)
         progressBlueBar.translatesAutoresizingMaskIntoConstraints = false
         return progressBlueBar
     }()
@@ -118,6 +118,8 @@ final class MainView: UIView {
         stack.isUserInteractionEnabled = true
         stack.translatesAutoresizingMaskIntoConstraints = false
         [
+            songTitleLabel,
+            artistNameLabel,
             progressBarView,
             timeStackView,
             playPauseStackView,
@@ -257,6 +259,46 @@ final class MainView: UIView {
         return imageView
     }()
     
+    //MARK: - artistNameLabel
+    private lazy var artistNameLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = delegate?.getSongArtist()
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.textColor = .white.withAlphaComponent(0.4)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    //MARK: - songTitleLabel
+    private lazy var songTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = delegate?.getSongTitle()
+        label.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var titlesStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .equalSpacing
+        stack.spacing = 20
+        stack.isUserInteractionEnabled = true
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        [
+            homeImageView,
+            musicImageView,
+            heartImageView
+        ].forEach {
+            stack.addArrangedSubview($0)
+            constrain(view: $0, height: 20, width: 20)
+        }
+        return stack
+    }()
     //MARK: - initialisers
     
     init(delegate: MainViewDelegate) {
@@ -283,7 +325,7 @@ final class MainView: UIView {
     }
     
     private func setBackgroundColor() {
-        backgroundColor = .black
+        backgroundColor = UIColor(red: 17/255, green: 7/255, blue: 2/255, alpha: 1)
     }
     
     private func generatePlayPauseStackViewImage(of imageName: String) -> UIImageView {
@@ -333,8 +375,8 @@ final class MainView: UIView {
     }
     
     private func load() {
-        circularProgressBar.setProgressColor = .blue
-        circularProgressBar.setTrackColor = .gray
+        circularProgressBar.setProgressColor = UIColor(red: 58/255, green: 137/255, blue: 1, alpha: 1)
+        circularProgressBar.setTrackColor = UIColor(red: 58/255, green: 137/255, blue: 1, alpha: 0.5)
         circularProgressBar.setProgressWithAnimation(duration: 0.5, value: 1)
     }
     
@@ -399,7 +441,7 @@ final class MainView: UIView {
     @objc private func scaleBottomItem(_ sender: UITapGestureRecognizer) {
         guard let imageView = sender.view as? UIImageView else {return}
         deselectOtherItems()
-        imageView.image = imageView.image?.withTintColor(.blue)
+        imageView.image = imageView.image?.withTintColor(UIColor(red: 58/255, green: 137/255, blue: 1, alpha: 1))
         UIView.animate(withDuration: 1, animations: {
             sender.view!.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
         }) { _ in

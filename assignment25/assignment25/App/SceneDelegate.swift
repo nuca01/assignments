@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let song = Song(
             title: "Never Gonna Give You Up",
             artist: "Rick Astley",
-            length: 300,
+            length: 213,
             playedTime: 0,
             cover: "Never Gonna Give You Up"
         )
