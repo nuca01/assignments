@@ -14,9 +14,25 @@
             filePath = "assignment25/Scenes/Main Page/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
             landmarkName = "checkIfSongEnded()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3A96C0B-7CA9-4FE1-9D7F-F8566E0DC28D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "assignment25/Scenes/Main Page/MainView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
+            landmarkName = "scaleBottomItem(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

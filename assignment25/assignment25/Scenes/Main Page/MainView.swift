@@ -32,7 +32,7 @@ final class MainView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
+
     //MARK: - PlayPause
     
     private lazy var pauseImageView: UIImageView = {
@@ -115,11 +115,13 @@ final class MainView: UIView {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .equalSpacing
+        stack.isUserInteractionEnabled = true
         stack.translatesAutoresizingMaskIntoConstraints = false
         [
             progressBarView,
             timeStackView,
-            playPauseStackView
+            playPauseStackView,
+            bottomImageView
         ].forEach {
             stack.addArrangedSubview($0)
         }
@@ -151,33 +153,7 @@ final class MainView: UIView {
         return circleOnSceneView
     }()
     
-    //MARK: - playedTimeLabel
-    
-    private lazy var playedTimeLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.text = "\(String(describing: getMinutesFromSeconds(seconds: delegate?.getSongPlayedTime() ?? 0)))"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        label.textColor = UIColor.white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    private var timer: Timer?
-    
-    private var isTimerRunning = false
-    
-    //MARK: - lengthLabel
-    
-    private lazy var lengthLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.text = "\(String(describing: getMinutesFromSeconds(seconds: delegate?.getSongLength() ?? 0)))"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        label.textColor = UIColor.white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+    //MARK: - timeStackView
     private lazy var timeStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -193,6 +169,94 @@ final class MainView: UIView {
         
         return stack
     }()
+    
+    private lazy var playedTimeLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "\(String(describing: getMinutesFromSeconds(seconds: delegate?.getSongPlayedTime() ?? 0)))"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    private var timer: Timer?
+    
+    private var isTimerRunning = false
+    
+    private lazy var lengthLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.text = "\(String(describing: getMinutesFromSeconds(seconds: delegate?.getSongLength() ?? 0)))"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    //MARK: - bottomImagesStackView
+    private lazy var bottomImagesStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.distribution = .equalSpacing
+        stack.isUserInteractionEnabled = true
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        [
+            homeImageView,
+            musicImageView,
+            heartImageView
+        ].forEach {
+            stack.addArrangedSubview($0)
+            constrain(view: $0, height: 20, width: 20)
+        }
+        return stack
+    }()
+    
+    private lazy var bottomImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Rectangle")
+        imageView.contentMode = .redraw
+        imageView.isUserInteractionEnabled = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private lazy var homeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "home")
+        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(scaleBottomItem(_:))))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private lazy var musicImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "music")
+        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(scaleBottomItem(_:))))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private lazy var heartImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "heart")
+        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(scaleBottomItem(_:))))
+        imageView.isUserInteractionEnabled = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     //MARK: - initialisers
     
     init(delegate: MainViewDelegate) {
@@ -215,6 +279,7 @@ final class MainView: UIView {
         configureUpperStackView()
         configureCircularStackView()
         configureLowerStackView()
+        configureBottomImageView()
     }
     
     private func setBackgroundColor() {
@@ -329,6 +394,28 @@ final class MainView: UIView {
         timer?.invalidate()
         isTimerRunning = false
     }
+    
+    //MARK: - scaleBottomItem
+    @objc private func scaleBottomItem(_ sender: UITapGestureRecognizer) {
+        guard let imageView = sender.view as? UIImageView else {return}
+        deselectOtherItems()
+        imageView.image = imageView.image?.withTintColor(.blue)
+        UIView.animate(withDuration: 1, animations: {
+            sender.view!.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
+        }) { _ in
+        }
+    }
+    
+    private func deselectOtherItems() {
+        var items = [heartImageView, musicImageView, homeImageView]
+        for item in items {
+            item.image = item.image?.withTintColor(.gray)
+            UIView.animate(withDuration: 0.5, animations: {
+                item.transform = .identity
+            }) { _ in
+            }
+        }
+    }
 }
 
 //MARK: - Constraints
@@ -339,7 +426,7 @@ extension MainView {
             lowerStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             lowerStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             lowerStackView.topAnchor.constraint(equalTo: circularProgressBar.bottomAnchor, constant: 40),
-            lowerStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -50)
+            lowerStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -375,7 +462,7 @@ extension MainView {
     
     private func configureProgressBlueBar() {
         progressBarView.addSubview(progressBlueBar)
-        progressBlueBarWidthConstraint = progressBlueBar.widthAnchor.constraint(equalToConstant: 10)
+        progressBlueBarWidthConstraint = progressBlueBar.widthAnchor.constraint(equalToConstant: 0)
         NSLayoutConstraint.activate([
             progressBlueBar.leadingAnchor.constraint(equalTo: progressBarView.leadingAnchor),
             progressBlueBar.centerYAnchor.constraint(equalTo: progressBarView.centerYAnchor),
@@ -390,7 +477,19 @@ extension MainView {
             circularProgressBar.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
     }
-
+    
+    func configureBottomImageView() {
+        NSLayoutConstraint.activate([
+            bottomImageView.heightAnchor.constraint(equalToConstant: 85),
+        ])
+        bottomImageView.addSubview(bottomImagesStackView)
+        NSLayoutConstraint.activate([
+            bottomImagesStackView.centerXAnchor.constraint(equalTo: bottomImageView.centerXAnchor),
+            bottomImagesStackView.centerYAnchor.constraint(equalTo: bottomImageView.centerYAnchor),
+            bottomImagesStackView.leadingAnchor.constraint(equalTo: bottomImageView.leadingAnchor, constant: 30),
+            bottomImagesStackView.trailingAnchor.constraint(equalTo: bottomImageView.trailingAnchor, constant: -30)
+        ])
+    }
 }
 
 
