@@ -14,10 +14,11 @@ protocol SongDelegate {
     var title: String {get}
     var artist: String {get}
     var length: Double {get}
+    var playedTime: Double {get set}
     var cover: String {get}
 }
 
-class MainViewModel {
+final class MainViewModel {
     
     //MARK: - Properties
     private var song: SongDelegate
@@ -46,5 +47,9 @@ extension MainViewModel: MainViewDelegate {
     
     func getSongCoverImageName() -> String {
         song.cover
+    }
+    
+    func setSongPlayedTime(with time: Double) {
+        song.playedTime = time
     }
 }

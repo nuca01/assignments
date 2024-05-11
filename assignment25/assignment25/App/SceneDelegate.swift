@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let song = Song(
             title: "",
             artist: "",
-            length: 2.47,
+            length: 300, 
+            playedTime: 0,
             cover: ""
         )
         let mainViewModel = MainViewModel(song: song)

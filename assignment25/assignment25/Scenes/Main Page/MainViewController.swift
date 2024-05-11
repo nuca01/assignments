@@ -12,7 +12,7 @@ protocol MainViewControllerDelegate: UIView {
     func didLoad()
 }
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     //MARK: - Properties
     private var mainViewModel: MainViewDelegate
     private var mainView: MainViewControllerDelegate

@@ -16,66 +16,48 @@ protocol MainViewDelegate {
     
 }
 
-class MainView: UIView {
+final class MainView: UIView {
     
     //MARK: - Properties
     private var delegate: MainViewDelegate?
-    lazy var backgroundImage: UIImageView = {
+    
+    private lazy var songImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "GradientBackground")
-        imageView.clipsToBounds = false
+        imageView.image = UIImage(named: "Never Gonna Give You Up")
+        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 20
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-//    lazy var addingButton: UIButton = {
-//        let button = UIButton()
-//        button.setTitle("ახალი წუწუნ ბარათის დამატება", for: .normal)
-//        button.setTitleColor(UIColor.white, for: .normal)
-//        button.backgroundColor = UIColor(red: 0.0, green: 0.45, blue: 1, alpha: 1)
-//        button.addAction(UIAction(handler: { _ in
-//            self.pressed()
-//        }), for: .touchUpInside)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
+    //MARK: - PlayPause
     
-    lazy var pauseImageView: UIImageView = {
+    private lazy var pauseImageView: UIImageView = {
         generatePlayPauseStackViewImage(of: "pause")
     }()
     
-    lazy var playImageView: UIImageView = {
+    private lazy var playImageView: UIImageView = {
         generatePlayPauseStackViewImage(of: "play")
     }()
     
-    var playPauseImageView: UIImageView?
+    private var playPauseImageView: UIImageView?
     
-    lazy var playPauseView: UIView = {
+    private lazy var playPauseView: UIView = {
         let playPauseView = UIView()
         
         let ballImageView = generatePlayPauseStackViewImage(of: "ball")
         playPauseImageView = generatePlayPauseStackViewImage(of: "play")
         
-        constrainPlayPauseStackViewItem(imageView: ballImageView, height: 150, width: 150)
-        constrainPlayPauseStackViewItem(imageView: playPauseImageView!, height: 30, width: 30)
-        
-        playPauseView.addSubview(ballImageView)
-        playPauseView.addSubview(playPauseImageView!)
-        
-        NSLayoutConstraint.activate([
-            ballImageView.centerXAnchor.constraint(equalTo: playPauseView.centerXAnchor),
-            playPauseImageView!.centerXAnchor.constraint(equalTo: playPauseView.centerXAnchor),
-            ballImageView.centerYAnchor.constraint(equalTo: playPauseView.centerYAnchor),
-            playPauseImageView!.centerYAnchor.constraint(equalTo: playPauseView.centerYAnchor),
-        ])
+        configure(playPauseView: playPauseView, ballImageView: ballImageView)
         
         playPauseView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapOnPause(_:))))
         
         return playPauseView
     }()
     
-    lazy var playPauseStackView: UIStackView = {
+    private lazy var playPauseStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.alignment = .fill
@@ -86,18 +68,73 @@ class MainView: UIView {
             generatePlayPauseStackViewImage(of: "skip-back"),
         ].forEach {
             stack.addArrangedSubview($0)
-            constrainPlayPauseStackViewItem(imageView: $0, height: 24, width: 24.59)
+            constrain(view: $0, height: 24, width: 24.59)
         }
         
         stack.addArrangedSubview(playPauseView)
-        constrainPlayPauseStackViewItem(imageView: playPauseView, height: 45, width: 45)
+        constrain(view: playPauseView, height: 75, width: 74)
         
         [
             generatePlayPauseStackViewImage(of: "skip-forward"),
             generatePlayPauseStackViewImage(of: "repeat"),
         ].forEach {
             stack.addArrangedSubview($0)
-            constrainPlayPauseStackViewItem(imageView: $0, height: 24, width: 24.59)
+            constrain(view: $0, height: 24, width: 24.59)
+        }
+        
+        return stack
+    }()
+    
+    //MARK: - Progress Bar
+    
+    private var progressBlueBarWidthConstraint: NSLayoutConstraint?
+    
+    private lazy var progressBarView: UIView = {
+        let progressBarView = UIView()
+        progressBarView.backgroundColor = .white
+        progressBarView.translatesAutoresizingMaskIntoConstraints = false
+        return progressBarView
+    }()
+    
+    private lazy var progressBlueBar: UIView = {
+        let progressBlueBar = UIView()
+        progressBlueBar.backgroundColor = .blue
+        progressBlueBar.translatesAutoresizingMaskIntoConstraints = false
+        return progressBlueBar
+    }()
+    
+    private lazy var progressBarAnimation: UIViewPropertyAnimator = {
+        UIViewPropertyAnimator(duration: TimeInterval(5), curve: .easeInOut) { [weak self] in
+            self?.progressBarView.layoutIfNeeded()
+        }
+    }()
+    
+    private lazy var lowerStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .equalSpacing
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        [
+            progressBarView,
+            playPauseStackView
+        ].forEach {
+            stack.addArrangedSubview($0)
+        }
+        
+        return stack
+    }()
+    
+    private lazy var upperStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.distribution = .equalSpacing
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        [
+            songImageView
+        ].forEach {
+            stack.addArrangedSubview($0)
         }
         
         return stack
@@ -116,20 +153,15 @@ class MainView: UIView {
     //MARK: - Methods
     private func setUpUI(){
         setBackgroundColor()
-        configurePlayPauseStackView()
+        configureUpperStackView()
+        configureLowerStackView()
+        constrain(view: progressBarView, height: 4, width: 400)
+        configureProgressBlueBar()
+        constrain(view: songImageView, height: 215, width: 204)
     }
     
     private func setBackgroundColor() {
         backgroundColor = .black
-    }
-    
-    private func configurePlayPauseStackView() {
-        addSubview(playPauseStackView)
-        NSLayoutConstraint.activate([
-            playPauseStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            playPauseStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            playPauseStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
     }
     
     private func generatePlayPauseStackViewImage(of imageName: String) -> UIImageView {
@@ -141,23 +173,111 @@ class MainView: UIView {
         return imageView
     }
     
-    private func constrainPlayPauseStackViewItem(imageView: UIView, height: Double, width: Double) {
+    @objc private func handleTapOnPause(_ sender: UITapGestureRecognizer) {
+        guard sender.view != nil else { return }
+            interchangePlayPause()
+    }
+    
+    private func interchangePlayPause() {
+        // სწორი ზომის აიქონი რომ გამოვიდეს
+        playPauseImageView?.deactivateAllConstraints()
+        if playPauseImageView?.image == playImageView.image {
+            scaleImage()
+            checkIfSongEnded()
+            progressBlueBarWidthConstraint?.constant = lowerStackView.bounds.width
+            startFillUp()
+            playPauseImageView?.image = pauseImageView.image
+            constrain(view: playPauseImageView!, height: 40, width: 40)
+        } else {
+            descaleImage()
+            playPauseImageView?.image = playImageView.image
+            constrain(view: playPauseImageView!, height: 30, width: 30)
+            if progressBarAnimation.isRunning {
+                self.progressBarAnimation.pauseAnimation()
+            }
+            
+        }
+    }
+    
+    private func checkIfSongEnded() {
+        if progressBarAnimation.state == UIViewAnimatingState.inactive {
+            progressBarAnimation =  UIViewPropertyAnimator(duration: TimeInterval(5), curve: .easeInOut) { [weak self] in
+                self?.progressBarView.layoutIfNeeded()
+            }
+            progressBlueBarWidthConstraint?.constant = 0
+            progressBarView.layoutIfNeeded()
+        }
+    }
+    
+    private func startFillUp() {
+        self.progressBarAnimation.startAnimation()
+    }
+    
+    private func scaleImage() {
+        UIView.animate(withDuration: 1, animations: {
+            self.songImageView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }) { _ in
+        }
+    }
+    
+    private func descaleImage() {
+        UIView.animate(withDuration: 1) {
+            self.songImageView.transform = .identity
+        }
+    }
+}
+
+//MARK: - Constraints
+extension MainView {
+    private func configureLowerStackView() {
+        addSubview(lowerStackView)
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: height),
-            imageView.widthAnchor.constraint(equalToConstant: width)
+            lowerStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            lowerStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            lowerStackView.topAnchor.constraint(equalTo: upperStackView.bottomAnchor, constant: 40),
+            lowerStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
-    @objc private func handleTapOnPause(_ sender: UITapGestureRecognizer) {
-        guard let tappedView = sender.view else { return }
-        var animator  = UIViewPropertyAnimator(duration: 1, dampingRatio: 0.7) { [weak self] in
-            if self?.playPauseImageView?.image == self?.playImageView.image {
-                self?.playPauseImageView?.image = self?.pauseImageView.image
-            } else {
-                self?.playPauseImageView?.image = self?.playImageView.image
-            }
-        }
-        animator.startAnimation()
+    private func configureUpperStackView() {
+        addSubview(upperStackView)
+        NSLayoutConstraint.activate([
+            upperStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            upperStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60)
+        ])
+    }
+    
+    private func constrain(view: UIView, height: Double, width: Double) {
+        NSLayoutConstraint.activate([
+            view.heightAnchor.constraint(equalToConstant: height),
+            view.widthAnchor.constraint(equalToConstant: width)
+        ])
+    }
+    
+    private func configure(playPauseView: UIView, ballImageView: UIView) {
+        constrain(view: ballImageView, height: 75, width: 74)
+        constrain(view: playPauseImageView!, height: 30, width: 30)
+        
+        playPauseView.addSubview(ballImageView)
+        playPauseView.addSubview(playPauseImageView!)
+        
+        NSLayoutConstraint.activate([
+            ballImageView.centerXAnchor.constraint(equalTo: playPauseView.centerXAnchor),
+            playPauseImageView!.centerXAnchor.constraint(equalTo: playPauseView.centerXAnchor),
+            ballImageView.centerYAnchor.constraint(equalTo: playPauseView.centerYAnchor),
+            playPauseImageView!.centerYAnchor.constraint(equalTo: playPauseView.centerYAnchor),
+        ])
+    }
+    
+    private func configureProgressBlueBar() {
+        progressBarView.addSubview(progressBlueBar)
+        progressBlueBarWidthConstraint = progressBlueBar.widthAnchor.constraint(equalToConstant: 10)
+        NSLayoutConstraint.activate([
+            progressBlueBar.leadingAnchor.constraint(equalTo: progressBarView.leadingAnchor),
+            progressBlueBar.centerYAnchor.constraint(equalTo: progressBarView.centerYAnchor),
+            progressBlueBar.heightAnchor.constraint(equalToConstant: 4),
+            progressBlueBarWidthConstraint!
+        ])
     }
 }
 
