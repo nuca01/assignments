@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Song: SongDelegate {
+final class Song: SongDelegate {
     var title: String
     var artist: String
     var length: Double

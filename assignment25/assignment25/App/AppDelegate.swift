@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  assignment25
 //
-//  Created by nuca on 11.05.24.
+//  Created by Nuca on 11.05.24.
 //
 
 import UIKit

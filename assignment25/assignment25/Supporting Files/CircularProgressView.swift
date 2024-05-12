@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class CircularProgressView: UIView {
+final class CircularProgressView: UIView {
     
     private var progressLayer = CAShapeLayer()
     
