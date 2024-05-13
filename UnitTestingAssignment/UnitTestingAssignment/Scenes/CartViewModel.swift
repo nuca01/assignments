@@ -9,7 +9,7 @@ import Foundation
 
 final class CartViewModel {
     
-    var allproducts: [Product]?
+    var allProducts: [Product]?
     var selectedProducts = [Product]()
     
     var selectedItemsQuantity: Int? {
@@ -29,7 +29,7 @@ final class CartViewModel {
             
             switch products {
             case .success(let products):
-                self?.allproducts = products
+                self?.allProducts = products
                 
             case .failure(_):
                 break
@@ -38,7 +38,7 @@ final class CartViewModel {
     }
     
     func addProduct(withID: Int?) {
-        if let productForAdd = allproducts?.first(where: { $0.id == withID }) {
+        if let productForAdd = allProducts?.first(where: { $0.id == withID }) {
             addProduct(product: productForAdd)
         }
     }
@@ -53,7 +53,7 @@ final class CartViewModel {
     }
     
     func addRandomProduct() {
-        addProduct(product: allproducts?.randomElement())
+        addProduct(product: allProducts?.randomElement())
     }
     
     func removeProduct(withID: Int) {
@@ -64,3 +64,5 @@ final class CartViewModel {
         selectedProducts.removeAll()
     }
 }
+
+
