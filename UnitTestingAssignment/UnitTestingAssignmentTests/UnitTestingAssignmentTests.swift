@@ -116,13 +116,24 @@ final class UnitTestingAssignmentTests: XCTestCase {
         }
     }
     
+    func testSelectedItemsQuantity() {
+        viewModel?.addProduct(withID: firstProductInAllProducts?.id)
+        viewModel?.addProduct(withID: firstProductInAllProducts?.id)
+        viewModel?.addProduct(withID: firstProductInAllProducts?.id)
+        
+        XCTAssertEqual(viewModel?.selectedItemsQuantity, 3)
+    }
     
+    func testTotalPrice() {
+        viewModel?.addProduct(withID: firstProductInAllProducts?.id)
+        viewModel?.addProduct(withID: firstProductInAllProducts?.id)
+        
+        XCTAssertEqual(viewModel?.totalPrice, (firstProductInAllProducts?.price ?? 0) * 2)
+    }
     
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testFetchProducts() {
+        XCTAssertNotNil(viewModel?.allProducts)
+        XCTAssertEqual(viewModel?.allProducts?.count, 30)
     }
     
     func fetchProducts() {

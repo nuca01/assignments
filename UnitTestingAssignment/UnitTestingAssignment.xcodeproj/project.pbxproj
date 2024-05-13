@@ -84,7 +84,6 @@
 				5D6607102BEF662C003BC5E6 /* API */,
 				5D66070F2BEF6613003BC5E6 /* Model */,
 				5AF683DA2B1B7259002E7966 /* Scenes */,
-				87EBACB92BF16F7F00C7EBC8 /* Tests */,
 				5D6607112BEF66CF003BC5E6 /* Resources */,
 				5D6607122BEF66D8003BC5E6 /* Support */,
 			);
@@ -139,13 +138,6 @@
 				5AF683CF2B1B70BD002E7966 /* Info.plist */,
 			);
 			path = Support;
-			sourceTree = "<group>";
-		};
-		87EBACB92BF16F7F00C7EBC8 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tests;
 			sourceTree = "<group>";
 		};
 		87EBACC12BF1702700C7EBC8 /* UnitTestingAssignmentTests */ = {
